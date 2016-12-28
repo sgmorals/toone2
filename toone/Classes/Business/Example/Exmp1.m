@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.rowHeight = 100;
-    //测试1.
+    //
 }
 
 - (void)didReceiveMemoryWarning {
