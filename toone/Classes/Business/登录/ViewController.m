@@ -37,13 +37,13 @@
     
     //
     
-//    if ([UserDefaultsSetting shareSetting].isLogin) {
-//        self.acountTextField.text = [UserDefaultsSetting shareSetting].acount;
-//        self.passwordTextField.text = [UserDefaultsSetting shareSetting].password;
+    if ([UserDefaultsSetting shareSetting].isLogin) {
+        self.acountTextField.text = [UserDefaultsSetting shareSetting].acount;
+        self.passwordTextField.text = [UserDefaultsSetting shareSetting].password;
 //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1ull*NSEC_PER_SEC), dispatch_get_main_queue(), ^{
 //            [self loginBtnClick:self.loginButton];
 //        });
-//    }
+    }
 }
 - (void)keyboardWillChange:(NSNotification  *)notification{
 //      NSLog(@"键盘弹出 %@", notification);
@@ -124,23 +124,25 @@
         if ([json isKindOfClass:[NSDictionary class]]) {
             if ([json[@"success"] boolValue]) {
                 //数据存储到本地
-                UserDefaultsSetting  * setting = [UserDefaultsSetting shareSetting] ;
-                setting.acount = _acountTextField.text;
-                setting.password = _passwordTextField.text;
-                setting.departId  = json[@"departId"];
-                
-                setting.departName  = json[@"departName"];
-                setting.userPhoneNum = json[@"userPhoneNum"];
-                setting.userFullName = json[@"userFullName"];
-                setting.hntchaobiaoReal = json[@"quanxian"][@"hntchaobiaoReal"];
-                setting.hntchaobiaoSp = json[@"quanxian"][@"hntchaobiaoSp"];
-                setting.syschaobiaoReal = json[@"quanxian"][@"syschaobiaoReal"];
-                setting.login = YES;
-                
-                
-                setting.loginDepartId  = json[@"departId"];
-                setting.userRole  = json[@"userRole"];
-                [setting saveToSandbox];
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    UserDefaultsSetting  * setting = [UserDefaultsSetting shareSetting] ;
+                    setting.acount = _acountTextField.text;
+                    setting.password = _passwordTextField.text;
+                    setting.departId  = json[@"departId"];
+                    setting.departName  = json[@"departName"];
+                    setting.userPhoneNum = json[@"userPhoneNum"];
+                    setting.userFullName = json[@"userFullName"];
+                    setting.hntchaobiaoReal = json[@"quanxian"][@"hntchaobiaoReal"];
+                    setting.hntchaobiaoSp = json[@"quanxian"][@"hntchaobiaoSp"];
+                    setting.syschaobiaoReal = json[@"quanxian"][@"syschaobiaoReal"];
+                    setting.login = YES;
+                    
+                    
+                    setting.loginDepartId  = json[@"departId"];
+                    setting.userRole  = json[@"userRole"];
+                    [setting saveToSandbox];
+                });
+
                 //界面跳转
                 dispatch_async(dispatch_get_main_queue(), ^{
                     id vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateInitialViewController];
