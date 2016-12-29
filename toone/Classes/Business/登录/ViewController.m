@@ -161,6 +161,20 @@
         [hud hideAnimated:YES afterDelay:2.0];
     }];
 
+    
+    
+    //获取沥青拌合站登录数据
+    NSString *LqUrlStr = [NSString stringWithFormat:LqAppLogin,_acountTextField.text,_passwordTextField.text];
+    [[HTTP shareAFNNetworking] requestMethod:GET urlString:LqUrlStr parameter:nil success:^(id json) {
+        if ([json isKindOfClass:[NSDictionary class]]) {
+            if ([json[@"success"] boolValue]) {
+                UserDefaultsSetting  * setting = [UserDefaultsSetting shareSetting];
+                setting.LqDepartld  = json[@"departId"];
+                setting.LqDepartName  = json[@"departName"];
+                [setting saveToSandbox];
+            }
+        }
+    } failure:nil];
 }
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender
 {

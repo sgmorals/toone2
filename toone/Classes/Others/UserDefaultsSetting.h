@@ -39,4 +39,13 @@
 //存储开始时间和结束时间
 @property (nonatomic,copy) NSString * startTime;
 @property (nonatomic,copy) NSString * endTime;
+
+
+//
+@property (nonatomic, copy) NSString *LqDepartld;//沥青组织机构id
+@property (nonatomic, copy) NSString *LqDepartName;//沥青组织机构节点名称
+@property (nonatomic, strong) NSNumber *dengji;// 沥青超标等级
+@property (nonatomic, copy) NSString *shebeibianhao;//设备编号(生产数据查询）
+@property (nonatomic, strong) NSNumber *bianhao;//编号(生产数据查询）
+@property (nonatomic, copy) NSString *timeName;//监听筛选时间按钮
 @end

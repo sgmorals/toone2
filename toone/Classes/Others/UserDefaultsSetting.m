@@ -49,6 +49,21 @@ static UserDefaultsSetting * setting = nil;
     //存储时间
     setting.startTime = [defaults objectForKey:@"startTimeKey"];
     setting.endTime   = [defaults objectForKey:@"endTimeKey"];
+    
+    
+    //沥青超标等级
+    setting.dengji = [defaults objectForKey:@"dengjiKey"];
+    //沥青组织机构节点名称
+    setting.LqDepartName = [defaults objectForKey:@"LqDepartNameKey"];
+    //沥青组织机构id
+    setting.LqDepartld = [defaults objectForKey:@"LqDepartldKey"];
+    //    生产数据查询设备编号
+    setting.shebeibianhao = [defaults objectForKey:@"shebeibianhaoKey"];
+    setting.bianhao = [defaults objectForKey:@"bianhaoKey"];
+    
+    //监听筛选时间按钮
+    setting.timeName = [defaults objectForKey:@"timeNameKey"];
+    
 }
 -(void)saveToSandbox{
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
@@ -62,7 +77,7 @@ static UserDefaultsSetting * setting = nil;
     [defaults setObject:self.userFullName forKey:@"userFullNameKey"];
     [defaults setBool:self.login            forKey:@"loginKey"];
     [defaults setBool:self.enterApplication forKey:@"enterApplicationKey"];
-    //    组织机构项目选择
+    //组织机构项目选择
     [defaults setObject:self.funtype forKey:@"funtypeKey"];
     
     //权限
@@ -73,6 +88,21 @@ static UserDefaultsSetting * setting = nil;
     //存储时间
     [defaults setBool:self.endTime     forKey:@"endTimeKey"];
     [defaults setBool:self.startTime   forKey:@"startTimeKey"];
+    
+    //
+    //沥青超标等级
+    [defaults setObject:self.dengji forKey:@"dengjiKey"];
+    //沥青组织机构节点名称
+    [defaults setObject:self.LqDepartName forKey:@"LqDepartNameKey"];
+    //沥青组织机构id
+    [defaults setObject:self.LqDepartld forKey:@"LqDepartldKey"];
+    
+    //生产数据查询设备编号
+    [defaults setObject:self.shebeibianhao forKey:@"shebeibianhaoKey"];
+    [defaults setObject:self.bianhao forKey:@"bianhaoKey"];
+    
+    //监听筛选时间按钮
+    [defaults setObject:self.timeName forKey:@"timeNameKey"];
     [defaults synchronize];
 }
 

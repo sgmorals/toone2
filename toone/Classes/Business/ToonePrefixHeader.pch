@@ -56,7 +56,7 @@
 //cy:     192.168.10.35
 //QQ:     192.168.191.3
 //kf:     192.168.1.125    120.26.127.135:8084/zgjj/       @"http://192.168.11.103:8081/zgjjqms/"
-#define baseUrl   @"http://120.26.127.135:8084/zgjj/"
+#define baseUrl    @"http://192.168.11.103:8081/zgjjqms/"
 //登录
 #define AppLogin_2   FormatString(baseUrl,@"app.do?AppLogin&userName=%@&userPwd=%@&OSType=3")
 //试验室列表
@@ -92,4 +92,27 @@
 #define AppHntMaterial_4  FormatString(baseUrl,@"app.do?AppHntMaterial&departId=%@&startTime=%@&endTime=%@&shebeibianhao=%@")
 //组织机构
 #define AppDepartTree_4 FormatString(baseUrl,@"app.do?AppDepartTree&updateDepartTime=%@&funtype=%@&userGroupId=%@&type=%@")
+
+/**************************沥青*********************************/
+//沥青拌合站专用
+#define baseUrlStr   @"http://192.168.11.113:8082/qhttqms/"
+//沥青登录数据
+#define LqAppLogin   FormatString(baseUrlStr,@"app.do?AppLogin&userName=%@&userPwd=%@&OSType=3")
+
+//沥青组织机构
+#define LqAppDepartTree_4 FormatString(baseUrlStr,@"app.do?AppDepartTree&updateDepartTime=%@&funtype=%@&userGroupId=%@&type=%@")
+
+//沥青拌合站主界面
+#define LQHome FormatString(baseUrlStr,@"lqChaoBiaoController.do?lqChaoBiaoCount&userGroupId=%@&startTime=%@&endTime=%@")
+
+//沥青拌合站生产数据查询
+#define ProduQuery FormatString(baseUrlStr,@"lqScsjcxController.do?getScsjcxList&userGroupId=%@&shebeibianhao=&startTime=%@&endTime=%@&pageNo=&maxPageItems=")
+//沥青拌合站生产数据详情
+#define ProductionDetails FormatString(baseUrlStr,@"lqScsjcxController.do?getScsjcxDetail&shebeibianhao=%@&bianhao=%@")
+
+//沥青拌合站日生产量查询
+#define DayQuery FormatString(baseUrlStr,@"lqclDailyController.do?dayproducecount&userGroupId=%@&shebeibianhao=&startTime=%@&endTime=%@&pageNo=")
+
+//沥青拌合站待处置报警
+#define LQExcessive FormatString(baseUrlStr,@"lqChaoBiaoChuZhiController.do?appLqChaobiaoList&dengji=%@&chuzhileixing=&pageNo=&shebeibianhao=&userGroupId=%@&startTime=%@&endTime=%@")
 #endif /* ToonePrefixHeader_pch */

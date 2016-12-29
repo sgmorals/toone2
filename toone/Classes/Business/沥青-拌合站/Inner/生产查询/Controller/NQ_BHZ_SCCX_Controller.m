@@ -1,0 +1,172 @@
+//
+//  ProductionViewController.m
+//  toone
+//
+//  Created by shtoone on 16/12/20.
+//  Copyright © 2016年 shtoone. All rights reserved.
+//
+
+#import "NQ_BHZ_SCCX_Controller.h"
+#import "XFSegementView.h"
+#import "NQ_BHZ_SCCX_Inner_Controller.h"
+#import "DayQueryTableViewController.h"
+#import "MaterialTableViewController.h"
+#import "LQ_BHZ_SB_Controller.h"
+
+@interface NQ_BHZ_SCCX_Controller ()<TouchLabelDelegate>
+{
+    XFSegementView *segementView;
+}
+@property (nonatomic, strong) UITableViewController *tableCont;
+
+
+@end
+@implementation NQ_BHZ_SCCX_Controller
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    [UserDefaultsSetting shareSetting].timeName = @"star";
+    self.view.backgroundColor = [UIColor whiteColor];
+    //    初始化分页
+    self.tableCont = [[NQ_BHZ_SCCX_Inner_Controller alloc] init];
+    if ([self.tableCont isKindOfClass:[NQ_BHZ_SCCX_Inner_Controller class]]) {
+        
+        [self addChildViewController:self.tableCont];
+        [self.view addSubview:self.tableCont.view];
+    }
+    
+    [self setSegement];
+}
+
+#pragma mark - 设置分页
+-(void)setSegement {
+    segementView = [[XFSegementView alloc]initWithFrame:CGRectMake(0, 65, [UIScreen mainScreen].bounds.size.width, 30)];
+//        [segementView setBackgroundColor:[UIColor cyanColor]];
+
+    segementView.titleArray = @[@"生产数据查询",@"日产量查询",@"材料用量查询"];
+    
+    [segementView.scrollLine setBackgroundColor:[UIColor greenColor]];
+    segementView.titleSelectedColor = [UIColor redColor];
+    
+    segementView.touchDelegate = self;
+//    segementView.haveRightLine = NO;
+    self.navigationItem.titleView = segementView;
+    [self.view addSubview:segementView];
+
+    UIButton *searchButton = [[UIButton alloc] initWithFrame:CGRectMake(Screen_w-25, 0, 30, 30)];
+    [searchButton setImage:[UIImage imageNamed:@"black_SX"] forState:UIControlStateNormal];
+//    [searchButton setBackgroundColor:[UIColor redColor]];
+    [searchButton addTarget:self action:@selector(clickSearchBut:) forControlEvents:UIControlEventTouchUpInside];
+    [segementView addSubview:searchButton];
+}
+
+
+#pragma mark - 查询
+-(void)clickSearchBut:(UIButton *)sender {
+    sender.enabled = NO;
+    //1.
+    UIButton * backView = [UIButton buttonWithType:UIButtonTypeSystem];
+    backView.frame = CGRectMake(0, 64+36, Screen_w, Screen_h  -64-36);
+    backView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+    backView.hidden = YES;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 150ull*NSEC_PER_MSEC), dispatch_get_main_queue(), ^{
+        backView.hidden = NO;
+    });
+    [self.view addSubview:backView];
+    
+    //2.
+    Exp5View * e = [[Exp5View alloc] init];
+    e.frame = CGRectMake(0, 64+36, Screen_w, 195);
+    __weak __typeof(self)  weakSelf = self;
+  
+    e.expBlock = ^(ExpButtonType type,id obj1,id obj2){
+        
+        if (type == ExpButtonTypeCancel) {
+            sender.enabled = YES;
+            [backView removeFromSuperview];
+        }
+        if (type == ExpButtonTypeOk) {
+            sender.enabled = YES;
+            [backView removeFromSuperview];
+            //
+            weakSelf.startTime = (NSString*)obj1;
+            weakSelf.endTime = (NSString*)obj2;
+            [UserDefaultsSetting shareSetting].timeName = @"end";
+            //重新切换titleButton ， 搜索页码应该回归第一页码
+            //            weakSelf.pageNo = @"1";
+            //            weakSelf.sjLabel.text = [NSString stringWithFormat:@"%@  ->  %@",weakSelf.startTime,weakSelf.endTime];
+            //            [weakSelf loadData];
+            FuncLog;
+        }
+        if (type == ExpButtonTypeStartTimeButton || type == ExpButtonTypeEndTimeButton) {
+            UIButton * btn = (UIButton*)obj1;
+            [weakSelf calendarWithTimeString:btn.currentTitle obj:btn];
+        }
+        
+        if (type == ExpButtonTypeChoiceSBButton) {
+//            UIButton * btn = (UIButton*)obj1;
+//            [weakSelf performSegueWithIdentifier:@"HNT_SCCX_Controller" sender:btn];
+            
+            [self.navigationController pushViewController:[[LQ_BHZ_SB_Controller alloc] init] animated:YES];
+        }
+    };
+    [self.view addSubview:e];
+
+}
+
+#pragma mark - 查询跳转
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    
+}
+
+
+
+
+
+#pragma mark - 分页控制器跳转
+- (void)touchLabelWithIndex:(NSInteger)index{
+    if (index == 0) { //生产数据查询
+        [self.tableCont removeFromParentViewController];
+        [self.tableCont.view removeFromSuperview];
+        
+        self.tableCont = [[NQ_BHZ_SCCX_Inner_Controller alloc] init];
+            
+        NQ_BHZ_SCCX_Inner_Controller *producVc =(NQ_BHZ_SCCX_Inner_Controller *) self.tableCont;
+            
+        [self addChildViewController:producVc];
+        [self.view addSubview:producVc.view];
+        [self.view addSubview:segementView];
+        
+    }else if (index == 1) { //日产量查询
+        [self.tableCont removeFromParentViewController];
+        [self.tableCont.view removeFromSuperview];
+        
+        self.tableCont = [[DayQueryTableViewController alloc] init];
+            
+        DayQueryTableViewController *dayVc =(DayQueryTableViewController *) self.tableCont;
+            
+        [self addChildViewController:dayVc];
+        [self.view addSubview:dayVc.view];
+        [self.view addSubview:segementView];
+        
+    }else if (index == 2) { //材料用量查询
+        [self.tableCont removeFromParentViewController];
+        [self.tableCont.view removeFromSuperview];
+        
+        self.tableCont = [[MaterialTableViewController alloc] init];
+        
+        MaterialTableViewController *materVc =(MaterialTableViewController *) self.tableCont;
+        
+        [self addChildViewController:materVc];
+        [self.view addSubview:materVc.view];
+        [self.view addSubview:segementView];
+        
+    }
+    
+}
+
+
+
+@end

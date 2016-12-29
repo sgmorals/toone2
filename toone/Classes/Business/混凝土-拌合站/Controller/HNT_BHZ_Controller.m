@@ -32,7 +32,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self addPanGestureRecognizer];
+//    [self addPanGestureRecognizer];
     [self loadUI];
     [self loadData];
 }
