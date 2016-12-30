@@ -17,13 +17,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *czlLabel;
 
 
+@property (weak, nonatomic) IBOutlet UIView *bkView;
 
 @end
 @implementation Lq_ZJM_Cell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    self.bkView.backgroundColor = [UIColor oldLaceColor];
 }
 
 -(void)setModel:(LQModel *)model {

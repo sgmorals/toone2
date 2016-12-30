@@ -93,12 +93,37 @@
 @property (weak, nonatomic) IBOutlet UILabel *wclqLabel;
 @property (weak, nonatomic) IBOutlet UILabel *wctjjLable;
 
+//背景View
+@property (weak, nonatomic) IBOutlet UIView *View1;
+@property (weak, nonatomic) IBOutlet UIView *View2;
+@property (weak, nonatomic) IBOutlet UIView *View3;
+@property (weak, nonatomic) IBOutlet UIView *View4;
+@property (weak, nonatomic) IBOutlet UIView *View5;
+@property (weak, nonatomic) IBOutlet UIView *View6;
+@property (weak, nonatomic) IBOutlet UIView *View7;
+@property (weak, nonatomic) IBOutlet UIView *View8;
+@property (weak, nonatomic) IBOutlet UIView *View9;
+@property (weak, nonatomic) IBOutlet UIView *View10;
+@property (weak, nonatomic) IBOutlet UIView *View11;
+
 
 @end
 @implementation NQ_BHZ_SCCX_Inne_Cell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.View1.backgroundColor = Color1;
+    self.View3.backgroundColor = Color1;
+    self.View5.backgroundColor = Color1;
+    self.View7.backgroundColor = Color1;
+    self.View9.backgroundColor = Color1;
+    self.View11.backgroundColor = Color1;
+    
+    self.View2.backgroundColor = Color2;
+    self.View4.backgroundColor = Color2;
+    self.View6.backgroundColor = Color2;
+    self.View8.backgroundColor = Color2;
+    self.View10.backgroundColor = Color2;
     
 }
 

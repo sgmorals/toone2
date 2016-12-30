@@ -36,11 +36,11 @@
     
     UISegmentedControl *segment = [[UISegmentedControl alloc]   initWithItems:array];
     
-    segment.frame = CGRectMake(10, 20, self.view.frame.size.width-150, 30);
+    segment.frame = CGRectMake(15, 20, self.view.frame.size.width-85, 25);
 //    默认选择
     segment.selectedSegmentIndex = 0;
     segment.tintColor = [UIColor whiteColor];
-    UIFont *font = [UIFont boldSystemFontOfSize:13.0f];
+    UIFont *font = [UIFont boldSystemFontOfSize:11.0f];
     NSDictionary *attributes = [NSDictionary dictionaryWithObject:font
                                                            forKey:UITextAttributeFont];
     [segment setTitleTextAttributes:attributes

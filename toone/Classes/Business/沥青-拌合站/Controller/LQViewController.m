@@ -37,7 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUi];
+    [self setUI];
     [self setData];
     [self setRightBut];
 }
@@ -99,8 +99,9 @@
 
 
 #pragma mark - 一次性设置
--(void)setUi {
+-(void)setUI {
     self.ContreView.backgroundColor = BLUECOLOR;
+//    self.tableView.backgroundColor = [UIColor oldLaceColor];
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
 //    self.tableView.rowHeight = 130;
     self.view.backgroundColor = [UIColor oldLaceColor];
@@ -148,7 +149,7 @@
         [tableView registerNib:nib forCellReuseIdentifier:CellIdentifier];
         Lq_ZJM_Cell *cell = (Lq_ZJM_Cell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
-        LQModel * model = self.dataArr[indexPath.row-1];
+        LQModel * model = self.dataArr[indexPath.row];
         cell.model = model;
         
         //取消选中cell背景颜色
@@ -161,7 +162,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
-        return 60;
+        return 50;
     }else{
         
         return 25;

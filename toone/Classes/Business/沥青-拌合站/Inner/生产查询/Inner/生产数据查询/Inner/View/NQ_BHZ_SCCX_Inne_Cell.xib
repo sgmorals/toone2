@@ -1019,6 +1019,17 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="View1" destination="e6x-oI-Ajh" id="w0G-6F-9Dq"/>
+                <outlet property="View10" destination="xUX-RH-ijs" id="cns-bU-5Bx"/>
+                <outlet property="View11" destination="sZa-Vh-JtC" id="XvL-Oi-9Nh"/>
+                <outlet property="View2" destination="yxD-DG-JMU" id="CBp-Gi-iZR"/>
+                <outlet property="View3" destination="IYp-oW-HwV" id="cHI-Ec-QGZ"/>
+                <outlet property="View4" destination="XrX-k5-XXB" id="HPs-PF-uT1"/>
+                <outlet property="View5" destination="CXI-kr-0JW" id="v2D-lO-9bl"/>
+                <outlet property="View6" destination="2pj-9c-Tl7" id="rGs-mp-seZ"/>
+                <outlet property="View7" destination="7xi-Eg-HGn" id="Aek-fC-xCH"/>
+                <outlet property="View8" destination="bFp-PX-GIh" id="7tG-3h-ue3"/>
+                <outlet property="View9" destination="cdV-Rh-a2V" id="5DS-CC-6bj"/>
                 <outlet property="bfl1Label" destination="AgU-p6-coH" id="o2K-Y3-jgm"/>
                 <outlet property="bfl2Label" destination="E0w-u5-UqS" id="gkl-Ry-CaN"/>
                 <outlet property="blqLabel" destination="P1T-Qm-Z3c" id="xhs-uT-drR"/>

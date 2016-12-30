@@ -22,7 +22,7 @@
 
 - (CGFloat)titleFont{
     if (!_titleFont) {
-        _titleFont = 14.0;
+        _titleFont = 12.0;
     }
     return _titleFont;
 }
