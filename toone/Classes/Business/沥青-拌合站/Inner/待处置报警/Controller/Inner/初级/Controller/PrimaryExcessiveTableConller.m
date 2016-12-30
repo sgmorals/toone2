@@ -23,18 +23,20 @@
     [super viewDidLoad];
     
     [self setUI];
-    [self setData];
+    [self loadData];
 }
 
 -(void)setUI {
-//    self.view.backgroundColor = [UIColor orangeColor];
+
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     self.tableView.rowHeight = 170;
     self.tableView.frame = CGRectMake(0, 95, Screen_w, Screen_h - 100);
-    self.tableView.bounces = NO;
+    
+    self.tableView.mj_header = [MJDIYHeader2 headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
+    [self.tableView.mj_header beginRefreshing];
 }
 
--(void)setData {
+-(void)loadData {
     EXPrimaryModel *model = [[EXPrimaryModel alloc] init];
     
     __weak typeof(self)  weakSelf = self;
@@ -42,21 +44,15 @@
         weakSelf.dataArr = result;
 
         [weakSelf.tableView reloadData];
-        
+        [weakSelf.tableView.mj_header endRefreshing];
     }];
     
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _dataArr.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"EXPrimaryCell";
@@ -69,19 +65,6 @@
     return cell;
 }
 
-//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-//    
-//    if (indexPath.row%2==0) {
-//        
-//        cell.backgroundColor = [UIColor colorWithRed:225.0/255 green:244.0/255 blue:241.0/255 alpha:1];
-//        
-//    }else {
-//        
-//        cell.backgroundColor = [UIColor colorWithRed:232.0/255 green:232.0/255 blue:253.0/255 alpha:1];
-//    }
-//}
-
-
 
 -(NSArray *)dataArr {
     if (_dataArr == nil) {
@@ -89,7 +72,6 @@
     }
     return _dataArr;
 }
-
 
 
 @end

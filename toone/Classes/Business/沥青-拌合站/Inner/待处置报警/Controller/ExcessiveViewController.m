@@ -14,9 +14,8 @@
 #import "TotalTableController.h"
 
 @interface ExcessiveViewController ()<TouchLabelDelegate>
-{
-    XFSegementView *segementView;
-}
+
+@property (nonatomic, strong) XFSegementView *segementView;
 @property (nonatomic, strong) UITableViewController *tableCont;
 
 @end
@@ -32,25 +31,20 @@
         [self addChildViewController:self.tableCont];
         [self.view addSubview:self.tableCont.view];
         
-//        NSNumber *number = [NSNumber numberWithInt:1];
-//        [UserDefaultsSetting shareSetting].dengji = number;
     }
     
     [self setSegement];
 }
 
 -(void)setSegement {
-    segementView = [[XFSegementView alloc]initWithFrame:CGRectMake(0, 65, [UIScreen mainScreen].bounds.size.width, 30)];
-    //        [segementView setBackgroundColor:[UIColor cyanColor]];
+    self.segementView = [[XFSegementView alloc]initWithFrame:CGRectMake(0, 65, [UIScreen mainScreen].bounds.size.width, 35)];
+    self.segementView.backgroundColor = [UIColor snowColor];
     
-    segementView.titleArray = @[@"初级",@"中级",@"高级",@"总"];
+    self.segementView.titleArray = @[@"初级",@"中级",@"高级",@"总"];
     
-    [segementView.scrollLine setBackgroundColor:[UIColor greenColor]];
-    segementView.titleSelectedColor = [UIColor redColor];
+    self.segementView.touchDelegate = self;
     
-    segementView.touchDelegate = self;
-    //    segementView.haveRightLine = NO;
-    [self.view addSubview:segementView];
+    [self.view addSubview:self.segementView];
     
 }
 
@@ -65,10 +59,8 @@
         
         [self addChildViewController:primaryVc];
         [self.view addSubview:primaryVc.view];
-        [self.view addSubview:segementView];
+        [self.view addSubview:self.segementView];
         
-//        NSNumber *number = [NSNumber numberWithInt:1];
-//        [UserDefaultsSetting shareSetting].dengji = number;
 
     }else if (index == 1) { //中级
         [self.tableCont removeFromParentViewController];
@@ -80,10 +72,7 @@
         
         [self addChildViewController:middleVc];
         [self.view addSubview:middleVc.view];
-        [self.view addSubview:segementView];
-        
-//        NSNumber *number = [NSNumber numberWithInt:2];
-//        [UserDefaultsSetting shareSetting].dengji = number;
+        [self.view addSubview:self.segementView];
         
     }else if (index == 2) { //高级
         [self.tableCont removeFromParentViewController];
@@ -95,10 +84,7 @@
         
         [self addChildViewController:seniorVc];
         [self.view addSubview:seniorVc.view];
-        [self.view addSubview:segementView];
-        
-//        NSNumber *number = [NSNumber numberWithInt:3];
-//        [UserDefaultsSetting shareSetting].dengji = number;
+        [self.view addSubview:self.segementView];
         
     }else if (index == 3) { //总
         [self.tableCont removeFromParentViewController];
@@ -110,15 +96,11 @@
         
         [self addChildViewController:totalVc];
         [self.view addSubview:totalVc.view];
-        [self.view addSubview:segementView];
+        [self.view addSubview:self.segementView];
         
-//        NSNumber *number = [NSNumber numberWithInt:0];
-//        [UserDefaultsSetting shareSetting].dengji = number;
     }
     
 }
-
-
 
 
 @end

@@ -7,21 +7,19 @@
 //
 
 #import "LQViewController.h"
-#import "LQ_BHZ_ZJM_Cell.h"
-#import "Lq_ZJM_Cell.h"
-#import "LQModel.h"
 #import "ManageViewController.h"
 #import "LqNodeViewController.h"
-
+/********/
+#import "LQ_CellModel.h"
+#import "LQ_Model.h"
+#import "LQ_ZJM_Cell.h"
 @interface LQViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet BBFlashCtntLabel *flashLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *senchBut;
 @property (weak, nonatomic) IBOutlet UIView *ContreView;
 
-//@property (nonatomic, strong) LQModel *LqMoodel;
-
-@property (nonatomic,strong) NSArray * dataArr;
+@property (nonatomic,strong) NSMutableArray * datas;
 
 @end
 @implementation LQViewController
@@ -37,11 +35,59 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUI];
-    [self setData];
+    [self LodaUI];
+    [self loadData];
     [self setRightBut];
 }
 
+#pragma mark - 网络请求
+-(void)loadData{
+    NSDictionary * dic;
+//    MyViewController *myVc = [[MyViewController alloc] init];
+//    NSString * startTimeStamp = [TimeTools timeStampWithTimeString:myVc.startTime];
+//    NSString * endTimeStamp = [TimeTools timeStampWithTimeString:myVc.endTime];
+    NSString * startTimeStamp = [TimeTools timeStampWithTimeString:self.startTime];
+    NSString * endTimeStamp = [TimeTools timeStampWithTimeString:self.endTime];
+    NSString * userGroupId = [UserDefaultsSetting shareSetting].LqDepartld;
+    
+    NSString *urlString = [NSString stringWithFormat:LQHome,userGroupId,startTimeStamp,endTimeStamp];
+    __weak typeof(self)  weakSelf = self;
+    [[HTTP shareAFNNetworking] requestMethod:GET urlString:urlString parameter:dic success:^(id json) {
+        if ([json[@"success"] boolValue]) {
+            if ([json[@"data"] isKindOfClass:[NSArray class]]) {
+                NSMutableArray * datas=[NSMutableArray array];
+                for (NSArray * subArray in json[@"data"]) {
+                    LQ_CellModel * cellModel=[[LQ_CellModel alloc] init];
+                    int i=0;
+                    for (NSDictionary * dic in subArray) {
+                        LQ_Model * model = [LQ_Model modelWithDict:dic];
+                        switch (i) {
+                            case 0:
+                                cellModel.totalModel = model;
+                                break;
+                            case 1:
+                                cellModel.chujiModel = model;
+                                break;
+                            case 2:
+                                cellModel.zhongjiModel = model;
+                                break;
+                            case 3:
+                                cellModel.gaojiModel = model;
+                                break;
+                            default:
+                                break;
+                        }
+                        i++;
+                    }
+                    [datas addObject:cellModel];
+                }
+                weakSelf.datas = datas;
+            }
+        }
+        [weakSelf.tableView reloadData];
+        [weakSelf.tableView.mj_header endRefreshing];
+    } failure:nil];
+}
 
 #pragma mark - 组织机构
 -(void) setRightBut {
@@ -75,7 +121,7 @@
     e.frame = CGRectMake(0, 64+35, Screen_w, 150);
     __weak __typeof(self)  weakSelf = self;
     e.expBlock = ^(ExpButtonType type,id obj1,id obj2){
-        //        NSLog(@"%d",type);
+        
         if (type == ExpButtonTypeCancel) {
             sender.enabled = YES;
             [backView removeFromSuperview];
@@ -86,8 +132,8 @@
             //
             weakSelf.startTime = (NSString*)obj1;
             weakSelf.endTime = (NSString*)obj2;
-            [weakSelf setData];
-            //            FuncLog;
+            [weakSelf loadData];
+            
         }
         if (type == ExpButtonTypeStartTimeButton || type == ExpButtonTypeEndTimeButton) {
             UIButton * btn = (UIButton*)obj1;
@@ -99,74 +145,33 @@
 
 
 #pragma mark - 一次性设置
--(void)setUI {
+-(void)LodaUI {
     self.ContreView.backgroundColor = BLUECOLOR;
-//    self.tableView.backgroundColor = [UIColor oldLaceColor];
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-//    self.tableView.rowHeight = 130;
+    self.tableView.rowHeight = 155;
     self.view.backgroundColor = [UIColor oldLaceColor];
-    self.tableView.mj_header = [MJDIYHeader2 headerWithRefreshingTarget:self refreshingAction:@selector(setData)];
+    self.tableView.mj_header = [MJDIYHeader2 headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
     [self.tableView.mj_header beginRefreshing];
-}
-
--(void)setData {
-    LQModel *model = [[LQModel alloc] init];
-    
-    __weak typeof(self)  weakSelf = self;
-    [model mainModelBlock:^(NSArray *result) {
-         weakSelf.dataArr = result;
-        
-        [weakSelf.tableView reloadData];
-
-        [weakSelf.tableView.mj_header endRefreshing];
-    }];
-
 }
 
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _dataArr.count;
+    return _datas.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        static NSString *CellIdentifier = @"LQ_BHZ_ZJM_Cell";
-        UINib *nib = [UINib nibWithNibName:@"LQ_BHZ_ZJM_Cell" bundle:nil];
+        static NSString *CellIdentifier = @"LQ_ZJM_Cell";
+        UINib *nib = [UINib nibWithNibName:@"LQ_ZJM_Cell" bundle:nil];
         [tableView registerNib:nib forCellReuseIdentifier:CellIdentifier];
-        LQ_BHZ_ZJM_Cell *cell = (LQ_BHZ_ZJM_Cell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        LQ_ZJM_Cell *cell = (LQ_ZJM_Cell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
-        LQModel * model = self.dataArr[indexPath.row];
-        cell.LqMoodel = model;
-
-         cell.selectionStyle =UITableViewCellSelectionStyleNone;
-        
-        return cell;
-    }else {
-        
-        static NSString *CellIdentifier = @"Lq_ZJM_Cell";
-        UINib *nib = [UINib nibWithNibName:@"Lq_ZJM_Cell" bundle:nil];
-        [tableView registerNib:nib forCellReuseIdentifier:CellIdentifier];
-        Lq_ZJM_Cell *cell = (Lq_ZJM_Cell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        
-        LQModel * model = self.dataArr[indexPath.row];
-        cell.model = model;
-        
-        //取消选中cell背景颜色
-        cell.selectionStyle =UITableViewCellSelectionStyleNone;
-        return cell;
-    }
+        LQ_CellModel * cellModel = self.datas[indexPath.row];
+        cell.cellModel = cellModel;
     
-    return nil;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 0) {
-        return 50;
-    }else{
-        
-        return 25;
-    }
+        //取消选中cell背景颜色
+//        cell.selectionStyle =UITableViewCellSelectionStyleNone;
+        return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -178,18 +183,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
-
--(NSArray *)dataArr {
-    if (_dataArr == nil) {
-        _dataArr = [NSArray array];
+-(NSMutableArray *)datas {
+    if (_datas == nil) {
+        _datas = [NSMutableArray array];
     }
-    return _dataArr;
+    return _datas;
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end

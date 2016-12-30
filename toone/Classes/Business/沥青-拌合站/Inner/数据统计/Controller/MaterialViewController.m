@@ -13,9 +13,8 @@
 #import "StatisticalTableViewController.h"
 
 @interface MaterialViewController ()<TouchLabelDelegate>
-{
-    XFSegementView *segementView;
-}
+
+@property (nonatomic, strong) XFSegementView *segementView;
 @property (nonatomic, strong) UIViewController *controVc;
 
 @end
@@ -37,17 +36,14 @@
 }
 
 -(void)setSegement {
-    segementView = [[XFSegementView alloc]initWithFrame:CGRectMake(0, 65, [UIScreen mainScreen].bounds.size.width, 30)];
-    //        [segementView setBackgroundColor:[UIColor cyanColor]];
+    self.segementView = [[XFSegementView alloc]initWithFrame:CGRectMake(0, 65, [UIScreen mainScreen].bounds.size.width, 35)];
+    self.segementView.backgroundColor = [UIColor snowColor];
     
-    segementView.titleArray = @[@"出料口温度",@"生产监控",@"总产量统计"];
+    self.segementView.titleArray = @[@"出料口温度",@"生产监控",@"总产量统计"];
     
-    [segementView.scrollLine setBackgroundColor:[UIColor greenColor]];
-    segementView.titleSelectedColor = [UIColor redColor];
+    self.segementView.touchDelegate = self;
     
-    segementView.touchDelegate = self;
-    //    segementView.haveRightLine = NO;
-    [self.view addSubview:segementView];
+    [self.view addSubview:self.segementView];
     
 }
 
@@ -62,7 +58,7 @@
         
         [self addChildViewController:temperVc];
         [self.view addSubview:temperVc.view];
-        [self.view addSubview:segementView];
+        [self.view addSubview:self.segementView];
         
     }else if (index == 1) { //生产监控
         [self.controVc removeFromParentViewController];
@@ -74,7 +70,7 @@
         
         [self addChildViewController:monitVc];
         [self.view addSubview:monitVc.view];
-        [self.view addSubview:segementView];
+        [self.view addSubview:self.segementView];
         
     }else if (index == 2) { //总产量统计
         [self.controVc removeFromParentViewController];
@@ -86,7 +82,7 @@
         
         [self addChildViewController:statistVc];
         [self.view addSubview:statistVc.view];
-        [self.view addSubview:segementView];
+        [self.view addSubview:self.segementView];
         
     }
     

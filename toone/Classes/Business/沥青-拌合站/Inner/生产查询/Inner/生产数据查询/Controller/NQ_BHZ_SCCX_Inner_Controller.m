@@ -50,8 +50,8 @@
 -(void)setUI {
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     self.tableView.rowHeight = 85;
-    self.tableView.frame = CGRectMake(0, 95, Screen_w, Screen_h - 100);
-    self.tableView.bounces = NO;
+    self.tableView.frame = CGRectMake(0, 100, Screen_w, Screen_h - 105);
+
     
     self.tableView.mj_header = [MJDIYHeader2 headerWithRefreshingTarget:self refreshingAction:@selector(loaddData)];
     [self.tableView.mj_header beginRefreshing];

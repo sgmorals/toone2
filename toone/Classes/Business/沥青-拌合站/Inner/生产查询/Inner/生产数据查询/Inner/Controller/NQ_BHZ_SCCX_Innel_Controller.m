@@ -37,10 +37,8 @@
     self.navigationItem.title = @"生产数据详情";
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     self.tableView.rowHeight = 700;
-    self.tableView.bounces = NO;
     
-    self.tableView.mj_header = [MJDIYHeader2 headerWithRefreshingTarget:self refreshingAction:@selector(looadData)];
-    [self.tableView.mj_header beginRefreshing];
+    [self looadData];
 }
 
 -(void)looadData {
@@ -51,8 +49,7 @@
         weakSelf.dataArr = result;
 
         [weakSelf.tableView reloadData];
-        
-        [weakSelf.tableView.mj_header endRefreshing];
+
     }];
     
     NSString *shebeiStr = [UserDefaultsSetting shareSetting].shebeibianhao;
@@ -102,10 +99,7 @@
         return cell;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    
-}
+
 -(NSArray *)dataArr {
     if (_dataArr == nil) {
         _dataArr = [NSArray array];
