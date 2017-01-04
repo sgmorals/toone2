@@ -37,7 +37,7 @@
 
 - (UIColor *)separateColor{
     if (!_separateColor) {
-        _separateColor = NavBarColor;
+//        _separateColor = NavBarColor;
     }
     return _separateColor;
 }

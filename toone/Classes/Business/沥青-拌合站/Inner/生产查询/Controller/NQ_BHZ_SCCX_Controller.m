@@ -56,7 +56,6 @@
     self.segementView =segementView;
 }
 
-
 #pragma mark - 查询
 -(void)clickSearchBut:(UIButton *)sender {
     sender.enabled = NO;
@@ -115,10 +114,6 @@
     
     
 }
-
-
-
-
 
 #pragma mark - 分页控制器跳转
 - (void)touchLabelWithIndex:(NSInteger)index{

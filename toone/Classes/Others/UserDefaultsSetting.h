@@ -48,4 +48,6 @@
 @property (nonatomic, copy) NSString *shebeibianhao;//设备编号(生产数据查询）
 @property (nonatomic, strong) NSNumber *bianhao;//编号(生产数据查询）
 @property (nonatomic, copy) NSString *timeName;//监听筛选时间按钮
+@property (nonatomic, strong) NSNumber *dailyid;//日产量id
+@property (nonatomic, copy) NSString *dailysbbh;//日产量设备编号
 @end

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyViewController.h"
 
-@interface ExcessiveViewController : UIViewController
+@interface ExcessiveViewController : MyViewController
 
 
 @end

@@ -27,4 +27,5 @@ typedef void(^bodyBlock_t)();
 
 
 -(void)uploadWithUrlstring:(NSString*)urlString  parameter:(NSDictionary*)parameter data:(NSData*)data success:(successBlock_t)successBlock failure:(failureBlock_t)failureBlock;
+
 @end

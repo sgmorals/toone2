@@ -9,7 +9,6 @@
 #import "LQViewController.h"
 #import "ManageViewController.h"
 #import "LqNodeViewController.h"
-/********/
 #import "LQ_CellModel.h"
 #import "LQ_Model.h"
 #import "LQ_ZJM_Cell.h"
@@ -43,9 +42,6 @@
 #pragma mark - 网络请求
 -(void)loadData{
     NSDictionary * dic;
-//    MyViewController *myVc = [[MyViewController alloc] init];
-//    NSString * startTimeStamp = [TimeTools timeStampWithTimeString:myVc.startTime];
-//    NSString * endTimeStamp = [TimeTools timeStampWithTimeString:myVc.endTime];
     NSString * startTimeStamp = [TimeTools timeStampWithTimeString:self.startTime];
     NSString * endTimeStamp = [TimeTools timeStampWithTimeString:self.endTime];
     NSString * userGroupId = [UserDefaultsSetting shareSetting].LqDepartld;
@@ -98,7 +94,15 @@
 }
 
 -(void) searchButtonClick:(id)sender {
-    [self.navigationController pushViewController:[[LqNodeViewController alloc] init] animated:YES];
+    LqNodeViewController  * c=[[LqNodeViewController alloc] init] ;
+//    id __weak weakSelf = self;
+    __weak typeof(self) weakSelf = self;
+    c.callBlock = ^(){
+        [weakSelf.datas removeAllObjects];
+        [weakSelf.tableView reloadData];
+        [weakSelf loadData];
+    };
+    [self.navigationController pushViewController:c animated:YES];
     NSNumber *number = [NSNumber numberWithInt:2];
     [UserDefaultsSetting shareSetting].funtype = number;
 }

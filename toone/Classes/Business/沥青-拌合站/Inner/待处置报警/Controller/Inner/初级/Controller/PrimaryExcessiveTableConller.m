@@ -11,10 +11,12 @@
 #import "EXPrimaryCell.h"
 #import "NetworkTool.h"
 #import "MyViewController.h"
+#import "disposal_C_Model.h"
 
 @interface PrimaryExcessiveTableConller ()
 @property(nonatomic, strong) NSArray *dataArr;
 
+@property (nonatomic, strong) disposal_C_Model *disModel;
 
 @end
 @implementation PrimaryExcessiveTableConller
@@ -47,6 +49,23 @@
         [weakSelf.tableView.mj_header endRefreshing];
     }];
     
+    MyViewController *myVc = [[MyViewController alloc] init];
+    NSString * startTimeStamp = [TimeTools timeStampWithTimeString:myVc.startTime];
+    NSString * endTimeStamp = [TimeTools timeStampWithTimeString:myVc.endTime];
+    NSString * userGroupId = [UserDefaultsSetting shareSetting].LqDepartld;
+    [UserDefaultsSetting shareSetting].dengji = [NSNumber numberWithInt:1];
+    
+    NSString *urlString = [NSString stringWithFormat:LQExcessive,[UserDefaultsSetting shareSetting].dengji,userGroupId,startTimeStamp,endTimeStamp];
+    
+    [[NetworkTool sharedNetworkTool] getObjectWithURLString:urlString completeBlock:^(id result) {
+//        NSMutableArray * datas = [NSMutableArray array];
+        NSDictionary *dict = (NSDictionary *)result;
+        
+        if ([dict[@"success"] boolValue]) {
+            weakSelf.disModel = [disposal_C_Model modelWithDict:dict[@"Fields"]];
+        }
+    }
+     ];
 }
 
 #pragma mark - Table view data source
@@ -61,17 +80,18 @@
     EXPrimaryCell *cell = (EXPrimaryCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     cell.EXPModel = _dataArr[indexPath.row];
-
+    cell.disModel = self.disModel;
+    
     return cell;
 }
 
 
--(NSArray *)dataArr {
-    if (_dataArr == nil) {
-        _dataArr = [NSArray array];
-    }
-    return _dataArr;
-}
+//-(NSArray *)dataArr {
+//    if (_dataArr == nil) {
+//        _dataArr = [NSArray array];
+//    }
+//    return _dataArr;
+//}
 
 
 @end

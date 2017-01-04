@@ -25,25 +25,17 @@
     [[NetworkTool sharedNetworkTool] getObjectWithURLString:urlString completeBlock:^(id result) {
         NSDictionary *dict = (NSDictionary *)result;
         
-        if (dict[@"success"]) {
-            NSArray *dictArr = dict[@"data"];
+        if ([dict[@"success"]  boolValue]) {
+            NSArray *arr = dict[@"data"];
             
-            _arry = [NSArray yy_modelArrayWithClass:[ProduQueryModel class] json:dictArr];
+            self.arr = [NSArray yy_modelArrayWithClass:[ProduQueryModel class] json:arr];
             
             if (produQueryBlock) {
-                produQueryBlock(_arry);
+                produQueryBlock(self.arr);
             }
-            
         }
     }];
 
-}
-
--(NSArray *)arry {
-    if (_arry == nil) {
-        _arry = [NSArray array];
-    }
-    return _arry;
 }
 
 @end

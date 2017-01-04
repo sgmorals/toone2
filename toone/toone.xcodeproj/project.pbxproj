@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		423975DB1E1B575900039F60 /* DayDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 423975DA1E1B575800039F60 /* DayDetailsController.m */; };
+		423975DF1E1B699500039F60 /* DayDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 423975DD1E1B699500039F60 /* DayDetailsCell.m */; };
+		423975E01E1B699500039F60 /* DayDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 423975DE1E1B699500039F60 /* DayDetailsCell.xib */; };
 		4271EB091E15F61400C30DBF /* LQ_CellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4271EB081E15F61400C30DBF /* LQ_CellModel.m */; };
 		4271EB0C1E15F63200C30DBF /* LQ_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 4271EB0B1E15F63200C30DBF /* LQ_Model.m */; };
 		4271EB111E15FBA600C30DBF /* MySegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4271EB0F1E15FBA600C30DBF /* MySegmentedControl.m */; };
 		4271EB121E15FBA600C30DBF /* MySegmentedControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4271EB101E15FBA600C30DBF /* MySegmentedControl.xib */; };
 		42D618A11E162907009CD27B /* LQ_ZJM_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D6189F1E162907009CD27B /* LQ_ZJM_Cell.m */; };
 		42D618A21E162907009CD27B /* LQ_ZJM_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42D618A01E162907009CD27B /* LQ_ZJM_Cell.xib */; };
+		42D618A51E165436009CD27B /* disposal_C_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D618A41E165436009CD27B /* disposal_C_Model.m */; };
 		77506253F19948A1D132C0AE /* Pods_toone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B53090449FE82B8AD028BA89 /* Pods_toone.framework */; };
 		8C06E0A51E0D202E00EBD526 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C06E0A41E0D202E00EBD526 /* Assets.xcassets */; };
 		8C4206D41E150CBF0075527B /* LQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4206501E150CBF0075527B /* LQViewController.m */; };
@@ -50,7 +54,6 @@
 		8C4206F41E150CBF0075527B /* ProduQueryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4206B91E150CBF0075527B /* ProduQueryModel.m */; };
 		8C4206F51E150CBF0075527B /* NQ_BHZ_SCCX_Inner_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4206BC1E150CBF0075527B /* NQ_BHZ_SCCX_Inner_Cell.m */; };
 		8C4206F61E150CBF0075527B /* NQ_BHZ_SCCX_Inner_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C4206BD1E150CBF0075527B /* NQ_BHZ_SCCX_Inner_Cell.xib */; };
-		8C4206F71E150CBF0075527B /* ProduModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4206C01E150CBF0075527B /* ProduModel.m */; };
 		8C4206F81E150CBF0075527B /* LQ_BHZ_SB_Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4206C51E150CBF0075527B /* LQ_BHZ_SB_Controller.m */; };
 		8C4206F91E150CBF0075527B /* SB_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4206C81E150CBF0075527B /* SB_Model.m */; };
 		8C42073E1E150D0A0075527B /* LqNodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4207031E150D0A0075527B /* LqNodeViewController.m */; };
@@ -279,6 +282,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		423975D91E1B575800039F60 /* DayDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayDetailsController.h; sourceTree = "<group>"; };
+		423975DA1E1B575800039F60 /* DayDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayDetailsController.m; sourceTree = "<group>"; };
+		423975DC1E1B699500039F60 /* DayDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayDetailsCell.h; sourceTree = "<group>"; };
+		423975DD1E1B699500039F60 /* DayDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayDetailsCell.m; sourceTree = "<group>"; };
+		423975DE1E1B699500039F60 /* DayDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayDetailsCell.xib; sourceTree = "<group>"; };
 		4271EB071E15F61400C30DBF /* LQ_CellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQ_CellModel.h; sourceTree = "<group>"; };
 		4271EB081E15F61400C30DBF /* LQ_CellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQ_CellModel.m; sourceTree = "<group>"; };
 		4271EB0A1E15F63200C30DBF /* LQ_Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQ_Model.h; sourceTree = "<group>"; };
@@ -289,6 +297,8 @@
 		42D6189E1E162907009CD27B /* LQ_ZJM_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQ_ZJM_Cell.h; sourceTree = "<group>"; };
 		42D6189F1E162907009CD27B /* LQ_ZJM_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQ_ZJM_Cell.m; sourceTree = "<group>"; };
 		42D618A01E162907009CD27B /* LQ_ZJM_Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LQ_ZJM_Cell.xib; sourceTree = "<group>"; };
+		42D618A31E165436009CD27B /* disposal_C_Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = disposal_C_Model.h; sourceTree = "<group>"; };
+		42D618A41E165436009CD27B /* disposal_C_Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = disposal_C_Model.m; sourceTree = "<group>"; };
 		47DC9F7E87BDC347F9BE057C /* Pods-toone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-toone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-toone/Pods-toone.debug.xcconfig"; sourceTree = "<group>"; };
 		8C06E0A41E0D202E00EBD526 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C42064F1E150CBF0075527B /* LQViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQViewController.h; sourceTree = "<group>"; };
@@ -357,8 +367,6 @@
 		8C4206BB1E150CBF0075527B /* NQ_BHZ_SCCX_Inner_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NQ_BHZ_SCCX_Inner_Cell.h; sourceTree = "<group>"; };
 		8C4206BC1E150CBF0075527B /* NQ_BHZ_SCCX_Inner_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NQ_BHZ_SCCX_Inner_Cell.m; sourceTree = "<group>"; };
 		8C4206BD1E150CBF0075527B /* NQ_BHZ_SCCX_Inner_Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NQ_BHZ_SCCX_Inner_Cell.xib; sourceTree = "<group>"; };
-		8C4206BF1E150CBF0075527B /* ProduModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProduModel.h; sourceTree = "<group>"; };
-		8C4206C01E150CBF0075527B /* ProduModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProduModel.m; sourceTree = "<group>"; };
 		8C4206C41E150CBF0075527B /* LQ_BHZ_SB_Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQ_BHZ_SB_Controller.h; sourceTree = "<group>"; };
 		8C4206C51E150CBF0075527B /* LQ_BHZ_SB_Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQ_BHZ_SB_Controller.m; sourceTree = "<group>"; };
 		8C4206C71E150CBF0075527B /* SB_Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SB_Model.h; sourceTree = "<group>"; };
@@ -757,6 +765,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		423975D51E1B551800039F60 /* Inner */ = {
+			isa = PBXGroup;
+			children = (
+				423975D61E1B551800039F60 /* Controller */,
+				423975D71E1B551800039F60 /* Model */,
+				423975D81E1B551800039F60 /* View */,
+			);
+			path = Inner;
+			sourceTree = "<group>";
+		};
+		423975D61E1B551800039F60 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				423975D91E1B575800039F60 /* DayDetailsController.h */,
+				423975DA1E1B575800039F60 /* DayDetailsController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		423975D71E1B551800039F60 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		423975D81E1B551800039F60 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				423975DC1E1B699500039F60 /* DayDetailsCell.h */,
+				423975DD1E1B699500039F60 /* DayDetailsCell.m */,
+				423975DE1E1B699500039F60 /* DayDetailsCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4271EB0D1E15FBA600C30DBF /* View2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -918,6 +962,8 @@
 			children = (
 				8C4206671E150CBF0075527B /* EXPrimaryModel.h */,
 				8C4206681E150CBF0075527B /* EXPrimaryModel.m */,
+				42D618A31E165436009CD27B /* disposal_C_Model.h */,
+				42D618A41E165436009CD27B /* disposal_C_Model.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1034,8 +1080,8 @@
 				8C4206831E150CBF0075527B /* MaterialViewController.h */,
 				8C4206841E150CBF0075527B /* MaterialViewController.m */,
 				8C4206851E150CBF0075527B /* 出料口温度 */,
-				8C4206881E150CBF0075527B /* 总产量统计 */,
 				8C42068B1E150CBF0075527B /* 生产监控 */,
+				8C4206881E150CBF0075527B /* 总产量统计 */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1116,6 +1162,7 @@
 			children = (
 				8C4206961E150CBF0075527B /* DayQueryTableViewController.h */,
 				8C4206971E150CBF0075527B /* DayQueryTableViewController.m */,
+				423975D51E1B551800039F60 /* Inner */,
 				8C4206981E150CBF0075527B /* Model */,
 				8C42069B1E150CBF0075527B /* View */,
 			);
@@ -1236,8 +1283,6 @@
 		8C4206BE1E150CBF0075527B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8C4206BF1E150CBF0075527B /* ProduModel.h */,
-				8C4206C01E150CBF0075527B /* ProduModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2617,6 +2662,7 @@
 				D20065241DFF86B30021E293 /* ColoredLineChartViewController.xib in Resources */,
 				D20065441DFF86B30021E293 /* ScatterChartViewController.xib in Resources */,
 				8C06E0A51E0D202E00EBD526 /* Assets.xcassets in Resources */,
+				423975E01E1B699500039F60 /* DayDetailsCell.xib in Resources */,
 				8CBD73401E091C7E00A0C991 /* HNT_CLHS_ChatCell.xib in Resources */,
 				8CEB5BC81E0A6C0D00A5C4AA /* LaunchScreen.storyboard in Resources */,
 				D200653C1DFF86B30021E293 /* PieChartViewController.xib in Resources */,
@@ -2810,6 +2856,7 @@
 				D200648A1DFF86800021E293 /* HNT_SYS_HeaderView.m in Sources */,
 				8C4207441E150D0A0075527B /* Node.m in Sources */,
 				8C4206EE1E150CBF0075527B /* NQ_BHZ_SCCX_Inne_ moreModel.m in Sources */,
+				423975DB1E1B575900039F60 /* DayDetailsController.m in Sources */,
 				D20065841DFFC5AB0021E293 /* HNT_SCCX_Controller.m in Sources */,
 				D20064A61DFF86800021E293 /* SGAnimationType.m in Sources */,
 				D20064A91DFF86800021E293 /* Tools.m in Sources */,
@@ -2823,13 +2870,13 @@
 				D20062FE1DFF85CB0021E293 /* main.m in Sources */,
 				D246B2AC1E00E0CD00E83159 /* HNT_CBCZ_Model.m in Sources */,
 				8C4206D81E150CBF0075527B /* EXPMiddleModel.m in Sources */,
-				8C4206F71E150CBF0075527B /* ProduModel.m in Sources */,
 				8C4206D71E150CBF0075527B /* MiddleExcessiveTableContller.m in Sources */,
 				D20065A51DFFE12D0021E293 /* Exp5View.m in Sources */,
 				8C4207511E150D0A0075527B /* View+MASAdditions.m in Sources */,
 				8CEB5BD41E0A7DAA00A5C4AA /* SGButton.m in Sources */,
 				8C4207491E150D0A0075527B /* MASCompositeConstraint.m in Sources */,
 				D20064711DFF86800021E293 /* HNT_YLSY_DetailController.m in Sources */,
+				42D618A51E165436009CD27B /* disposal_C_Model.m in Sources */,
 				D20064761DFF86800021E293 /* HNT_WNSY_Controller.m in Sources */,
 				8C42074A1E150D0A0075527B /* MASConstraint.m in Sources */,
 				D200649E1DFF86800021E293 /* UIView+Frame.m in Sources */,
@@ -2887,6 +2934,7 @@
 				8C42074F1E150D0A0075527B /* NSArray+MASAdditions.m in Sources */,
 				D20064431DFF86800021E293 /* CJMonthDayCollectionCell.m in Sources */,
 				8C4207541E150D0A0075527B /* YYClassInfo.m in Sources */,
+				423975DF1E1B699500039F60 /* DayDetailsCell.m in Sources */,
 				8C4206E71E150CBF0075527B /* DayQueryTableViewController.m in Sources */,
 				D200646F1DFF86800021E293 /* HNT_SYS_InnerController.m in Sources */,
 				D200647E1DFF86800021E293 /* HNT_TJFX_HeaderView.m in Sources */,

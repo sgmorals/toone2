@@ -8,9 +8,7 @@
 
 #import "EXPrimaryCell.h"
 #import "EXPrimaryModel.h"
-#import "MyViewController.h"
-#import "NetworkTool.h"
-#import "YYModel.h"
+#import "disposal_C_Model.h"
 
 @interface EXPrimaryCell ()
 //字段名称
@@ -47,46 +45,37 @@
 
 @property (weak, nonatomic) IBOutlet UIView *conView;
 
+//处置类型
+@property (weak, nonatomic) IBOutlet UIView *chuzView;
+@property (weak, nonatomic) IBOutlet UILabel *chuzLabel;
+
 @end
 @implementation EXPrimaryCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.chuzView.transform=CGAffineTransformMakeRotation(M_PI_4);
 }
 
+-(void)setDisModel:(disposal_C_Model *)disModel {
+    _disModel = disModel;
+    self.sjf1Label.text = [NSString stringWithFormat:@"%@:",disModel.sjf1];
+    self.sjf2Label.text = [NSString stringWithFormat:@"%@:",disModel.sjf2];
+    self.sjg1Label.text = [NSString stringWithFormat:@"%@:",disModel.sjg1];
+    self.sjg2Label.text = [NSString stringWithFormat:@"%@:",disModel.sjg2];
+    self.sjg3Label.text = [NSString stringWithFormat:@"%@:",disModel.sjg3];
+    self.sjg4Label.text = [NSString stringWithFormat:@"%@:",disModel.sjg4];
+    self.sjg5Label.text = [NSString stringWithFormat:@"%@:",disModel.sjg5];
+    self.sjg6Label.text = [NSString stringWithFormat:@"%@:",disModel.sjg6];
+    self.sjg7Label.text = [NSString stringWithFormat:@"%@:",disModel.sjg7];
+    
+    self.sjlqLabel.text = [NSString stringWithFormat:@"%@:",disModel.sjlq];
+    self.sjtjjLabel.text = [NSString stringWithFormat:@"%@:",disModel.sjtjj];
+    self.sjysbLabel.text = [NSString stringWithFormat:@"%@:",disModel.sjysb];
+}
 
 -(void)setEXPModel:(EXPrimaryModel *)EXPModel {
     _EXPModel = EXPModel;
-    MyViewController *myVc = [[MyViewController alloc] init];
-    NSString * startTimeStamp = [TimeTools timeStampWithTimeString:myVc.startTime];
-    NSString * endTimeStamp = [TimeTools timeStampWithTimeString:myVc.endTime];
-    NSString * userGroupId = [UserDefaultsSetting shareSetting].LqDepartld;
-    [UserDefaultsSetting shareSetting].dengji = [NSNumber numberWithInt:1];
-    
-    NSString *urlString = [NSString stringWithFormat:LQExcessive,[UserDefaultsSetting shareSetting].dengji,userGroupId,startTimeStamp,endTimeStamp];
-    [[NetworkTool sharedNetworkTool] getObjectWithURLString:urlString completeBlock:^(id result) {
-             NSDictionary *dict = (NSDictionary *)result;
-        if (dict[@"success"]) {
-            EXPrimaryModel *dictModel = [EXPrimaryModel yy_modelWithDictionary:dict[@"Fields"]];
-            
-            self.sjf1Label.text = [NSString stringWithFormat:@"%@:",dictModel.sjf1];
-            self.sjf2Label.text = [NSString stringWithFormat:@"%@:",dictModel.sjf2];
-            self.sjg1Label.text = [NSString stringWithFormat:@"%@:",dictModel.sjg1];
-            self.sjg2Label.text = [NSString stringWithFormat:@"%@:",dictModel.sjg2];
-            self.sjg3Label.text = [NSString stringWithFormat:@"%@:",dictModel.sjg3];
-            self.sjg4Label.text = [NSString stringWithFormat:@"%@:",dictModel.sjg4];
-            self.sjg5Label.text = [NSString stringWithFormat:@"%@:",dictModel.sjg5];
-            self.sjg6Label.text = [NSString stringWithFormat:@"%@:",dictModel.sjg6];
-            self.sjg7Label.text = [NSString stringWithFormat:@"%@:",dictModel.sjg7];
-            
-            self.sjlqLabel.text = [NSString stringWithFormat:@"%@:",dictModel.sjlq];
-            self.sjtjjLabel.text = [NSString stringWithFormat:@"%@:",dictModel.sjtjj];
-            self.sjysbLabel.text = [NSString stringWithFormat:@"%@:",dictModel.sjysb];
-        }
-        
-    }];
-    
-    
 //    数据显示
     self.wsjf1Label.text = [NSString stringWithFormat:@"%@%%",EXPModel.wsjf1];
     self.wsjf2Label.text = [NSString stringWithFormat:@"%@%%",EXPModel.wsjf2];
@@ -102,9 +91,20 @@
     self.wsjtjjLabel.text = [NSString stringWithFormat:@"%@%%",EXPModel.wsjtjj];
     self.wsjysbLabel.text = [NSString stringWithFormat:@"%@%%",EXPModel.wsjysb];
     
-    self.shijianLabel.text = [NSString stringWithFormat:@"%@%%",EXPModel.shijian];
+    self.shijianLabel.text = EXPModel.shijian;
     self.bianhaoLabel.text = [NSString stringWithFormat:@"%@", EXPModel.bianhao];
     
+    self.chuzView.hidden = NO;
+    self.chuzLabel.textColor = [UIColor whiteColor];
+    if(EqualToString(EXPModel.chuli, @"0")){
+        self.chuzLabel.backgroundColor = [UIColor salmonColor];
+        self.chuzLabel.text = @"未处置";
+    }else if(EqualToString(EXPModel.chuli, @"1")){
+        self.chuzLabel.backgroundColor = [UIColor grassColor];
+        self.chuzLabel.text = @"已处置";
+    }else {
+        self.chuzView.hidden = YES;
+    }
 }
 
 

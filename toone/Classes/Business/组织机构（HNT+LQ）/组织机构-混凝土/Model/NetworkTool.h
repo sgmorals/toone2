@@ -14,5 +14,5 @@ typedef void(^CompleteBlock)(id result);
 + (instancetype)sharedNetworkTool;
 
 - (void)getObjectWithURLString:(NSString *)URLString completeBlock:(CompleteBlock)completeBlock;
-
+-(void)postObjectWithURLString:(NSString *)URLString parmas:(NSDictionary *)params  completeBlock:(CompleteBlock)completeBlock;
 @end
