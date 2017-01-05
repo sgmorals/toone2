@@ -11,7 +11,7 @@
 #import "EXPrimaryCell.h"
 #import "MyViewController.h"
 #import "NetworkTool.h"
-#import "disposal_C_Model.h"
+//#import "disposal_C_Model.h"
 
 @interface SeniorExcessiveTableConller ()
 @property(nonatomic, strong) NSArray *dataAr;
@@ -61,7 +61,7 @@
         NSDictionary *dict = (NSDictionary *)result;
         
         if ([dict[@"success"] boolValue]) {
-            weakSelf.disModel = [disposal_C_Model modelWithDict:dict[@"Fields"]];
+            //weakSelf.disModel = [disposal_C_Model modelWithDict:dict[@"Fields"]];
         }
     }
      ];

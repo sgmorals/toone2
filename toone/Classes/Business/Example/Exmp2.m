@@ -7,6 +7,7 @@
 //
 
 #import "Exmp2.h"
+
 #import "PNChart.h"
 @interface Exmp2 ()
 @property (nonatomic) PNLineChart * lineChart;
@@ -77,7 +78,7 @@
     
     self.lineChart.chartData = @[data01, data02];
     [self.lineChart strokeChart];
-    self.lineChart.delegate = self;
+//    self.lineChart.delegate = self;
     
     
     [self.view addSubview:self.lineChart];
