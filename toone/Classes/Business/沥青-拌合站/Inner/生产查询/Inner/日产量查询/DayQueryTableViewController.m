@@ -13,7 +13,6 @@
 
 @interface DayQueryTableViewController ()
 @property(nonatomic, strong) NSArray *dataArr;
-
 @end
 @implementation DayQueryTableViewController
 

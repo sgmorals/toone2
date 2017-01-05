@@ -10,7 +10,6 @@
 @class DayQueryModel;
 
 @interface DayDetailsCell : UITableViewCell
-@property (nonatomic,weak) UIViewController * weakController;
 
 -(void)model:(DayQueryModel*)model withIndex:(long)index;
 @end

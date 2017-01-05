@@ -10,6 +10,7 @@
 		423975DB1E1B575900039F60 /* DayDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 423975DA1E1B575800039F60 /* DayDetailsController.m */; };
 		423975DF1E1B699500039F60 /* DayDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 423975DD1E1B699500039F60 /* DayDetailsCell.m */; };
 		423975E01E1B699500039F60 /* DayDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 423975DE1E1B699500039F60 /* DayDetailsCell.xib */; };
+		423975E31E1CEF7B00039F60 /* MyInputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 423975E21E1CEF7B00039F60 /* MyInputController.m */; };
 		4271EB091E15F61400C30DBF /* LQ_CellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4271EB081E15F61400C30DBF /* LQ_CellModel.m */; };
 		4271EB0C1E15F63200C30DBF /* LQ_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 4271EB0B1E15F63200C30DBF /* LQ_Model.m */; };
 		4271EB111E15FBA600C30DBF /* MySegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4271EB0F1E15FBA600C30DBF /* MySegmentedControl.m */; };
@@ -287,6 +288,8 @@
 		423975DC1E1B699500039F60 /* DayDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayDetailsCell.h; sourceTree = "<group>"; };
 		423975DD1E1B699500039F60 /* DayDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayDetailsCell.m; sourceTree = "<group>"; };
 		423975DE1E1B699500039F60 /* DayDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayDetailsCell.xib; sourceTree = "<group>"; };
+		423975E11E1CEF7B00039F60 /* MyInputController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInputController.h; sourceTree = "<group>"; };
+		423975E21E1CEF7B00039F60 /* MyInputController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInputController.m; sourceTree = "<group>"; };
 		4271EB071E15F61400C30DBF /* LQ_CellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQ_CellModel.h; sourceTree = "<group>"; };
 		4271EB081E15F61400C30DBF /* LQ_CellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQ_CellModel.m; sourceTree = "<group>"; };
 		4271EB0A1E15F63200C30DBF /* LQ_Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQ_Model.h; sourceTree = "<group>"; };
@@ -2241,6 +2244,8 @@
 				D20064221DFF86800021E293 /* MyViewController.m */,
 				D20064231DFF86800021E293 /* UserDefaultsSetting.h */,
 				D20064241DFF86800021E293 /* UserDefaultsSetting.m */,
+				423975E11E1CEF7B00039F60 /* MyInputController.h */,
+				423975E21E1CEF7B00039F60 /* MyInputController.m */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -2847,6 +2852,7 @@
 				D20064A51DFF86800021E293 /* NoCopyTextField.m in Sources */,
 				D200649A1DFF86800021E293 /* NSArray+Log.m in Sources */,
 				D20065471DFF86B30021E293 /* StackedBarChartViewController.m in Sources */,
+				423975E31E1CEF7B00039F60 /* MyInputController.m in Sources */,
 				D200647A1DFF86800021E293 /* HNT_WNSY_Cell.m in Sources */,
 				D20065411DFF86B30021E293 /* RadarChartViewController.m in Sources */,
 				8C4206F81E150CBF0075527B /* LQ_BHZ_SB_Controller.m in Sources */,

@@ -10,5 +10,5 @@
 @class DayQueryModel;
 @interface DayDetailsController : UITableViewController
 @property (nonatomic, strong) DayQueryModel *model;
-
+@property (nonatomic,weak) UIViewController * weakController;
 @end

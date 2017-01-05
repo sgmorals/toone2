@@ -97,7 +97,7 @@
 
 /**************************沥青*********************************/
 //沥青拌合站专用
-#define baseUrlStr   @"http://192.168.11.112:8082/qhttqms/"
+#define baseUrlStr   @"http://192.168.11.115:8082/qhttqms/"
 //沥青登录数据
 #define LqAppLogin   FormatString(baseUrlStr,@"app.do?AppLogin&userName=%@&userPwd=%@&OSType=3")
 
