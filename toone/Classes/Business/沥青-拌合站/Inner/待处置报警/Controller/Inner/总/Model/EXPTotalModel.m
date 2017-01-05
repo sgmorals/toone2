@@ -27,7 +27,7 @@
         NSDictionary *dict = (NSDictionary *)result;
         
         //        数据展示
-        if (dict[@"success"]) {
+        if ([dict[@"success"] boolValue]) {
             
             NSArray *dictArr = dict[@"data"];
             NSArray *arry = [NSArray yy_modelArrayWithClass:[EXPTotalModel class] json:dictArr];
@@ -44,7 +44,7 @@
 
 -(NSMutableArray *)arry {
     if (_arry == nil) {
-        _arry = [NSArray array];
+        _arry = [NSMutableArray array];
     }
     return _arry;
 }

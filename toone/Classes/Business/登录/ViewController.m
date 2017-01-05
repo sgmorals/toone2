@@ -159,6 +159,7 @@
         hud.mode = MBProgressHUDModeText;
         hud.label.text = @"网络连接失败";
         [hud hideAnimated:YES afterDelay:2.0];
+        NSLog(@"failure == %@",[error localizedDescription]);
     }];
 
     

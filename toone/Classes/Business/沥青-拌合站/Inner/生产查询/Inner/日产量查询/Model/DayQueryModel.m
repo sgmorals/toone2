@@ -26,11 +26,11 @@
     [[NetworkTool sharedNetworkTool] getObjectWithURLString:urlString completeBlock:^(id result) {
         NSDictionary *dict = (NSDictionary *)result;
         
-        if (dict[@"success"]) {
+        if ([dict[@"success"] boolValue]) {
             NSArray *dictArr = dict[@"data"];
             
             _arry = [NSArray yy_modelArrayWithClass:[DayQueryModel class] json:dictArr];
-            
+    
             if (dayQueryBlock) {
                 dayQueryBlock(_arry);
             }
@@ -38,13 +38,6 @@
         }
     }];
 
-}
-
--(NSArray *)arry {
-    if (_arry == nil) {
-        _arry = [NSArray array];
-    }
-    return _arry;
 }
 
 @end

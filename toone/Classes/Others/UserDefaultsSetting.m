@@ -4,7 +4,7 @@
 //
 //  Created by 十国 on 16/11/21.
 //  Copyright © 2016年 shtoone. All rights reserved.
-//
+//git add 文件名
 
 #import "UserDefaultsSetting.h"
 
@@ -63,6 +63,10 @@ static UserDefaultsSetting * setting = nil;
     
     //监听筛选时间按钮
     setting.timeName = [defaults objectForKey:@"timeNameKey"];
+    //日产量id
+    setting.dailyid = [defaults objectForKey:@"dailyidKey"];
+    //日产量设备编号
+     setting.dailysbbh = [defaults objectForKey:@"dailysbbhKey"];
     
 }
 -(void)saveToSandbox{
@@ -100,6 +104,11 @@ static UserDefaultsSetting * setting = nil;
     //生产数据查询设备编号
     [defaults setObject:self.shebeibianhao forKey:@"shebeibianhaoKey"];
     [defaults setObject:self.bianhao forKey:@"bianhaoKey"];
+    
+    //日产量id
+    [defaults setObject:self.dailyid forKey:@"dailyidKey"];
+    //日产量设备编号
+    [defaults setObject:self.dailysbbh forKey:@"dailysbbhKey"];
     
     //监听筛选时间按钮
     [defaults setObject:self.timeName forKey:@"timeNameKey"];

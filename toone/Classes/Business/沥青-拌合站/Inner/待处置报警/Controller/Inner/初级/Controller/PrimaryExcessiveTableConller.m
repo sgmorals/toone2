@@ -11,10 +11,12 @@
 #import "EXPrimaryCell.h"
 #import "NetworkTool.h"
 #import "MyViewController.h"
+#import "disposal_C_Model.h"
 
 @interface PrimaryExcessiveTableConller ()
 @property(nonatomic, strong) NSArray *dataArr;
 
+@property (nonatomic, strong) disposal_C_Model *disModel;
 
 @end
 @implementation PrimaryExcessiveTableConller
@@ -23,18 +25,20 @@
     [super viewDidLoad];
     
     [self setUI];
-    [self setData];
+    [self loadData];
 }
 
 -(void)setUI {
-//    self.view.backgroundColor = [UIColor orangeColor];
+
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     self.tableView.rowHeight = 170;
     self.tableView.frame = CGRectMake(0, 95, Screen_w, Screen_h - 100);
-    self.tableView.bounces = NO;
+    
+    self.tableView.mj_header = [MJDIYHeader2 headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
+    [self.tableView.mj_header beginRefreshing];
 }
 
--(void)setData {
+-(void)loadData {
     EXPrimaryModel *model = [[EXPrimaryModel alloc] init];
     
     __weak typeof(self)  weakSelf = self;
@@ -42,21 +46,32 @@
         weakSelf.dataArr = result;
 
         [weakSelf.tableView reloadData];
-        
+        [weakSelf.tableView.mj_header endRefreshing];
     }];
     
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    MyViewController *myVc = [[MyViewController alloc] init];
+    NSString * startTimeStamp = [TimeTools timeStampWithTimeString:myVc.startTime];
+    NSString * endTimeStamp = [TimeTools timeStampWithTimeString:myVc.endTime];
+    NSString * userGroupId = [UserDefaultsSetting shareSetting].LqDepartld;
+    [UserDefaultsSetting shareSetting].dengji = [NSNumber numberWithInt:1];
+    
+    NSString *urlString = [NSString stringWithFormat:LQExcessive,[UserDefaultsSetting shareSetting].dengji,userGroupId,startTimeStamp,endTimeStamp];
+    
+    [[NetworkTool sharedNetworkTool] getObjectWithURLString:urlString completeBlock:^(id result) {
+//        NSMutableArray * datas = [NSMutableArray array];
+        NSDictionary *dict = (NSDictionary *)result;
+        
+        if ([dict[@"success"] boolValue]) {
+            weakSelf.disModel = [disposal_C_Model modelWithDict:dict[@"Fields"]];
+        }
+    }
+     ];
 }
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _dataArr.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"EXPrimaryCell";
@@ -65,31 +80,18 @@
     EXPrimaryCell *cell = (EXPrimaryCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     cell.EXPModel = _dataArr[indexPath.row];
-
+    cell.disModel = self.disModel;
+    
     return cell;
 }
 
-//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-//    
-//    if (indexPath.row%2==0) {
-//        
-//        cell.backgroundColor = [UIColor colorWithRed:225.0/255 green:244.0/255 blue:241.0/255 alpha:1];
-//        
-//    }else {
-//        
-//        cell.backgroundColor = [UIColor colorWithRed:232.0/255 green:232.0/255 blue:253.0/255 alpha:1];
+
+//-(NSArray *)dataArr {
+//    if (_dataArr == nil) {
+//        _dataArr = [NSArray array];
 //    }
+//    return _dataArr;
 //}
-
-
-
--(NSArray *)dataArr {
-    if (_dataArr == nil) {
-        _dataArr = [NSArray array];
-    }
-    return _dataArr;
-}
-
 
 
 @end

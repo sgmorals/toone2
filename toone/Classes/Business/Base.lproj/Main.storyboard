@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KFY-ao-V2G">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KFY-ao-V2G">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -3752,6 +3752,53 @@
             </objects>
             <point key="canvasLocation" x="1372" y="4451"/>
         </scene>
+        <!--My Input Controller-->
+        <scene sceneID="6b9-6j-329">
+            <objects>
+                <viewController storyboardIdentifier="MyInputController" id="qJi-m6-6Af" customClass="MyInputController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gsf-pA-qat"/>
+                        <viewControllerLayoutGuide type="bottom" id="CT9-Ps-iSb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BDc-gV-NuP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLm-Xn-pVP">
+                                <rect key="frame" x="0.0" y="25" width="375" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gZ2-YH-ecV">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="BaE-HV-9yI"/>
+                                    <constraint firstAttribute="trailing" secondItem="gZ2-YH-ecV" secondAttribute="trailing" id="D9b-GP-TZd"/>
+                                    <constraint firstItem="gZ2-YH-ecV" firstAttribute="top" secondItem="BLm-Xn-pVP" secondAttribute="top" id="Yt7-pg-bUz"/>
+                                    <constraint firstItem="gZ2-YH-ecV" firstAttribute="leading" secondItem="BLm-Xn-pVP" secondAttribute="leading" id="scN-mY-aoZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="gZ2-YH-ecV" secondAttribute="bottom" id="szk-wN-GZJ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BLm-Xn-pVP" firstAttribute="top" secondItem="gsf-pA-qat" secondAttribute="bottom" constant="5" id="IsW-JS-M7x"/>
+                            <constraint firstItem="BLm-Xn-pVP" firstAttribute="leading" secondItem="BDc-gV-NuP" secondAttribute="leading" id="cPI-RS-FuR"/>
+                            <constraint firstAttribute="trailing" secondItem="BLm-Xn-pVP" secondAttribute="trailing" id="kuj-sd-2Xp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textF" destination="gZ2-YH-ecV" id="7fI-d9-2fN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ASK-fe-tzo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1372" y="5217"/>
+        </scene>
         <!--沥青组织机构-->
         <scene sceneID="JOJ-mW-iF7">
             <objects>
@@ -3781,8 +3828,8 @@
         <image name="white_SX" width="60" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OFf-sM-NiC"/>
         <segue reference="4k9-Hx-aJM"/>
+        <segue reference="OFf-sM-NiC"/>
         <segue reference="WKu-KV-Usy"/>
     </inferredMetricsTieBreakers>
 </document>

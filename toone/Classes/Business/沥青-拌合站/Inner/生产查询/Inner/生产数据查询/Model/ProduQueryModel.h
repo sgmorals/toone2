@@ -19,7 +19,7 @@ typedef void(^ProduQueryBlock)(NSArray *result);
 @property (nonatomic, strong) NSString *sjlq;//沥青量
 @property (nonatomic, strong) NSString *sjysb; //油石比
 
-@property (nonatomic, strong) NSArray *arry;
+@property (nonatomic, strong) NSArray *arr;
 
 -(void)produQueryBlock:(ProduQueryBlock)produQueryBlock;
 @end

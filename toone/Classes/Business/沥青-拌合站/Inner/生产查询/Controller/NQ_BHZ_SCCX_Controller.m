@@ -14,9 +14,7 @@
 #import "LQ_BHZ_SB_Controller.h"
 
 @interface NQ_BHZ_SCCX_Controller ()<TouchLabelDelegate>
-{
-    XFSegementView *segementView;
-}
+@property (nonatomic, strong) XFSegementView *segementView;
 @property (nonatomic, strong) UITableViewController *tableCont;
 
 
@@ -41,26 +39,22 @@
 
 #pragma mark - 设置分页
 -(void)setSegement {
-    segementView = [[XFSegementView alloc]initWithFrame:CGRectMake(0, 65, [UIScreen mainScreen].bounds.size.width, 30)];
-//        [segementView setBackgroundColor:[UIColor cyanColor]];
+   XFSegementView * segementView = [[XFSegementView alloc]initWithFrame:CGRectMake(0, 65,Screen_w, 35)];
+    segementView.backgroundColor = [UIColor snowColor];
 
-    segementView.titleArray = @[@"生产数据查询",@"日产量查询",@"材料用量查询"];
-    
-    [segementView.scrollLine setBackgroundColor:[UIColor greenColor]];
-    segementView.titleSelectedColor = [UIColor redColor];
-    
+    segementView.titleArray = @[@"生产数据",@"日产量",@"材料用量"];
     segementView.touchDelegate = self;
-//    segementView.haveRightLine = NO;
     self.navigationItem.titleView = segementView;
     [self.view addSubview:segementView];
 
-    UIButton *searchButton = [[UIButton alloc] initWithFrame:CGRectMake(Screen_w-25, 0, 30, 30)];
+    UIButton *searchButton = [[UIButton alloc] initWithFrame:CGRectMake(Screen_w-40, 0, 40, 40)];
     [searchButton setImage:[UIImage imageNamed:@"black_SX"] forState:UIControlStateNormal];
-//    [searchButton setBackgroundColor:[UIColor redColor]];
+
     [searchButton addTarget:self action:@selector(clickSearchBut:) forControlEvents:UIControlEventTouchUpInside];
     [segementView addSubview:searchButton];
+    
+    self.segementView =segementView;
 }
-
 
 #pragma mark - 查询
 -(void)clickSearchBut:(UIButton *)sender {
@@ -121,10 +115,6 @@
     
 }
 
-
-
-
-
 #pragma mark - 分页控制器跳转
 - (void)touchLabelWithIndex:(NSInteger)index{
     if (index == 0) { //生产数据查询
@@ -137,7 +127,7 @@
             
         [self addChildViewController:producVc];
         [self.view addSubview:producVc.view];
-        [self.view addSubview:segementView];
+        [self.view addSubview:_segementView];
         
     }else if (index == 1) { //日产量查询
         [self.tableCont removeFromParentViewController];
@@ -149,7 +139,7 @@
             
         [self addChildViewController:dayVc];
         [self.view addSubview:dayVc.view];
-        [self.view addSubview:segementView];
+        [self.view addSubview:_segementView];
         
     }else if (index == 2) { //材料用量查询
         [self.tableCont removeFromParentViewController];
@@ -161,12 +151,11 @@
         
         [self addChildViewController:materVc];
         [self.view addSubview:materVc.view];
-        [self.view addSubview:segementView];
+        [self.view addSubview:_segementView];
         
     }
     
 }
-
 
 
 @end

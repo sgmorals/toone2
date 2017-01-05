@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LqNodeViewController : UIViewController
-
+@property (nonatomic,copy) void(^callBlock)();
 @end

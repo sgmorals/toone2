@@ -27,7 +27,18 @@ static NetworkTool *_instance;
             completeBlock(responseObject);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"failure === %@",[error localizedDescription]);
+//        NSLog(@"failure === %@",[error localizedDescription]);
+    }];
+}
+
+-(void)postObjectWithURLString:(NSString *)URLString parmas:(NSDictionary *)params  completeBlock:(CompleteBlock)completeBlock{
+    [self POST:URLString parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (completeBlock) {
+            completeBlock(responseObject);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSLog(@"错误 --> %@",[error localizedDescription]);
+//        [Tools tip:@"网络故障，提交失败"];
     }];
 }
 

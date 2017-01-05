@@ -24,7 +24,7 @@
     [[NetworkTool sharedNetworkTool] getObjectWithURLString:urlString completeBlock:^(id result) {
         
         NSDictionary *dict = (NSDictionary *)result;
-        if (dict[@"success"]) {
+        if ([dict[@"success"] boolValue]) {
             
             NSArray *dictArr = dict[@"data"];
             

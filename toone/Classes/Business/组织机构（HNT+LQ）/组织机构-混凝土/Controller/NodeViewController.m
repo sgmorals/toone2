@@ -25,65 +25,46 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self initWithData];
-    
 }
-
-
 -(void)cellClick:(Node *)node didReachToBottom:(BOOL)reached {
-    
     if (reached) {
         if (self.callBlock) {
             self.callBlock();
         }
         [self.navigationController  popViewControllerAnimated:YES];
     }
-    
 }
 
 #pragma mark - 组织机构
 -(void)initWithData {
     NodeMode *nodeMode = [[NodeMode alloc] init];
-    
     __weak typeof(self) weakSelf = self;
     [nodeMode channelBlock:^(NSArray *result) {
         for (int i = 0; i < result.count; i++) {
-            
             weakSelf.node = [[Node alloc] init];
             weakSelf.node.parentId = (NSString *)[result[i] valueForKey:@"parentdepartid"];
-            
             weakSelf.node.name = (NSString *)[result[i] valueForKey:@"departname"];
-            
             weakSelf.node.nodeId = [result[i] valueForKey:@"ID"];
-            
             [weakSelf.channs addObject:weakSelf.node];
-            
         }
         
         int level = 0;
         for (int i = 0; i < weakSelf.channs.count; i++) {
-            
             level = 0;
-            
             if ([[weakSelf.channs[i] parentId]  isEqual: @""]) {
-                
                 level = 0;
-                
             }else {
                 //分层级
                 [weakSelf clearLevel:weakSelf.channs[i] array:weakSelf.channs num:0 level:&level];
-                
             }
             Node *node = _channs[i];
             node.expand = true;
             node.depth = level;
         }
-        
         for (int i = 0; i < weakSelf.channs.count; i++) {
             if ([[weakSelf.channs[i] parentId]  isEqual: @""]) {
                 [weakSelf.channArr addObject:_channs[i]];
-                
             }
         }
         
@@ -102,20 +83,13 @@
         tableview.treeTableCellDelegate = self;
         tableview.separatorStyle = UITableViewCellSelectionStyleNone;
         [self.view addSubview:tableview];
-        
         self.treeTableView = tableview;
-        
     }];
-    
 }
-
-
 #pragma mark - 分层级
 -(void)clearLevel:(Node *)nodeObj array:(NSMutableArray *)array num:(int)num level:(int *)level {
-    
     Node *mode = array[num];
     if ([nodeObj.parentId  isEqualToString:mode.nodeId]) {
-        
         Node *noode = [[Node alloc] init];
         noode.nodeId = [array[num] nodeId];
         noode.parentId = [array[num] parentId];

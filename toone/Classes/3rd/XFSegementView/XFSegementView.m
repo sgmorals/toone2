@@ -7,7 +7,8 @@
 //
 #define ItemWidth self.frame.size.width/_titleArray.count
 #define ItemHeight self.frame.size.height
-#define NavBarColor [UIColor colorWithRed:234/255.0f green:114/255.0f blue:60/255.0f alpha:1]
+#define NavBarColor [UIColor colorWithRed:255/255.0f green:27/255.0f blue:88/255.0f alpha:1]
+
 #import "XFSegementView.h"
 
 @implementation XFSegementView
@@ -22,7 +23,7 @@
 
 - (CGFloat)titleFont{
     if (!_titleFont) {
-        _titleFont = 12.0;
+        _titleFont = 11.0;
     }
     return _titleFont;
 }
@@ -36,7 +37,7 @@
 
 - (UIColor *)separateColor{
     if (!_separateColor) {
-        _separateColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1];
+//        _separateColor = NavBarColor;
     }
     return _separateColor;
 }
@@ -50,7 +51,7 @@
 
 - (float)scrollLineHeight{
     if (!_scrollLineHeight) {
-        _scrollLineHeight = 3.0;
+        _scrollLineHeight = 1.0;
     }
     return _scrollLineHeight;
 }
@@ -148,7 +149,7 @@
     
     //滚动条
     _scrollLine = [[UIView alloc]initWithFrame:CGRectMake(0, ItemHeight - self.scrollLineHeight, ItemWidth-35, self.scrollLineHeight)];
-    [_scrollLine setBackgroundColor:self.scrollLineColor];
+    [_scrollLine setBackgroundColor:NavBarColor];
     
     [self addSubview:_separateLine];
     [self addSubview:_scrollLine];
@@ -159,7 +160,7 @@
     
     UILabel *label = (UILabel *)tap.view;
     NSInteger index = label.tag - 100;
-    
+  
     [self selectLabelWithIndex:index];
 
 }
@@ -171,8 +172,12 @@
         UILabel *label = [self viewWithTag:100+i];
         if ([label isEqual:selectedLabel]) {
             label.textColor = self.titleSelectedColor;
+            label.font = [UIFont systemFontOfSize:14.0];
+            label.textColor = NavBarColor;
         }else{
             label.textColor = self.titleColor;
+            label.font = [UIFont systemFontOfSize:11.0];
+            label.textColor = [UIColor blackColor];
         }
     }
     CGRect scrollLineFrame = _scrollLine.frame;

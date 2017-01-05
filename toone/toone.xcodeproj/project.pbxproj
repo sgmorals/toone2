@@ -45,14 +45,8 @@
 		8C4206F41E150CBF0075527B /* ProduQueryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4206B91E150CBF0075527B /* ProduQueryModel.m */; };
 		8C4206F51E150CBF0075527B /* NQ_BHZ_SCCX_Inner_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4206BC1E150CBF0075527B /* NQ_BHZ_SCCX_Inner_Cell.m */; };
 		8C4206F61E150CBF0075527B /* NQ_BHZ_SCCX_Inner_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C4206BD1E150CBF0075527B /* NQ_BHZ_SCCX_Inner_Cell.xib */; };
-		8C4206F71E150CBF0075527B /* ProduModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4206C01E150CBF0075527B /* ProduModel.m */; };
 		8C4206F81E150CBF0075527B /* LQ_BHZ_SB_Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4206C51E150CBF0075527B /* LQ_BHZ_SB_Controller.m */; };
 		8C4206F91E150CBF0075527B /* SB_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4206C81E150CBF0075527B /* SB_Model.m */; };
-		8C4206FA1E150CBF0075527B /* LQModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4206CC1E150CBF0075527B /* LQModel.m */; };
-		8C4206FB1E150CBF0075527B /* LQ_BHZ_ZJM_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4206CF1E150CBF0075527B /* LQ_BHZ_ZJM_Cell.m */; };
-		8C4206FC1E150CBF0075527B /* LQ_BHZ_ZJM_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C4206D01E150CBF0075527B /* LQ_BHZ_ZJM_Cell.xib */; };
-		8C4206FD1E150CBF0075527B /* Lq_ZJM_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4206D21E150CBF0075527B /* Lq_ZJM_Cell.m */; };
-		8C4206FE1E150CBF0075527B /* Lq_ZJM_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C4206D31E150CBF0075527B /* Lq_ZJM_Cell.xib */; };
 		8C42073E1E150D0A0075527B /* LqNodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4207031E150D0A0075527B /* LqNodeViewController.m */; };
 		8C42073F1E150D0A0075527B /* LqNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4207061E150D0A0075527B /* LqNode.m */; };
 		8C4207401E150D0A0075527B /* LqNodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4207081E150D0A0075527B /* LqNodeModel.m */; };
@@ -146,8 +140,6 @@
 		D200647F1DFF86800021E293 /* HNT_TJFX_HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D20063D71DFF86800021E293 /* HNT_TJFX_HeaderView.xib */; };
 		D20064801DFF86800021E293 /* HNT_TJFX_TxtView.m in Sources */ = {isa = PBXBuildFile; fileRef = D20063D91DFF86800021E293 /* HNT_TJFX_TxtView.m */; };
 		D20064811DFF86800021E293 /* HNT_TJFX_TxtView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D20063DA1DFF86800021E293 /* HNT_TJFX_TxtView.xib */; };
-		D20064821DFF86800021E293 /* MySegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D20063DD1DFF86800021E293 /* MySegmentedControl.m */; };
-		D20064831DFF86800021E293 /* MySegmentedControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = D20063DE1DFF86800021E293 /* MySegmentedControl.xib */; };
 		D20064841DFF86800021E293 /* HNT_SYS_typeAndSB_Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = D20063E11DFF86800021E293 /* HNT_SYS_typeAndSB_Controller.m */; };
 		D20064851DFF86800021E293 /* SYS_SB_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = D20063E31DFF86800021E293 /* SYS_SB_Model.m */; };
 		D20064861DFF86800021E293 /* SYS_testTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D20063E51DFF86800021E293 /* SYS_testTypeModel.m */; };
@@ -351,20 +343,10 @@
 		8C4206BB1E150CBF0075527B /* NQ_BHZ_SCCX_Inner_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NQ_BHZ_SCCX_Inner_Cell.h; sourceTree = "<group>"; };
 		8C4206BC1E150CBF0075527B /* NQ_BHZ_SCCX_Inner_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NQ_BHZ_SCCX_Inner_Cell.m; sourceTree = "<group>"; };
 		8C4206BD1E150CBF0075527B /* NQ_BHZ_SCCX_Inner_Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NQ_BHZ_SCCX_Inner_Cell.xib; sourceTree = "<group>"; };
-		8C4206BF1E150CBF0075527B /* ProduModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProduModel.h; sourceTree = "<group>"; };
-		8C4206C01E150CBF0075527B /* ProduModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProduModel.m; sourceTree = "<group>"; };
 		8C4206C41E150CBF0075527B /* LQ_BHZ_SB_Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQ_BHZ_SB_Controller.h; sourceTree = "<group>"; };
 		8C4206C51E150CBF0075527B /* LQ_BHZ_SB_Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQ_BHZ_SB_Controller.m; sourceTree = "<group>"; };
 		8C4206C71E150CBF0075527B /* SB_Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SB_Model.h; sourceTree = "<group>"; };
 		8C4206C81E150CBF0075527B /* SB_Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SB_Model.m; sourceTree = "<group>"; };
-		8C4206CB1E150CBF0075527B /* LQModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQModel.h; sourceTree = "<group>"; };
-		8C4206CC1E150CBF0075527B /* LQModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQModel.m; sourceTree = "<group>"; };
-		8C4206CE1E150CBF0075527B /* LQ_BHZ_ZJM_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQ_BHZ_ZJM_Cell.h; sourceTree = "<group>"; };
-		8C4206CF1E150CBF0075527B /* LQ_BHZ_ZJM_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQ_BHZ_ZJM_Cell.m; sourceTree = "<group>"; };
-		8C4206D01E150CBF0075527B /* LQ_BHZ_ZJM_Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LQ_BHZ_ZJM_Cell.xib; sourceTree = "<group>"; };
-		8C4206D11E150CBF0075527B /* Lq_ZJM_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lq_ZJM_Cell.h; sourceTree = "<group>"; };
-		8C4206D21E150CBF0075527B /* Lq_ZJM_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lq_ZJM_Cell.m; sourceTree = "<group>"; };
-		8C4206D31E150CBF0075527B /* Lq_ZJM_Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Lq_ZJM_Cell.xib; sourceTree = "<group>"; };
 		8C4207021E150D0A0075527B /* LqNodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LqNodeViewController.h; sourceTree = "<group>"; };
 		8C4207031E150D0A0075527B /* LqNodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LqNodeViewController.m; sourceTree = "<group>"; };
 		8C4207051E150D0A0075527B /* LqNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LqNode.h; sourceTree = "<group>"; };
@@ -546,9 +528,6 @@
 		D20063D81DFF86800021E293 /* HNT_TJFX_TxtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNT_TJFX_TxtView.h; sourceTree = "<group>"; };
 		D20063D91DFF86800021E293 /* HNT_TJFX_TxtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNT_TJFX_TxtView.m; sourceTree = "<group>"; };
 		D20063DA1DFF86800021E293 /* HNT_TJFX_TxtView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HNT_TJFX_TxtView.xib; sourceTree = "<group>"; };
-		D20063DC1DFF86800021E293 /* MySegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySegmentedControl.h; sourceTree = "<group>"; };
-		D20063DD1DFF86800021E293 /* MySegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySegmentedControl.m; sourceTree = "<group>"; };
-		D20063DE1DFF86800021E293 /* MySegmentedControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MySegmentedControl.xib; sourceTree = "<group>"; };
 		D20063E01DFF86800021E293 /* HNT_SYS_typeAndSB_Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNT_SYS_typeAndSB_Controller.h; sourceTree = "<group>"; };
 		D20063E11DFF86800021E293 /* HNT_SYS_typeAndSB_Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNT_SYS_typeAndSB_Controller.m; sourceTree = "<group>"; };
 		D20063E21DFF86800021E293 /* SYS_SB_Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYS_SB_Model.h; sourceTree = "<group>"; };
@@ -762,6 +741,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		423975D51E1B551800039F60 /* Inner */ = {
+			isa = PBXGroup;
+			children = (
+				423975D61E1B551800039F60 /* Controller */,
+				423975D71E1B551800039F60 /* Model */,
+				423975D81E1B551800039F60 /* View */,
+			);
+			path = Inner;
+			sourceTree = "<group>";
+		};
+		423975D61E1B551800039F60 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				423975D91E1B575800039F60 /* DayDetailsController.h */,
+				423975DA1E1B575800039F60 /* DayDetailsController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		423975D71E1B551800039F60 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		423975D81E1B551800039F60 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				423975DC1E1B699500039F60 /* DayDetailsCell.h */,
+				423975DD1E1B699500039F60 /* DayDetailsCell.m */,
+				423975DE1E1B699500039F60 /* DayDetailsCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4271EB0D1E15FBA600C30DBF /* View2 */ = {
+			isa = PBXGroup;
+			children = (
+				4271EB0E1E15FBA600C30DBF /* MySegmentedControl.h */,
+				4271EB0F1E15FBA600C30DBF /* MySegmentedControl.m */,
+				4271EB101E15FBA600C30DBF /* MySegmentedControl.xib */,
+			);
+			path = View2;
+			sourceTree = "<group>";
+		};
 		66C512171871ECC57F6E7A5A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -846,10 +871,10 @@
 		8C4206591E150CBF0075527B /* Inner */ = {
 			isa = PBXGroup;
 			children = (
-				8C42065A1E150CBF0075527B /* 中级 */,
 				8C4206621E150CBF0075527B /* 初级 */,
-				8C42066D1E150CBF0075527B /* 总 */,
+				8C42065A1E150CBF0075527B /* 中级 */,
 				8C4206751E150CBF0075527B /* 高级 */,
+				8C42066D1E150CBF0075527B /* 总 */,
 			);
 			path = Inner;
 			sourceTree = "<group>";
@@ -913,6 +938,8 @@
 			children = (
 				8C4206671E150CBF0075527B /* EXPrimaryModel.h */,
 				8C4206681E150CBF0075527B /* EXPrimaryModel.m */,
+				42D618A31E165436009CD27B /* disposal_C_Model.h */,
+				42D618A41E165436009CD27B /* disposal_C_Model.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1029,8 +1056,8 @@
 				8C4206831E150CBF0075527B /* MaterialViewController.h */,
 				8C4206841E150CBF0075527B /* MaterialViewController.m */,
 				8C4206851E150CBF0075527B /* 出料口温度 */,
-				8C4206881E150CBF0075527B /* 总产量统计 */,
 				8C42068B1E150CBF0075527B /* 生产监控 */,
+				8C4206881E150CBF0075527B /* 总产量统计 */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1111,6 +1138,7 @@
 			children = (
 				8C4206961E150CBF0075527B /* DayQueryTableViewController.h */,
 				8C4206971E150CBF0075527B /* DayQueryTableViewController.m */,
+				423975D51E1B551800039F60 /* Inner */,
 				8C4206981E150CBF0075527B /* Model */,
 				8C42069B1E150CBF0075527B /* View */,
 			);
@@ -1231,8 +1259,6 @@
 		8C4206BE1E150CBF0075527B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8C4206BF1E150CBF0075527B /* ProduModel.h */,
-				8C4206C01E150CBF0075527B /* ProduModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1282,8 +1308,10 @@
 		8C4206CA1E150CBF0075527B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8C4206CB1E150CBF0075527B /* LQModel.h */,
-				8C4206CC1E150CBF0075527B /* LQModel.m */,
+				4271EB071E15F61400C30DBF /* LQ_CellModel.h */,
+				4271EB081E15F61400C30DBF /* LQ_CellModel.m */,
+				4271EB0A1E15F63200C30DBF /* LQ_Model.h */,
+				4271EB0B1E15F63200C30DBF /* LQ_Model.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1291,12 +1319,9 @@
 		8C4206CD1E150CBF0075527B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8C4206CE1E150CBF0075527B /* LQ_BHZ_ZJM_Cell.h */,
-				8C4206CF1E150CBF0075527B /* LQ_BHZ_ZJM_Cell.m */,
-				8C4206D01E150CBF0075527B /* LQ_BHZ_ZJM_Cell.xib */,
-				8C4206D11E150CBF0075527B /* Lq_ZJM_Cell.h */,
-				8C4206D21E150CBF0075527B /* Lq_ZJM_Cell.m */,
-				8C4206D31E150CBF0075527B /* Lq_ZJM_Cell.xib */,
+				42D6189E1E162907009CD27B /* LQ_ZJM_Cell.h */,
+				42D6189F1E162907009CD27B /* LQ_ZJM_Cell.m */,
+				42D618A01E162907009CD27B /* LQ_ZJM_Cell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2055,9 +2080,6 @@
 		D20063DB1DFF86800021E293 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D20063DC1DFF86800021E293 /* MySegmentedControl.h */,
-				D20063DD1DFF86800021E293 /* MySegmentedControl.m */,
-				D20063DE1DFF86800021E293 /* MySegmentedControl.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2185,6 +2207,7 @@
 		D200641A1DFF86800021E293 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				4271EB0D1E15FBA600C30DBF /* View2 */,
 				8C14C90B1E0BD48300A3F2E7 /* View */,
 				D200641B1DFF86800021E293 /* MyModel.h */,
 				D200641C1DFF86800021E293 /* MyModel.m */,
@@ -2196,6 +2219,8 @@
 				D20064221DFF86800021E293 /* MyViewController.m */,
 				D20064231DFF86800021E293 /* UserDefaultsSetting.h */,
 				D20064241DFF86800021E293 /* UserDefaultsSetting.m */,
+				423975E11E1CEF7B00039F60 /* MyInputController.h */,
+				423975E21E1CEF7B00039F60 /* MyInputController.m */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -2593,7 +2618,6 @@
 				D20064671DFF86800021E293 /* DrawerList.plist in Resources */,
 				D2CF6B661E011728003AE61D /* Exp6_Xib_View.xib in Resources */,
 				D20065381DFF86B30021E293 /* MultipleLinesChartViewController.xib in Resources */,
-				D20064831DFF86800021E293 /* MySegmentedControl.xib in Resources */,
 				D20065901DFFC9F10021E293 /* HNT_SCCX_Cell.xib in Resources */,
 				D200648B1DFF86800021E293 /* HNT_SYS_HeaderView.xib in Resources */,
 				D20065201DFF86B30021E293 /* BubbleChartViewController.xib in Resources */,
@@ -2607,6 +2631,7 @@
 				D200648D1DFF86800021E293 /* HNT_SYS_TestView.xib in Resources */,
 				8C4207471E150D0A0075527B /* TheProjectCell.xib in Resources */,
 				D200646D1DFF86800021E293 /* HNT_BHZ_Cell.xib in Resources */,
+				42D618A21E162907009CD27B /* LQ_ZJM_Cell.xib in Resources */,
 				D20065361DFF86B30021E293 /* MultipleBarChartViewController.xib in Resources */,
 				8CEB5BCA1E0A6C0D00A5C4AA /* Main.storyboard in Resources */,
 				D200652A1DFF86B30021E293 /* HalfPieChartViewController.xib in Resources */,
@@ -2617,6 +2642,7 @@
 				D20065241DFF86B30021E293 /* ColoredLineChartViewController.xib in Resources */,
 				D20065441DFF86B30021E293 /* ScatterChartViewController.xib in Resources */,
 				8C06E0A51E0D202E00EBD526 /* Assets.xcassets in Resources */,
+				423975E01E1B699500039F60 /* DayDetailsCell.xib in Resources */,
 				8CBD73401E091C7E00A0C991 /* HNT_CLHS_ChatCell.xib in Resources */,
 				8CEB5BC81E0A6C0D00A5C4AA /* LaunchScreen.storyboard in Resources */,
 				D200653C1DFF86B30021E293 /* PieChartViewController.xib in Resources */,
@@ -2637,17 +2663,16 @@
 				D20065301DFF86B30021E293 /* LineChart2ViewController.xib in Resources */,
 				D20065321DFF86B30021E293 /* LineChartFilledViewController.xib in Resources */,
 				D246B2A91E00DEBA00E83159 /* HNT_CBCZ_Cell.xib in Resources */,
+				4271EB121E15FBA600C30DBF /* MySegmentedControl.xib in Resources */,
 				D20064651DFF86800021E293 /* DrawerController.xib in Resources */,
 				D20065181DFF86B30021E293 /* RadarMarkerView.xib in Resources */,
 				8CE976571E0BF1FF0016A858 /* MySJxib.xib in Resources */,
 				D200647F1DFF86800021E293 /* HNT_TJFX_HeaderView.xib in Resources */,
 				8C4206EA1E150CBF0075527B /* DayQueryTableViewCell.xib in Resources */,
-				8C4206FE1E150CBF0075527B /* Lq_ZJM_Cell.xib in Resources */,
 				8CBD73451E091EF600A0C991 /* HNT_CLHS_Cell.xib in Resources */,
 				D200652E1DFF86B30021E293 /* LineChart1ViewController.xib in Resources */,
 				D20064811DFF86800021E293 /* HNT_TJFX_TxtView.xib in Resources */,
 				8CBD72E81E07A75000A0C991 /* HNT_SCCX_Detail_HeadMsgCell.xib in Resources */,
-				8C4206FC1E150CBF0075527B /* LQ_BHZ_ZJM_Cell.xib in Resources */,
 				D200651C1DFF86B30021E293 /* AnotherBarChartViewController.xib in Resources */,
 				D20065401DFF86B30021E293 /* PositiveNegativeBarChartViewController.xib in Resources */,
 			);
@@ -2708,7 +2733,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C4206FA1E150CBF0075527B /* LQModel.m in Sources */,
 				D20064A71DFF86800021E293 /* SGDate.m in Sources */,
 				D200646A1DFF86800021E293 /* HNT_BHZ_Controller.m in Sources */,
 				8C4207431E150D0A0075527B /* NetworkTool.m in Sources */,
@@ -2739,6 +2763,7 @@
 				D200649D1DFF86800021E293 /* UIButton+Img_20.m in Sources */,
 				D20065A91DFFE28D0021E293 /* HNT_BHZ_SB_Controller.m in Sources */,
 				D200649C1DFF86800021E293 /* NSString+Separate.m in Sources */,
+				42D618A11E162907009CD27B /* LQ_ZJM_Cell.m in Sources */,
 				D20065211DFF86B30021E293 /* CandleStickChartViewController.m in Sources */,
 				8C4206EB1E150CBF0075527B /* MaterialTableViewController.m in Sources */,
 				D200643D1DFF86800021E293 /* BBFlashCtntLabel.m in Sources */,
@@ -2751,13 +2776,13 @@
 				D20065311DFF86B30021E293 /* LineChartFilledViewController.m in Sources */,
 				8C42073E1E150D0A0075527B /* LqNodeViewController.m in Sources */,
 				D20064481DFF86800021E293 /* MJDIYHeader2.m in Sources */,
+				4271EB091E15F61400C30DBF /* LQ_CellModel.m in Sources */,
 				D200646B1DFF86800021E293 /* HNT_BHZ_Model.m in Sources */,
 				D20064901DFF86800021E293 /* ViewController.m in Sources */,
 				D20064771DFF86800021E293 /* HNT_WNSY_DetailController.m in Sources */,
 				8C4207531E150D0A0075527B /* NSObject+YYModel.m in Sources */,
 				D20064461DFF86800021E293 /* CJShowTimeView.m in Sources */,
 				8C4207401E150D0A0075527B /* LqNodeModel.m in Sources */,
-				8C4206FB1E150CBF0075527B /* LQ_BHZ_ZJM_Cell.m in Sources */,
 				8C4206F11E150CBF0075527B /* ProductionDetailsM.m in Sources */,
 				D20065931DFFCC080021E293 /* HNT_SCCX_Model.m in Sources */,
 				D20064411DFF86800021E293 /* CJUseTime.m in Sources */,
@@ -2771,6 +2796,7 @@
 				8CBD72E71E07A75000A0C991 /* HNT_SCCX_Detail_HeadMsgCell.m in Sources */,
 				D20064421DFF86800021E293 /* CJDecisionView.m in Sources */,
 				D20064691DFF86800021E293 /* WelcomeViewController.m in Sources */,
+				4271EB0C1E15F63200C30DBF /* LQ_Model.m in Sources */,
 				8C4206F01E150CBF0075527B /* ProductionDetailsG.m in Sources */,
 				8C42074C1E150D0A0075527B /* MASLayoutConstraint.m in Sources */,
 				D20064451DFF86800021E293 /* CJSelectTimeScrollView.m in Sources */,
@@ -2801,6 +2827,7 @@
 				D20064A51DFF86800021E293 /* NoCopyTextField.m in Sources */,
 				D200649A1DFF86800021E293 /* NSArray+Log.m in Sources */,
 				D20065471DFF86B30021E293 /* StackedBarChartViewController.m in Sources */,
+				423975E31E1CEF7B00039F60 /* MyInputController.m in Sources */,
 				D200647A1DFF86800021E293 /* HNT_WNSY_Cell.m in Sources */,
 				D20065411DFF86B30021E293 /* RadarChartViewController.m in Sources */,
 				8C4206F81E150CBF0075527B /* LQ_BHZ_SB_Controller.m in Sources */,
@@ -2810,6 +2837,7 @@
 				D200648A1DFF86800021E293 /* HNT_SYS_HeaderView.m in Sources */,
 				8C4207441E150D0A0075527B /* Node.m in Sources */,
 				8C4206EE1E150CBF0075527B /* NQ_BHZ_SCCX_Inne_ moreModel.m in Sources */,
+				423975DB1E1B575900039F60 /* DayDetailsController.m in Sources */,
 				D20065841DFFC5AB0021E293 /* HNT_SCCX_Controller.m in Sources */,
 				D20064A61DFF86800021E293 /* SGAnimationType.m in Sources */,
 				D20064A91DFF86800021E293 /* Tools.m in Sources */,
@@ -2819,18 +2847,17 @@
 				D20065491DFF86B30021E293 /* DateValueFormatter.m in Sources */,
 				D20064661DFF86800021E293 /* Drawer.m in Sources */,
 				D20065171DFF86B30021E293 /* RadarMarkerView.swift in Sources */,
-				8C4206FD1E150CBF0075527B /* Lq_ZJM_Cell.m in Sources */,
 				D20064931DFF86800021E293 /* Exp1View.m in Sources */,
 				D20062FE1DFF85CB0021E293 /* main.m in Sources */,
 				D246B2AC1E00E0CD00E83159 /* HNT_CBCZ_Model.m in Sources */,
 				8C4206D81E150CBF0075527B /* EXPMiddleModel.m in Sources */,
-				8C4206F71E150CBF0075527B /* ProduModel.m in Sources */,
 				8C4206D71E150CBF0075527B /* MiddleExcessiveTableContller.m in Sources */,
 				D20065A51DFFE12D0021E293 /* Exp5View.m in Sources */,
 				8C4207511E150D0A0075527B /* View+MASAdditions.m in Sources */,
 				8CEB5BD41E0A7DAA00A5C4AA /* SGButton.m in Sources */,
 				8C4207491E150D0A0075527B /* MASCompositeConstraint.m in Sources */,
 				D20064711DFF86800021E293 /* HNT_YLSY_DetailController.m in Sources */,
+				42D618A51E165436009CD27B /* disposal_C_Model.m in Sources */,
 				D20064761DFF86800021E293 /* HNT_WNSY_Controller.m in Sources */,
 				8C42074A1E150D0A0075527B /* MASConstraint.m in Sources */,
 				D200649E1DFF86800021E293 /* UIView+Frame.m in Sources */,
@@ -2856,6 +2883,7 @@
 				D20064941DFF86800021E293 /* Exp2_Xib_View.m in Sources */,
 				8C4206DB1E150CBF0075527B /* EXPrimaryCell.m in Sources */,
 				D200653F1DFF86B30021E293 /* PositiveNegativeBarChartViewController.m in Sources */,
+				4271EB111E15FBA600C30DBF /* MySegmentedControl.m in Sources */,
 				8C42074E1E150D0A0075527B /* MASViewConstraint.m in Sources */,
 				8C42074B1E150D0A0075527B /* MASConstraintMaker.m in Sources */,
 				8C4207411E150D0A0075527B /* LqTreeTableView.m in Sources */,
@@ -2864,7 +2892,6 @@
 				8C4206DD1E150CBF0075527B /* TotalTableController.m in Sources */,
 				8C42074D1E150D0A0075527B /* MASViewAttribute.m in Sources */,
 				D20064781DFF86800021E293 /* HNT_WNSY_DetailModel.m in Sources */,
-				D20064821DFF86800021E293 /* MySegmentedControl.m in Sources */,
 				8C4206E01E150CBF0075527B /* EXPSeniorModel.m in Sources */,
 				8C4206ED1E150CBF0075527B /* NQ_BHZ_SCCX_Innel_Controller.m in Sources */,
 				D20064701DFF86800021E293 /* HNT_YLSY_Controller.m in Sources */,
@@ -2888,6 +2915,7 @@
 				8C42074F1E150D0A0075527B /* NSArray+MASAdditions.m in Sources */,
 				D20064431DFF86800021E293 /* CJMonthDayCollectionCell.m in Sources */,
 				8C4207541E150D0A0075527B /* YYClassInfo.m in Sources */,
+				423975DF1E1B699500039F60 /* DayDetailsCell.m in Sources */,
 				8C4206E71E150CBF0075527B /* DayQueryTableViewController.m in Sources */,
 				D200646F1DFF86800021E293 /* HNT_SYS_InnerController.m in Sources */,
 				D200647E1DFF86800021E293 /* HNT_TJFX_HeaderView.m in Sources */,
@@ -3053,7 +3081,7 @@
 				INFOPLIST_FILE = toone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.shtoone.toonesss;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.shtoone.toone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shtoone/Desktop/toone2/toone/Classes/Business/Toone-Bridging-Header.h";
 				SWIFT_VERSION = 3.0.1;
@@ -3072,7 +3100,7 @@
 				INFOPLIST_FILE = toone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.shtoone.toonesss;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.shtoone.toone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shtoone/Desktop/toone2/toone/Classes/Business/Toone-Bridging-Header.h";
 				SWIFT_VERSION = 3.0.1;

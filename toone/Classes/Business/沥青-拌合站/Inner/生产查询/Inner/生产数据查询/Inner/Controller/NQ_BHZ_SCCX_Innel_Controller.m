@@ -34,36 +34,34 @@
 }
 
 -(void)setUI {
+    self.automaticallyAdjustsScrollViewInsets = YES;
     self.navigationItem.title = @"生产数据详情";
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-    self.tableView.rowHeight = 700;
-    self.tableView.bounces = NO;
+    self.tableView.rowHeight = 610;
     
-    self.tableView.mj_header = [MJDIYHeader2 headerWithRefreshingTarget:self refreshingAction:@selector(looadData)];
-    [self.tableView.mj_header beginRefreshing];
+   [self looadData];
 }
 
 -(void)looadData {
-    NQ_BHZ_SCCX_InneModel *model = [[NQ_BHZ_SCCX_InneModel alloc] init];
-    
-    __weak typeof(self)  weakSelf = self;
-    [model productionDetailsBlock:^(NSMutableArray *result) {
-        weakSelf.dataArr = result;
-
-        [weakSelf.tableView reloadData];
-        
-        [weakSelf.tableView.mj_header endRefreshing];
-    }];
+//    NQ_BHZ_SCCX_InneModel *model = [[NQ_BHZ_SCCX_InneModel alloc] init];
+//    
+//    __weak typeof(self)  weakSelf = self;
+//    [model productionDetailsBlock:^(NSMutableArray *result) {
+//        weakSelf.dataArr = result;
+//
+//        [weakSelf.tableView reloadData];
+//
+//    }];
     
     NSString *shebeiStr = [UserDefaultsSetting shareSetting].shebeibianhao;
     NSNumber *bianhaoBer = [UserDefaultsSetting shareSetting].bianhao;
     NSString *urlString = [NSString stringWithFormat:ProductionDetails,shebeiStr,bianhaoBer];
-    
+    __weak typeof(self)  weakSelf = self;
     [[NetworkTool sharedNetworkTool] getObjectWithURLString:urlString completeBlock:^(id result) {
                     NSMutableArray * datas = [NSMutableArray array];
         NSDictionary *dict = (NSDictionary *)result;
         
-        if (dict[@"success"]) {
+        if ([dict[@"success"] boolValue]) {
             weakSelf.modelM = [ProductionDetailsM modelWithDict:dict[@"data"]];
             weakSelf.model = [NQ_BHZ_SCCX_InneModel moodWithDict:dict[@"Fields"]];
             
@@ -73,7 +71,7 @@
             [datas addObject:weakSelf.modelM];
             [datas addObject:weakSelf.model];
         }
-        
+        [weakSelf.tableView reloadData];
     }
      ];
     
@@ -81,7 +79,7 @@
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _dataArr.count-1;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -102,10 +100,7 @@
         return cell;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    
-}
+
 -(NSArray *)dataArr {
     if (_dataArr == nil) {
         _dataArr = [NSArray array];

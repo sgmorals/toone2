@@ -26,7 +26,7 @@ typedef void(^DayQueryBlock)(NSArray *result);
 @property (nonatomic, strong) NSString *dailycl;//采集产量
 @property (nonatomic, strong) NSString *dailybuwei;//施工桩号
 
-
+@property (nonatomic, assign) long indexRow;//施工桩号
 @property (nonatomic, strong) NSArray *arry;
 
 -(void)dayQueryBlock:(DayQueryBlock)dayQueryBlock;

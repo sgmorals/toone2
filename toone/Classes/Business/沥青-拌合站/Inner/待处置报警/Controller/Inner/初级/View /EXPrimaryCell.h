@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@class EXPrimaryModel,EX_CJ_PrimaryM;
+@class EXPrimaryModel,disposal_C_Model;
 
 @interface EXPrimaryCell : UITableViewCell
 @property (nonatomic, strong) EXPrimaryModel *EXPModel;
-//@property (nonatomic, strong) EX_CJ_PrimaryM *modelG;
+@property (nonatomic, strong) disposal_C_Model *disModel;
 
 @end

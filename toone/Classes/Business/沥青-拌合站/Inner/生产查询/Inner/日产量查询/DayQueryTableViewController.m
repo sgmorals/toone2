@@ -9,28 +9,28 @@
 #import "DayQueryTableViewController.h"
 #import "DayQueryModel.h"
 #import "DayQueryTableViewCell.h"
+#import "DayDetailsController.h"
 
 @interface DayQueryTableViewController ()
 @property(nonatomic, strong) NSArray *dataArr;
-
 @end
 @implementation DayQueryTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-    [self setUi];
-    [self setData];
+    [self setUI];
+    [self loadData];
 }
 
--(void)setUi {
-    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+-(void)setUI {
     self.tableView.rowHeight = 180;
     self.tableView.frame = CGRectMake(0, 95, Screen_w, Screen_h - 100);
-    self.tableView.bounces = NO;
+    self.tableView.mj_header = [MJDIYHeader2 headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
+    [self.tableView.mj_header beginRefreshing];
 }
 
--(void)setData {
+-(void)loadData {
     DayQueryModel *model = [[DayQueryModel alloc] init];
     
     __weak typeof(self)  weakSelf = self;
@@ -38,16 +38,14 @@
         weakSelf.dataArr = result;
         
         [weakSelf.tableView reloadData];
-        
+        [weakSelf.tableView.mj_header endRefreshing];
     }];
 }
-
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _dataArr.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -57,36 +55,19 @@
     DayQueryTableViewCell *cell = (DayQueryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     DayQueryModel *model = _dataArr[indexPath.row];
+    //产量存值
+    [UserDefaultsSetting shareSetting].dailyid = model.dailyid;
+    [UserDefaultsSetting shareSetting].dailysbbh = model.dailysbbh;
     
     cell.dayQueryModel = model;
-    
+        
     return cell;
 }
 
-//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-//    
-//    if (indexPath.row%2==0) {
-//        
-//        cell.backgroundColor = [UIColor colorWithRed:225.0/255 green:244.0/255 blue:241.0/255 alpha:1];
-//        
-//    }else {
-//        
-//        cell.backgroundColor = [UIColor colorWithRed:232.0/255 green:232.0/255 blue:253.0/255 alpha:1];
-//        
-//    }
-//}
-
-
--(NSArray *)dataArr {
-    if (_dataArr == nil) {
-        _dataArr = [NSArray array];
-    }
-    return _dataArr;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    DayDetailsController *detailVc = [[DayDetailsController alloc] init];
+    detailVc.model = _dataArr[indexPath.row];
+    [self.navigationController pushViewController:detailVc animated:YES];
 }
 
 @end
