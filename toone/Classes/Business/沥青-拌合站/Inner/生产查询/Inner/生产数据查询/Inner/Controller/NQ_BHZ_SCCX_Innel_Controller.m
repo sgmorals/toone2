@@ -43,16 +43,6 @@
 }
 
 -(void)looadData {
-//    NQ_BHZ_SCCX_InneModel *model = [[NQ_BHZ_SCCX_InneModel alloc] init];
-//    
-//    __weak typeof(self)  weakSelf = self;
-//    [model productionDetailsBlock:^(NSMutableArray *result) {
-//        weakSelf.dataArr = result;
-//
-//        [weakSelf.tableView reloadData];
-//
-//    }];
-    
     NSString *shebeiStr = [UserDefaultsSetting shareSetting].shebeibianhao;
     NSNumber *bianhaoBer = [UserDefaultsSetting shareSetting].bianhao;
     NSString *urlString = [NSString stringWithFormat:ProductionDetails,shebeiStr,bianhaoBer];

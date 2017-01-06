@@ -99,20 +99,18 @@
         }
         
         if (type == ExpButtonTypeChoiceSBButton) {
-//            UIButton * btn = (UIButton*)obj1;
-//            [weakSelf performSegueWithIdentifier:@"HNT_SCCX_Controller" sender:btn];
+            UIButton * btn = (UIButton*)obj1;
+            LQ_BHZ_SB_Controller *sbVc = [[LQ_BHZ_SB_Controller alloc] init];
+            [self.navigationController pushViewController:sbVc animated:YES];
             
-            [self.navigationController pushViewController:[[LQ_BHZ_SB_Controller alloc] init] animated:YES];
+            sbVc.callBlock = ^(NSString * banhezhanminchen,NSString*gprsbianhao){
+                [btn setTitle:banhezhanminchen forState:UIControlStateNormal];
+//                weakSelf.shebeibianhao = gprsbianhao;
+            };
         }
     };
     [self.view addSubview:e];
 
-}
-
-#pragma mark - 查询跳转
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    
 }
 
 #pragma mark - 分页控制器跳转

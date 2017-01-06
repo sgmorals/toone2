@@ -112,7 +112,6 @@
         cell.selectionStyle =UITableViewCellSelectionStyleNone;
         return cell;
     }else {
-        //        LQ_CBCZ_Detail_ChuliCell * cell = [tableView dequeueReusableCellWithIdentifier:@"LQ_CBCZ_Detail_ChuliCell"];
         static NSString *CellIdentifier = @"LQ_CBCZ_Detail_ChuliCell";
         UINib *nib = [UINib nibWithNibName:@"LQ_CBCZ_Detail_ChuliCell" bundle:nil];
         [tableView registerNib:nib forCellReuseIdentifier:CellIdentifier];

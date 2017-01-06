@@ -108,7 +108,7 @@
 #define LQHome FormatString(baseUrlStr,@"lqChaoBiaoController.do?lqChaoBiaoCount&userGroupId=%@&startTime=%@&endTime=%@")
 
 //沥青拌合站生产数据查询
-#define ProduQuery FormatString(baseUrlStr,@"lqScsjcxController.do?getScsjcxList&userGroupId=%@&shebeibianhao=&startTime=%@&endTime=%@&pageNo=&maxPageItems=")
+#define ProduQuery FormatString(baseUrlStr,@"lqScsjcxController.do?getScsjcxList&userGroupId=%@&shebeibianhao=@&startTime=%@&endTime=%@&pageNo=&maxPageItems=")
 //沥青拌合站生产数据详情
 #define ProductionDetails FormatString(baseUrlStr,@"lqScsjcxController.do?getScsjcxDetail&shebeibianhao=%@&bianhao=%@")
 
@@ -119,5 +119,8 @@
 #define LQExcessive FormatString(baseUrlStr,@"lqChaoBiaoChuZhiController.do?appLqChaobiaoList&dengji=%@&chuzhileixing=&pageNo=&shebeibianhao=&userGroupId=%@&startTime=%@&endTime=%@")
 //沥青拌合站待处置报警详情
 #define LQExInner FormatString(baseUrlStr,@"lqChaoBiaoChuZhiController.do?appLqChaobiaoDetail&xxid=%@&shebeibianhao=%@")
+
+//沥青拌合站设备列表
+#define LQ_SB_Data FormatString(baseUrlStr,@"lqSysController.do?getLqShebeiList&userGroupId=%@")
 
 #endif /* ToonePrefixHeader_pch */

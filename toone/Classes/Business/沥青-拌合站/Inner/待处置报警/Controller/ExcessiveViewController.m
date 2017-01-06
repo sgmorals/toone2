@@ -12,6 +12,7 @@
 #import "MiddleExcessiveTableContller.h"
 #import "SeniorExcessiveTableConller.h"
 #import "TotalTableController.h"
+#import "LQ_BHZ_SB_Controller.h"
 
 @interface ExcessiveViewController ()<TouchLabelDelegate>
 
@@ -113,13 +114,18 @@
         }
         
         if (type == ExpButtonTypeChoiceSBButton) {//选择设备
-//            UIButton * btn = (UIButton*)obj1;
-//            [weakSelf performSegueWithIdentifier:@"HNT_CBCZ_Controller" sender:btn];
+            UIButton * btn = (UIButton*)obj1;
+            LQ_BHZ_SB_Controller *sbVc = [[LQ_BHZ_SB_Controller alloc] init];
+            [self.navigationController pushViewController:sbVc animated:YES];
+            
+            sbVc.callBlock = ^(NSString * banhezhanminchen,NSString*gprsbianhao){
+                [btn setTitle:banhezhanminchen forState:UIControlStateNormal];
+                //                weakSelf.shebeibianhao = gprsbianhao;
+            };
+
         }
     };
     [self.view addSubview:e];
-
-    
 }
 
 
