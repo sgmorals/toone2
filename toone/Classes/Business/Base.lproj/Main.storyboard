@@ -3685,10 +3685,10 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="35"/>
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbx-f0-8jE">
-                                        <rect key="frame" x="330" y="0.0" width="45" height="35"/>
+                                        <rect key="frame" x="323" y="0.0" width="52" height="35"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="45" id="8or-QX-k49"/>
+                                            <constraint firstAttribute="width" constant="52" id="8or-QX-k49"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <state key="normal" title="筛选" image="white_SX"/>
@@ -3697,7 +3697,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBq-Et-LrR" customClass="BBFlashCtntLabel">
-                                        <rect key="frame" x="3" y="0.0" width="325" height="35"/>
+                                        <rect key="frame" x="3" y="0.0" width="318" height="35"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
@@ -3751,53 +3751,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="keC-MM-dIW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1372" y="4451"/>
-        </scene>
-        <!--My Input Controller-->
-        <scene sceneID="6b9-6j-329">
-            <objects>
-                <viewController storyboardIdentifier="MyInputController" id="qJi-m6-6Af" customClass="MyInputController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gsf-pA-qat"/>
-                        <viewControllerLayoutGuide type="bottom" id="CT9-Ps-iSb"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="BDc-gV-NuP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLm-Xn-pVP">
-                                <rect key="frame" x="0.0" y="25" width="375" height="40"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gZ2-YH-ecV">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="BaE-HV-9yI"/>
-                                    <constraint firstAttribute="trailing" secondItem="gZ2-YH-ecV" secondAttribute="trailing" id="D9b-GP-TZd"/>
-                                    <constraint firstItem="gZ2-YH-ecV" firstAttribute="top" secondItem="BLm-Xn-pVP" secondAttribute="top" id="Yt7-pg-bUz"/>
-                                    <constraint firstItem="gZ2-YH-ecV" firstAttribute="leading" secondItem="BLm-Xn-pVP" secondAttribute="leading" id="scN-mY-aoZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="gZ2-YH-ecV" secondAttribute="bottom" id="szk-wN-GZJ"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="BLm-Xn-pVP" firstAttribute="top" secondItem="gsf-pA-qat" secondAttribute="bottom" constant="5" id="IsW-JS-M7x"/>
-                            <constraint firstItem="BLm-Xn-pVP" firstAttribute="leading" secondItem="BDc-gV-NuP" secondAttribute="leading" id="cPI-RS-FuR"/>
-                            <constraint firstAttribute="trailing" secondItem="BLm-Xn-pVP" secondAttribute="trailing" id="kuj-sd-2Xp"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="textF" destination="gZ2-YH-ecV" id="7fI-d9-2fN"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ASK-fe-tzo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1372" y="5217"/>
         </scene>
         <!--沥青组织机构-->
         <scene sceneID="JOJ-mW-iF7">

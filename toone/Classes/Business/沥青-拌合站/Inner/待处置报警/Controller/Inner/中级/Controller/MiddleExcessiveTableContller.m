@@ -12,6 +12,7 @@
 #import "disposal_C_Model.h"
 #import "MyViewController.h"
 #import "NetworkTool.h"
+#import "DCZ_CJ_Ineer_Controller.h"
 
 @interface MiddleExcessiveTableContller ()
 @property(nonatomic, strong) NSArray *dataAr;
@@ -84,12 +85,9 @@
     
     return cell;
 }
-
--(NSArray *)dataAr {
-    if (_dataAr == nil) {
-        _dataAr = [NSArray array];
-    }
-    return _dataAr;
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    DCZ_CJ_Ineer_Controller *dczVc = [[DCZ_CJ_Ineer_Controller alloc] init];
+    [self.navigationController pushViewController:dczVc animated:YES];
 }
 
 @end

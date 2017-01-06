@@ -93,6 +93,10 @@
     
     self.shijianLabel.text = EXPModel.shijian;
     self.bianhaoLabel.text = [NSString stringWithFormat:@"%@", EXPModel.bianhao];
+    //存储
+    [UserDefaultsSetting shareSetting].CBbianhao = EXPModel.bianhao;
+//    [UserDefaultsSetting shareSetting].CBshebeibianhao  = EXPModel.shebeibianhao;
+    [UserDefaultsSetting shareSetting].chuli = EXPModel.chuli;
     
     self.chuzView.hidden = NO;
     self.chuzLabel.textColor = [UIColor whiteColor];

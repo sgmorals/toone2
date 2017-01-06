@@ -97,7 +97,7 @@
 
 /**************************沥青*********************************/
 //沥青拌合站专用
-#define baseUrlStr   @"http://192.168.11.115:8082/qhttqms/"
+#define baseUrlStr   @"http://192.168.11.108:8081/qhttqms/"
 //沥青登录数据
 #define LqAppLogin   FormatString(baseUrlStr,@"app.do?AppLogin&userName=%@&userPwd=%@&OSType=3")
 
@@ -117,4 +117,7 @@
 
 //沥青拌合站待处置报警
 #define LQExcessive FormatString(baseUrlStr,@"lqChaoBiaoChuZhiController.do?appLqChaobiaoList&dengji=%@&chuzhileixing=&pageNo=&shebeibianhao=&userGroupId=%@&startTime=%@&endTime=%@")
+//沥青拌合站待处置报警详情
+#define LQExInner FormatString(baseUrlStr,@"lqChaoBiaoChuZhiController.do?appLqChaobiaoDetail&xxid=%@&shebeibianhao=%@")
+
 #endif /* ToonePrefixHeader_pch */

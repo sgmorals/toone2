@@ -50,4 +50,7 @@
 @property (nonatomic, copy) NSString *timeName;//监听筛选时间按钮
 @property (nonatomic, strong) NSNumber *dailyid;//日产量id
 @property (nonatomic, copy) NSString *dailysbbh;//日产量设备编号
+@property (nonatomic, strong) NSNumber *CBbianhao;//待处置编号(id)
+@property (nonatomic, copy) NSString *CBshebeibianhao;//待处置设备编号
+@property (nonatomic, copy) NSString *chuli;//沥青超标处理
 @end

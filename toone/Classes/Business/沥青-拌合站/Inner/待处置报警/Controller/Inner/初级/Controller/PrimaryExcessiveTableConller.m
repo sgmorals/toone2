@@ -12,6 +12,7 @@
 #import "NetworkTool.h"
 #import "MyViewController.h"
 #import "disposal_C_Model.h"
+#import "DCZ_CJ_Ineer_Controller.h"
 
 @interface PrimaryExcessiveTableConller ()
 @property(nonatomic, strong) NSArray *dataArr;
@@ -30,8 +31,9 @@
 
 -(void)setUI {
 
-    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-    self.tableView.rowHeight = 170;
+//    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+    self.automaticallyAdjustsScrollViewInsets = YES;
+    self.tableView.rowHeight = 165;
     self.tableView.frame = CGRectMake(0, 95, Screen_w, Screen_h - 100);
     
     self.tableView.mj_header = [MJDIYHeader2 headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
@@ -72,7 +74,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _dataArr.count;
 }
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"EXPrimaryCell";
     UINib *nib = [UINib nibWithNibName:@"EXPrimaryCell" bundle:nil];
@@ -84,14 +85,10 @@
     
     return cell;
 }
-
-
-//-(NSArray *)dataArr {
-//    if (_dataArr == nil) {
-//        _dataArr = [NSArray array];
-//    }
-//    return _dataArr;
-//}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    DCZ_CJ_Ineer_Controller *dczVc = [[DCZ_CJ_Ineer_Controller alloc] init];
+    [self.navigationController pushViewController:dczVc animated:YES];
+}
 
 
 @end

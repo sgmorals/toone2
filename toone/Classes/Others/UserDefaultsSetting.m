@@ -67,7 +67,11 @@ static UserDefaultsSetting * setting = nil;
     setting.dailyid = [defaults objectForKey:@"dailyidKey"];
     //日产量设备编号
      setting.dailysbbh = [defaults objectForKey:@"dailysbbhKey"];
-    
+    //待处置编号，设备编号
+    setting.CBbianhao = [defaults objectForKey:@"CBbianhaoKey"];
+    setting.CBshebeibianhao = [defaults objectForKey:@"CBshebeibianhaoKey"];
+    //沥青超标处理
+    setting.chuli = [defaults objectForKey:@"chuliKey"];
 }
 -(void)saveToSandbox{
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
@@ -100,15 +104,18 @@ static UserDefaultsSetting * setting = nil;
     [defaults setObject:self.LqDepartName forKey:@"LqDepartNameKey"];
     //沥青组织机构id
     [defaults setObject:self.LqDepartld forKey:@"LqDepartldKey"];
-    
     //生产数据查询设备编号
     [defaults setObject:self.shebeibianhao forKey:@"shebeibianhaoKey"];
     [defaults setObject:self.bianhao forKey:@"bianhaoKey"];
-    
     //日产量id
     [defaults setObject:self.dailyid forKey:@"dailyidKey"];
     //日产量设备编号
     [defaults setObject:self.dailysbbh forKey:@"dailysbbhKey"];
+    //待处置编号，设备编号
+    [defaults setObject:self.CBbianhao forKey:@"CBbianhaoKey"];
+    [defaults setObject:self.CBshebeibianhao forKey:@"CBshebeibianhaoKey"];
+    //沥青超标处理
+    [defaults setObject:self.chuli forKey:@"chuliKey"];
     
     //监听筛选时间按钮
     [defaults setObject:self.timeName forKey:@"timeNameKey"];
