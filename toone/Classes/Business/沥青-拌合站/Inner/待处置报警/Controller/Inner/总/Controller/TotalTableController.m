@@ -8,15 +8,16 @@
 
 #import "TotalTableController.h"
 #import "EXPrimaryCell.h"
-#import "EXPTotalModel.h"
-#import "MyViewController.h"
 #import "NetworkTool.h"
 #import "disposal_C_Model.h"
+#import "EXPrimaryModel.h"
 #import "DCZ_CJ_Ineer_Controller.h"
 
 @interface TotalTableController ()
-@property(nonatomic, strong) NSArray *dataAr;
+@property(nonatomic, strong) NSMutableArray *dataAr;
 @property (nonatomic, strong) disposal_C_Model *disModel;
+@property (nonatomic, strong) EXPrimaryModel *dataModel;
+@property (nonatomic, copy) NSString *urlString;
 
 @end
 @implementation TotalTableController
@@ -25,44 +26,52 @@
     [super viewDidLoad];
     
     [self setUI];
-    [self loadData];
-}
-
--(void)setUI {
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-    self.tableView.rowHeight = 170;
-    self.tableView.frame = CGRectMake(0, 95, Screen_w, Screen_h - 100);
-    
-    self.tableView.mj_header = [MJDIYHeader2 headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
-    [self.tableView.mj_header beginRefreshing];
-}
-
--(void)loadData {
-    EXPTotalModel *model = [[EXPTotalModel  alloc] init];
-    
-    __weak typeof(self)  weakSelf = self;
-    [model exTotalBlock:^(NSMutableArray *result) {
-        weakSelf.dataAr = result;
-        
-        [weakSelf.tableView reloadData];
-        [weakSelf.tableView.mj_header endRefreshing];
-    }];
-    
-    MyViewController *myVc = [[MyViewController alloc] init];
-    NSString * startTimeStamp = [TimeTools timeStampWithTimeString:myVc.startTime];
-    NSString * endTimeStamp = [TimeTools timeStampWithTimeString:myVc.endTime];
-    NSString * userGroupId = [UserDefaultsSetting shareSetting].LqDepartld;
+    //    初始化加载
+    NSString * startTimeStamp = [TimeTools timeStampWithTimeString:super.startTime];
+    NSString * endTimeStamp = [TimeTools timeStampWithTimeString:super.endTime];
+    NSString * userGroupId = [UserDefaultsSetting shareSetting].departId;
     [UserDefaultsSetting shareSetting].dengji = [NSNumber numberWithInt:0];
+    NSString *chuzhileixing = @"";
+    NSString *shebStr = @"";
+    NSString *urlString = [NSString stringWithFormat:LQExcessive,[UserDefaultsSetting shareSetting].dengji,chuzhileixing,shebStr,userGroupId,startTimeStamp,endTimeStamp];
     
-    NSString *urlString = [NSString stringWithFormat:LQExcessive,[UserDefaultsSetting shareSetting].dengji,userGroupId,startTimeStamp,endTimeStamp];
+    [self reloadData:urlString];
+}
+-(void)setUI {
+    self.automaticallyAdjustsScrollViewInsets = YES;
+    self.tableView.rowHeight = 165;
+    self.tableView.tableFooterView = [UIView new];
+    self.tableView.y = 100;
+    self.tableView.height =  Screen_h-100;
+    
+    //添加刷新(初始化URL）
+    __weak typeof(self) weakSelf = self;
+    self.tableView.mj_header = [MJDIYHeader2 headerWithRefreshingBlock:^{
+        [weakSelf  reloadData:weakSelf.urlString];
+    }];
+    //    添加加载
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [weakSelf reloadData:weakSelf.urlString];
+    }];
+}
+
+-(void)reloadData:(NSString *)urlString {
+    self.urlString = urlString;
+    __weak typeof(self)  weakSelf = self;
     
     [[NetworkTool sharedNetworkTool] getObjectWithURLString:urlString completeBlock:^(id result) {
         NSDictionary *dict = (NSDictionary *)result;
-        
         if ([dict[@"success"] boolValue]) {
             weakSelf.disModel = [disposal_C_Model modelWithDict:dict[@"Fields"]];
+            
+            for (NSDictionary * dic in dict[@"data"]) {
+                weakSelf.dataModel = [EXPrimaryModel modelWithDict:dic];
+                [weakSelf.dataAr addObject:weakSelf.dataModel];
+            }
         }
+        [self.tableView reloadData];
+        [weakSelf.tableView.mj_header endRefreshing];
+        [weakSelf.tableView.mj_footer endRefreshing];
     }
      ];
 }
@@ -71,8 +80,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _dataAr.count;
 }
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"EXPrimaryCell";
     UINib *nib = [UINib nibWithNibName:@"EXPrimaryCell" bundle:nil];
@@ -86,6 +93,13 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DCZ_CJ_Ineer_Controller *dczVc = [[DCZ_CJ_Ineer_Controller alloc] init];
     [self.navigationController pushViewController:dczVc animated:YES];
+}
+
+-(NSMutableArray *)dataAr {
+    if (!_dataAr) {
+        _dataAr = [NSMutableArray array];
+    }
+    return _dataAr;
 }
 
 @end

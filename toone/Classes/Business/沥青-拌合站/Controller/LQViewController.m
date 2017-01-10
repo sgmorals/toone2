@@ -25,7 +25,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    NSString * zjjg = FormatString(@"组织机构 : ", [UserDefaultsSetting shareSetting].LqDepartName);
+    NSString * zjjg = FormatString(@"组织机构 : ", [UserDefaultsSetting shareSetting].departName);
     self.flashLabel.text = FormatString(zjjg, @"\t\t\t\t\t\t\t\t\t\t");
     self.flashLabel.textColor = [UIColor whiteColor];
     self.flashLabel.font = [UIFont systemFontOfSize:12.0];
@@ -44,7 +44,7 @@
     NSDictionary * dic;
     NSString * startTimeStamp = [TimeTools timeStampWithTimeString:self.startTime];
     NSString * endTimeStamp = [TimeTools timeStampWithTimeString:self.endTime];
-    NSString * userGroupId = [UserDefaultsSetting shareSetting].LqDepartld;
+    NSString * userGroupId = [UserDefaultsSetting shareSetting].departId;
     
     NSString *urlString = [NSString stringWithFormat:LQHome,userGroupId,startTimeStamp,endTimeStamp];
     __weak typeof(self)  weakSelf = self;
@@ -137,7 +137,6 @@
             weakSelf.startTime = (NSString*)obj1;
             weakSelf.endTime = (NSString*)obj2;
             [weakSelf loadData];
-            
         }
         if (type == ExpButtonTypeStartTimeButton || type == ExpButtonTypeEndTimeButton) {
             UIButton * btn = (UIButton*)obj1;
@@ -147,15 +146,21 @@
     [self.view addSubview:e];
 }
 
-
 #pragma mark - 一次性设置
 -(void)LodaUI {
+    
     self.ContreView.backgroundColor = BLUECOLOR;
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     self.tableView.rowHeight = 155;
     self.view.backgroundColor = [UIColor oldLaceColor];
     self.tableView.mj_header = [MJDIYHeader2 headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
     [self.tableView.mj_header beginRefreshing];
+    
+    //    添加加载
+//    __weak typeof(self) weakSelf = self;
+//    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+//        [weakSelf loadData];
+//    }];
 }
 
 
@@ -163,7 +168,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _datas.count;
 }
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
         static NSString *CellIdentifier = @"LQ_ZJM_Cell";
         UINib *nib = [UINib nibWithNibName:@"LQ_ZJM_Cell" bundle:nil];

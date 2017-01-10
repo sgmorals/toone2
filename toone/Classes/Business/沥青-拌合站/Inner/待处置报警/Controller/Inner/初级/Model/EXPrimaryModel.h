@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MyModel.h"
-typedef void(^ExPrimaryBlock)(NSMutableArray *result);
+//typedef void(^ExPrimaryBlock)(NSMutableArray *result);
 
 @interface EXPrimaryModel : MyModel
 //数据展示
@@ -29,7 +29,7 @@ typedef void(^ExPrimaryBlock)(NSMutableArray *result);
 @property (nonatomic, copy) NSString *wsjysb;//油石比
 @property (nonatomic, copy) NSString *chuli;//是否处理（1，0）
 
-@property (nonatomic, strong) NSMutableArray *arry;
+//@property (nonatomic, strong) NSMutableArray *arry;
 
--(void)exPrimaryBlock:(ExPrimaryBlock)exPrimaryBlock;
+//-(void)exPrimaryBlock:(ExPrimaryBlock)exPrimaryBlock withString:(NSString *)urlString;
 @end

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyTableViewController.h"
 
-@interface SeniorExcessiveTableConller : UITableViewController
+@interface SeniorExcessiveTableConller : MyTableViewController
 
 @end

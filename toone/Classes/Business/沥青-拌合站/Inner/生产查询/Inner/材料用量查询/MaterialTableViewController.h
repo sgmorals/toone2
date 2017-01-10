@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyTableViewController.h"
 
-@interface MaterialTableViewController : UITableViewController
+@interface MaterialTableViewController : MyTableViewController
 
 @end

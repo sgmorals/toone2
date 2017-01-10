@@ -118,9 +118,11 @@
     }
 //    hud.mode = MBProgressHUDModeCustomView;
 //    hud.label.text = NSLocalizedString(@"正在登录", @"HUD completed title");
-    
+    //
     NSString * urlString = [NSString stringWithFormat:AppLogin_2,_acountTextField.text,_passwordTextField.text];
-    [[HTTP shareAFNNetworking] requestMethod:GET urlString:urlString parameter:nil success:^(id json) {
+    //获取沥青拌合站登录数据
+    NSString *LqUrlStr = [NSString stringWithFormat:LqAppLogin,_acountTextField.text,_passwordTextField.text];
+    [[HTTP shareAFNNetworking] requestMethod:GET urlString:LqUrlStr parameter:nil success:^(id json) {
         if ([json isKindOfClass:[NSDictionary class]]) {
             if ([json[@"success"] boolValue]) {
                 //数据存储到本地
@@ -159,23 +161,22 @@
         hud.mode = MBProgressHUDModeText;
         hud.label.text = @"网络连接失败";
         [hud hideAnimated:YES afterDelay:2.0];
-        NSLog(@"failure == %@",[error localizedDescription]);
+//        NSLog(@"failure == %@",[error localizedDescription]);
     }];
 
     
     
-    //获取沥青拌合站登录数据
-    NSString *LqUrlStr = [NSString stringWithFormat:LqAppLogin,_acountTextField.text,_passwordTextField.text];
-    [[HTTP shareAFNNetworking] requestMethod:GET urlString:LqUrlStr parameter:nil success:^(id json) {
-        if ([json isKindOfClass:[NSDictionary class]]) {
-            if ([json[@"success"] boolValue]) {
-                UserDefaultsSetting  * setting = [UserDefaultsSetting shareSetting];
-                setting.LqDepartld  = json[@"departId"];
-                setting.LqDepartName  = json[@"departName"];
-                [setting saveToSandbox];
-            }
-        }
-    } failure:nil];
+
+//    [[HTTP shareAFNNetworking] requestMethod:GET urlString:LqUrlStr parameter:nil success:^(id json) {
+//        if ([json isKindOfClass:[NSDictionary class]]) {
+//            if ([json[@"success"] boolValue]) {
+//                UserDefaultsSetting  * setting = [UserDefaultsSetting shareSetting];
+//                setting.LqDepartld  = json[@"departId"];
+//                setting.LqDepartName  = json[@"departName"];
+//                [setting saveToSandbox];
+//            }
+//        }
+//    } failure:nil];
 }
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender
 {

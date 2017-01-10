@@ -13,7 +13,7 @@
 @implementation SB_Model
 
 -(void)sb_Block:(SB_Block_t)sb_Block {
-    NSString *urlString = [NSString stringWithFormat:LQ_SB_Data,[UserDefaultsSetting shareSetting].LqDepartld];
+    NSString *urlString = [NSString stringWithFormat:LQ_SB_Data,[UserDefaultsSetting shareSetting].departId];
     
     //        __weak typeof(self)  weakSelf = self;
     [[NetworkTool sharedNetworkTool] getObjectWithURLString:urlString completeBlock:^(id result) {

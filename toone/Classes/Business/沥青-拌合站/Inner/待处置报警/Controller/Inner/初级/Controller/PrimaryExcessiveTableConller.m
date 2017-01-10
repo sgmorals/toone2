@@ -7,17 +7,18 @@
 //
 
 #import "PrimaryExcessiveTableConller.h"
-#import "EXPrimaryModel.h"
 #import "EXPrimaryCell.h"
 #import "NetworkTool.h"
-#import "MyViewController.h"
 #import "disposal_C_Model.h"
+#import "EXPrimaryModel.h"
 #import "DCZ_CJ_Ineer_Controller.h"
 
 @interface PrimaryExcessiveTableConller ()
-@property(nonatomic, strong) NSArray *dataArr;
+@property(nonatomic, strong) NSMutableArray *dataArr;
 
 @property (nonatomic, strong) disposal_C_Model *disModel;
+@property (nonatomic, strong) EXPrimaryModel *dataModel;
+@property (nonatomic, copy) NSString *urlString;
 
 @end
 @implementation PrimaryExcessiveTableConller
@@ -26,46 +27,50 @@
     [super viewDidLoad];
     
     [self setUI];
-    [self loadData];
+//    初始化加载
+    NSString * startTimeStamp = [TimeTools timeStampWithTimeString:super.startTime];
+    NSString * endTimeStamp = [TimeTools timeStampWithTimeString:super.endTime];
+    NSString * userGroupId = [UserDefaultsSetting shareSetting].departId;
+    [UserDefaultsSetting shareSetting].dengji = [NSNumber numberWithInt:1];
+    NSString *chuzhileixing = @"";
+    NSString *shebStr = @"";
+    NSString *urlString = [NSString stringWithFormat:LQExcessive,[UserDefaultsSetting shareSetting].dengji,chuzhileixing,shebStr,userGroupId,startTimeStamp,endTimeStamp];
+    self.urlString = urlString;
+    [self reloadData:urlString];
 }
-
 -(void)setUI {
-
-//    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     self.automaticallyAdjustsScrollViewInsets = YES;
     self.tableView.rowHeight = 165;
-    self.tableView.frame = CGRectMake(0, 95, Screen_w, Screen_h - 100);
+    self.tableView.tableFooterView = [UIView new];
+    self.tableView.y = 100;
+    self.tableView.height =  Screen_h-100;
     
-    self.tableView.mj_header = [MJDIYHeader2 headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
-    [self.tableView.mj_header beginRefreshing];
+    //添加刷新(初始化URL）
+    __weak typeof(self) weakSelf = self;
+    self.tableView.mj_header = [MJDIYHeader2 headerWithRefreshingBlock:^{
+         [weakSelf  reloadData:weakSelf.urlString];
+    }];
+//    添加加载
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [weakSelf reloadData:weakSelf.urlString];
+    }];
 }
 
--(void)loadData {
-    EXPrimaryModel *model = [[EXPrimaryModel alloc] init];
-    
+-(void)reloadData:(NSString *)urlString {
     __weak typeof(self)  weakSelf = self;
-    [model exPrimaryBlock:^(NSMutableArray *result) {
-        weakSelf.dataArr = result;
-
-        [weakSelf.tableView reloadData];
-        [weakSelf.tableView.mj_header endRefreshing];
-    }];
-    
-    MyViewController *myVc = [[MyViewController alloc] init];
-    NSString * startTimeStamp = [TimeTools timeStampWithTimeString:myVc.startTime];
-    NSString * endTimeStamp = [TimeTools timeStampWithTimeString:myVc.endTime];
-    NSString * userGroupId = [UserDefaultsSetting shareSetting].LqDepartld;
-    [UserDefaultsSetting shareSetting].dengji = [NSNumber numberWithInt:1];
-    
-    NSString *urlString = [NSString stringWithFormat:LQExcessive,[UserDefaultsSetting shareSetting].dengji,userGroupId,startTimeStamp,endTimeStamp];
-    
     [[NetworkTool sharedNetworkTool] getObjectWithURLString:urlString completeBlock:^(id result) {
-//        NSMutableArray * datas = [NSMutableArray array];
         NSDictionary *dict = (NSDictionary *)result;
-        
         if ([dict[@"success"] boolValue]) {
             weakSelf.disModel = [disposal_C_Model modelWithDict:dict[@"Fields"]];
+            
+            for (NSDictionary * dic in dict[@"data"]) {
+                weakSelf.dataModel = [EXPrimaryModel modelWithDict:dic];
+                [weakSelf.dataArr addObject:weakSelf.dataModel];
+            }
         }
+        [self.tableView reloadData];
+        [weakSelf.tableView.mj_header endRefreshing];
+        [weakSelf.tableView.mj_footer endRefreshing];
     }
      ];
 }
@@ -82,13 +87,18 @@
     
     cell.EXPModel = _dataArr[indexPath.row];
     cell.disModel = self.disModel;
-    
+
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DCZ_CJ_Ineer_Controller *dczVc = [[DCZ_CJ_Ineer_Controller alloc] init];
     [self.navigationController pushViewController:dczVc animated:YES];
 }
-
+-(NSMutableArray *)dataArr {
+    if (_dataArr == 0) {
+        _dataArr = [NSMutableArray array];
+    }
+    return _dataArr;
+}
 
 @end

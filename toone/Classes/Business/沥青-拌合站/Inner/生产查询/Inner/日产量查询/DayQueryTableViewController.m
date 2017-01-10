@@ -10,43 +10,69 @@
 #import "DayQueryModel.h"
 #import "DayQueryTableViewCell.h"
 #import "DayDetailsController.h"
+#import "NetworkTool.h"
 
 @interface DayQueryTableViewController ()
-@property(nonatomic, strong) NSArray *dataArr;
+@property(nonatomic, strong) NSMutableArray *dataArr;
+@property (nonatomic, strong) DayQueryModel *dataModel;
+@property (nonatomic, copy) NSString *urlString;
+
+
 @end
 @implementation DayQueryTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
     [self setUI];
-    [self loadData];
+    NSString * userGroupId = [UserDefaultsSetting shareSetting].departId;
+    NSString * startTimeStamp = [TimeTools timeStampWithTimeString:super.startTime];
+    NSString * endTimeStamp = [TimeTools timeStampWithTimeString:super.endTime];
+    NSString *shebStr = @"";
+    NSString *urlString = [NSString stringWithFormat:DayQuery,userGroupId,shebStr,startTimeStamp,endTimeStamp];
+
+    [self reloadData:urlString];
 }
 
 -(void)setUI {
     self.tableView.rowHeight = 180;
     self.tableView.frame = CGRectMake(0, 95, Screen_w, Screen_h - 100);
-    self.tableView.mj_header = [MJDIYHeader2 headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
-    [self.tableView.mj_header beginRefreshing];
+    
+    //添加刷新(初始化URL）
+    __weak typeof(self) weakSelf = self;
+    self.tableView.mj_header = [MJDIYHeader2 headerWithRefreshingBlock:^{
+        [weakSelf  reloadData:weakSelf.urlString];
+    }];
+    //    添加加载
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [weakSelf reloadData:weakSelf.urlString];
+    }];
 }
 
--(void)loadData {
-    DayQueryModel *model = [[DayQueryModel alloc] init];
-    
+-(void)reloadData:(NSString *)urlString {
     __weak typeof(self)  weakSelf = self;
-    [model dayQueryBlock:^(NSArray *result) {
-        weakSelf.dataArr = result;
-        
-        [weakSelf.tableView reloadData];
+    weakSelf.urlString = urlString;
+    
+    [[NetworkTool sharedNetworkTool] getObjectWithURLString:urlString completeBlock:^(id result) {
+        NSDictionary *dict = (NSDictionary *)result;
+        if ([dict[@"success"] boolValue]) {
+            for (NSDictionary * dic in dict[@"data"]) {
+                weakSelf.dataModel = [DayQueryModel modelWithDict:dic];
+                [weakSelf.dataArr addObject:weakSelf.dataModel];
+            }
+            }else {
+            
+            }
+        [self.tableView reloadData];
         [weakSelf.tableView.mj_header endRefreshing];
-    }];
+        [weakSelf.tableView.mj_footer endRefreshing];
+    }
+     ];
 }
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _dataArr.count;
 }
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"DayQueryTableViewCell";
@@ -63,11 +89,17 @@
         
     return cell;
 }
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DayDetailsController *detailVc = [[DayDetailsController alloc] init];
     detailVc.model = _dataArr[indexPath.row];
     [self.navigationController pushViewController:detailVc animated:YES];
+}
+
+-(NSMutableArray *)dataArr {
+    if (!_dataArr) {
+        _dataArr = [NSMutableArray array];
+    }
+    return _dataArr;
 }
 
 @end

@@ -62,6 +62,7 @@
 
 -(void)looadData {
     NSString *shebeiStr = @"G345lq0101";
+//    NSString *shebeiStr = [UserDefaultsSetting shareSetting].CBshebeibianhao;
     NSNumber *bianhaoBer = [UserDefaultsSetting shareSetting].CBbianhao;
     NSString *urlString = [NSString stringWithFormat:LQExInner,bianhaoBer,shebeiStr];
     
@@ -119,7 +120,6 @@
         cell.headMsg = self.headMsg;
         cell.weakController = self;
         cell.chuli = [UserDefaultsSetting shareSetting].chuli;
-//        cell.shenhe = self.shenhe;
         return cell;
     }
     return nil;

@@ -13,11 +13,14 @@
 #import "SeniorExcessiveTableConller.h"
 #import "TotalTableController.h"
 #import "LQ_BHZ_SB_Controller.h"
+#import "MyTableViewController.h"
 
 @interface ExcessiveViewController ()<TouchLabelDelegate>
 
 @property (nonatomic, strong) XFSegementView *segementView;
-@property (nonatomic, strong) UITableViewController *tableCont;
+@property (nonatomic, strong) MyTableViewController *tableCont;
+@property (nonatomic, copy) NSString *shebStr;
+@property (nonatomic, copy) NSString *urlString;
 
 @end
 @implementation ExcessiveViewController
@@ -73,7 +76,6 @@
     e.frame = CGRectMake(0, 64+36, Screen_w, 294);
     __weak __typeof(self)  weakSelf = self;
     e.expBlock = ^(ExpButtonType type,id obj1,id obj2, int buttonTag){
-//        NSLog(@"ExpButtonType~~~ %d buttonTag~~~~%d",type,buttonTag);
         if (type == ExpButtonTypeCancel) {
             sender.enabled = YES;
             [backView removeFromSuperview];
@@ -89,14 +91,20 @@
 //            weakSelf.chuzhileixing = @"";
             switch (buttonTag) {
                 case 10:
-//                    weakSelf.chuzhileixing = @"";
+//                    string = [NSString stringWithFormat:@""];
+                    weakSelf.urlString = [self loadUI:@""];
+                    [weakSelf.tableCont reloadData:weakSelf.urlString];
                     break;
-                case 20:
-//                    weakSelf.chuzhileixing = @"0";
-                    break;
+                case 20://0
+//                    string = [NSString stringWithFormat:@"0"];
+                    weakSelf.urlString = [self loadUI:@"0"];
+                    [weakSelf.tableCont reloadData:weakSelf.urlString];
+                        break;
                 case 30:
-                case 40:
-//                    weakSelf.chuzhileixing = @"1";
+                case 40://1
+//                    string = [NSString stringWithFormat:@"1"];
+                    weakSelf.urlString = [self loadUI:@"1"];
+                    [weakSelf.tableCont reloadData:weakSelf.urlString];
                     break;
                 case 50:
 //                    weakSelf.chuzhileixing = @"3";
@@ -118,9 +126,10 @@
             LQ_BHZ_SB_Controller *sbVc = [[LQ_BHZ_SB_Controller alloc] init];
             [self.navigationController pushViewController:sbVc animated:YES];
             
-            sbVc.callBlock = ^(NSString * banhezhanminchen,NSString*gprsbianhao){
+            sbVc.callBlock = ^(NSString *banhezhanminchen,NSString *gprsbianhao){
                 [btn setTitle:banhezhanminchen forState:UIControlStateNormal];
-                //                weakSelf.shebeibianhao = gprsbianhao;
+//                [UserDefaultsSetting shareSetting].shebString = gprsbianhao;
+                weakSelf.shebStr = gprsbianhao;
             };
 
         }
@@ -184,5 +193,28 @@
     
 }
 
+-(NSString *)loadUI:(NSString *)leix {
+    __weak __typeof(self)  weakSelf = self;
+    NSString * userGroupId = [UserDefaultsSetting shareSetting].departId;
+    //判断等级
+    if ([weakSelf.tableCont isKindOfClass:[PrimaryExcessiveTableConller class]]) {
+        [UserDefaultsSetting shareSetting].dengji = [NSNumber numberWithInt:1];
+    }else if ([weakSelf.tableCont isKindOfClass:[MiddleExcessiveTableContller class]]) {
+        [UserDefaultsSetting shareSetting].dengji = [NSNumber numberWithInt:2];
+    }else if ([weakSelf.tableCont isKindOfClass:[SeniorExcessiveTableConller class]]) {
+        [UserDefaultsSetting shareSetting].dengji = [NSNumber numberWithInt:3];
+    }else if ([weakSelf.tableCont isKindOfClass:[TotalTableController class]]) {
+        [UserDefaultsSetting shareSetting].dengji = [NSNumber numberWithInt:0];
+    }
+    NSString *shebStr = @"";
+    if (weakSelf.shebStr) {
+        shebStr = weakSelf.shebStr;
+    }
+    NSString *startTime = [TimeTools timeStampWithTimeString:weakSelf.startTime];
+    NSString *endTime = [TimeTools timeStampWithTimeString:weakSelf.endTime];
+    NSString *urlString = [NSString stringWithFormat:LQExcessive,[UserDefaultsSetting shareSetting].dengji,leix,shebStr,userGroupId,startTime,endTime];
+    
+    return urlString;
+}
 
 @end

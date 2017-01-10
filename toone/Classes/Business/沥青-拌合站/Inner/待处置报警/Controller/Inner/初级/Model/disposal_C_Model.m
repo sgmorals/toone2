@@ -34,5 +34,7 @@
 //    }
 //     ];
 //}
-
+-(void)reloadData:(NSDictionary*)dict{
+//    [self loadData:dict];
+}
 @end
