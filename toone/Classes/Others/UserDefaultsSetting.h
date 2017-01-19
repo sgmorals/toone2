@@ -41,7 +41,7 @@
 @property (nonatomic,copy) NSString * endTime;
 
 
-//
+
 //@property (nonatomic, copy) NSString *LqDepartld;//沥青组织机构id
 //@property (nonatomic, copy) NSString *LqDepartName;//沥青组织机构节点名称
 @property (nonatomic, strong) NSNumber *dengji;// 沥青超标等级

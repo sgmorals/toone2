@@ -36,7 +36,7 @@
     self.chulishijian.text = headMsg.chuzhishijian;
     self.wentiyuanyin.text = headMsg.chaobiaoyuanyin;
     
-    NSString * urlString = FormatString(baseUrlStr, headMsg.filepath);
+    NSString * urlString = FormatString(baseUrl, headMsg.filepath);
     NSURL * url = [NSURL URLWithString:urlString];
     [self.filePath sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"loading.jgeg"] options:SDWebImageProgressiveDownload];
 }

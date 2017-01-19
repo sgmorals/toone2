@@ -197,7 +197,7 @@
                 [Tools tip:@"信息不完整，无法提交"];
                 break;
             }
-            NSString * urlString = FormatString(baseUrlStr, @"lqChaoBiaoChuZhiController.do?appLqChaobiaoChuzhi");
+            NSString * urlString = FormatString(baseUrl, @"lqChaoBiaoChuZhiController.do?appLqChaobiaoChuzhi");
             NSDictionary * dic = @{@"xxid":[UserDefaultsSetting shareSetting].CBbianhao,
                                    @"chaobiaoyuanyin":self.wentiyuanyin.text,
                                    @"chuzhifangshi":self.chulifangshi.text,

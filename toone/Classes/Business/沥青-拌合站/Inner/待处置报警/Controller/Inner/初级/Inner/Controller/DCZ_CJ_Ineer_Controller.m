@@ -70,7 +70,7 @@
             weakSelf.headMsg = [HNT_CBCZ_Detail_HeadMsg modelWithDict:dict[@"data"]];
             
             //判断有没有图片
-            NSString * urlString = FormatString(baseUrlStr, self.headMsg.filepath);
+            NSString * urlString = FormatString(baseUrl, self.headMsg.filepath);
             NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
             if (data.length > 100) {
                 self.filePathImageHas = YES;

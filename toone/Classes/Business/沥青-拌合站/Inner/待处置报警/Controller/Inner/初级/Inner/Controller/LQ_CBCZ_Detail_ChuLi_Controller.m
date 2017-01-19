@@ -81,7 +81,7 @@
     hud.mode = MBProgressHUDModeDeterminate;
     hud.label.text = NSLocalizedString(@"正在提交", @"HUD loading title");
     
-    NSString * urlString = FormatString(baseUrlStr, @"lqChaoBiaoChuZhiController.do?appLqChaobiaoChuzhi");
+    NSString * urlString = FormatString(baseUrl, @"lqChaoBiaoChuZhiController.do?appLqChaobiaoChuzhi");
     NSDictionary * dic = @{@"xxid":self.bianhao,
                            @"chaobiaoyuanyin":self.txt1.text,
                            @"chuzhifangshi":self.txt2.text,

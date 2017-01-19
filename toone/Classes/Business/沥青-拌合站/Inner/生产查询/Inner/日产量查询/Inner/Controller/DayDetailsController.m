@@ -164,7 +164,7 @@
 #pragma mark - 提交
 - (void)submitClick:(id)sender {
     if (self.model.dailybuwei || self.model.dailyxzcl || self.model.dailymd || self.model.dailycd || self.model.dailykd || self.model.dailysjhd || self.model.dailyxh || self.model.dailybeizhu) {
-        NSString *urlString = FormatString(baseUrlStr, @"lqclDailyController.do?dayproducecountadd");
+        NSString *urlString = FormatString(baseUrl, @"lqclDailyController.do?dayproducecountadd");
         NSDictionary * dic = @{@"dailybeizhu":self.model.dailybeizhu,
                                @"dailybuwei":self.model.dailybuwei,
                                @"dailycd":self.model.dailycd,
