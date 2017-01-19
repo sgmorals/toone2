@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class EXPrimaryModel;
 
 @interface DCZ_CJ_Ineer_Controller : UITableViewController
-@property (nonatomic,copy) NSString *  chuli ;//  处理与否
+@property (nonatomic,copy) NSString *  chuli ;//  处置与否
+@property (nonatomic, strong) NSNumber * bianhao;//编号
+@property (nonatomic, strong) EXPrimaryModel *ChaoBiaoModel;
 @end

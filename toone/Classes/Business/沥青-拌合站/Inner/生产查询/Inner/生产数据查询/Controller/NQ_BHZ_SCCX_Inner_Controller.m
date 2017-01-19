@@ -19,22 +19,21 @@
 @property (nonatomic, strong) ProduQueryModel *dataModel;
 
 @property (nonatomic, copy) NSString *urlString;
+@property (nonatomic, copy) NSString *yPage;//页码
 @end
 @implementation NQ_BHZ_SCCX_Inner_Controller
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUI];
-     //    __weak typeof(self)  weakSelf = self;
-    NSString * userGroupId = [UserDefaultsSetting shareSetting].departId;
-    NSString * startTimeStamp = [TimeTools timeStampWithTimeString:super.startTime];
-    NSString * endTimeStamp = [TimeTools timeStampWithTimeString:super.endTime];
-    NSString *shebStr = @"";
-    NSString *urlString = [NSString stringWithFormat:ProduQuery,userGroupId,shebStr,startTimeStamp,endTimeStamp];
+
+    NSString *pageNo = @"1";
+    NSString *urlString = [self loadUI:pageNo];
     [self reloadData:urlString];
 }
 
 -(void)setUI {
+    self.yPage = @"1";
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     self.tableView.rowHeight = 85;
     self.tableView.frame = CGRectMake(0, 100, Screen_w, Screen_h - 105);
@@ -46,27 +45,53 @@
     }];
     //    添加加载
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        [weakSelf reloadData:weakSelf.urlString];
+        if ([weakSelf.yPage boolValue]) {
+            weakSelf.yPage = FormatInt([weakSelf.yPage intValue]+1);
+            NSString *urlString = [self loadUI:weakSelf.yPage];
+            [weakSelf reloadData:urlString];
+        }
     }];
 }
-
+-(NSString *)loadUI:(NSString *)panNo {
+        NSString * userGroupId = [UserDefaultsSetting shareSetting].departId;
+        NSString * startTimeStamp = [TimeTools timeStampWithTimeString:super.startTime];
+        NSString * endTimeStamp = [TimeTools timeStampWithTimeString:super.endTime];
+        NSString *shebStr = @"";
+        NSString *urlString = [NSString stringWithFormat:ProduQuery,userGroupId,shebStr,startTimeStamp,endTimeStamp,panNo];
+    return urlString;
+}
+/*
+ 
+ */
 -(void)reloadData:(NSString *)urlString {
     __weak typeof(self)  weakSelf = self;
+    NSString *page = [self getParamValueFromUrl:urlString paramName:@"pageNo"];
     weakSelf.urlString = urlString;
-    
     [[NetworkTool sharedNetworkTool] getObjectWithURLString:urlString completeBlock:^(id result) {
+        
         NSDictionary *dict = (NSDictionary *)result;
+        NSMutableArray * datas = [NSMutableArray array];
         if ([dict[@"success"] boolValue]) {
             for (NSDictionary * dic in dict[@"data"]) {
                 weakSelf.dataModel = [ProduQueryModel modelWithDict:dic];
-                [weakSelf.datas addObject:weakSelf.dataModel];
+                [datas addObject:weakSelf.dataModel];
             }
-        }else {
-            
         }
-        [self.tableView reloadData];
+        
+        weakSelf.yPage = page;
+        if ([weakSelf.yPage intValue] == 1) {
+            weakSelf.datas = datas;
+        }else{
+            [weakSelf.datas addObjectsFromArray:datas];
+        }
+        //2.
+        [weakSelf.tableView reloadData];
         [weakSelf.tableView.mj_header endRefreshing];
         [weakSelf.tableView.mj_footer endRefreshing];
+        //3.
+        if (weakSelf.datas.count < ([weakSelf.yPage intValue]* 15)) {
+            [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
     }
      ];
 }
@@ -90,6 +115,29 @@
     [self.navigationController pushViewController:[[NQ_BHZ_SCCX_Innel_Controller alloc] init] animated:YES];
 }
 
+-(NSString *)getParamValueFromUrl:(NSString *)url paramName:(NSString *)paramName
+{
+    if (![paramName hasSuffix:@"="]) {
+        paramName = [NSString stringWithFormat:@"%@=", paramName];
+    }
+    NSString *str = nil;
+    NSRange   start = [url rangeOfString:paramName];
+    if (start.location != NSNotFound) {
+        unichar  c = '?';
+        if (start.location != 0) {
+            c = [url characterAtIndex:start.location - 1];
+        }
+        if (c == '?' || c == '&' || c == '#') {
+            NSRange     end = [[url substringFromIndex:start.location + start.length] rangeOfString:@"&"];
+            NSUInteger  offset = start.location + start.length;
+            str = end.location == NSNotFound ?
+            [url substringFromIndex:offset] :
+            [url substringWithRange:NSMakeRange(offset, end.location)];
+            str = [str stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        }
+    }
+    return str;
+}
 -(NSMutableArray *)datas {
     if (!_datas) {
         _datas = [NSMutableArray array];

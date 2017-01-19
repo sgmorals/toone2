@@ -19,5 +19,6 @@
 @property (nonatomic, copy) NSString *sjlq;//沥青量
 @property (nonatomic, copy) NSString *sjysb; //油石比
 
+@property (nonatomic, strong) NSArray *arr;
 
 @end

@@ -71,7 +71,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
 }
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
         static NSString *CellIdentifier = @"NQ_BHZ_SCCX_Inne_Cell";
@@ -88,14 +87,6 @@
 
         cell.selectionStyle =UITableViewCellSelectionStyleNone;
         return cell;
-}
-
-
--(NSArray *)dataArr {
-    if (_dataArr == nil) {
-        _dataArr = [NSArray array];
-    }
-    return _dataArr;
 }
 
 @end

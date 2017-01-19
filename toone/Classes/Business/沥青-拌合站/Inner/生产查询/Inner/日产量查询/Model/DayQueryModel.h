@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MyModel.h"
+//typedef void(^DayQueryBlock)(NSArray *result);
 
 @interface DayQueryModel : MyModel
 @property (nonatomic, strong) NSString *dailybeizhu;//备注
@@ -28,4 +29,7 @@
 
 @property (nonatomic, assign) long indexRow;//施工桩号
 
+//@property (nonatomic, strong) NSArray *arry;
+
+//-(void)dayQueryBlock:(DayQueryBlock)dayQueryBlock;
 @end

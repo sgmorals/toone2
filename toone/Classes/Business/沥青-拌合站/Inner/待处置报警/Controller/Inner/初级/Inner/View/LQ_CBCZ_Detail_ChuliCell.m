@@ -176,13 +176,6 @@
     if (textField == self.wentiyuanyin) {
         self.headMsg.wentiyuanyin = textField.text;
     }
-//    if (textField == self.jianliresult) {
-//        self.headMsg.jianliresult = textField.text;
-//    }
-//    if (textField == self.jianlishenpi) {
-//        self.headMsg.jianlishenpi = textField.text;
-//    }
-    
     self.txf = nil
     ;return YES;
 }
@@ -211,7 +204,6 @@
                                    @"chuzhijieguo":self.chulijieguo.text,
                                    @"chuzhiren":[UserDefaultsSetting shareSetting].userFullName,
                                    @"chuzhishijian":[TimeTools timeStampWithTimeString:self.chulishijian.currentTitle],
-//                                   @"isIos":@"1"
                                    };
             
             NSData *  data =[Tools compressOriginalImage:self.filePathImage toMaxDataSizeKBytes:30];
@@ -279,12 +271,6 @@
     if (sender == self.chulishijian) {
         self.headMsg.chulishijian = sender.currentTitle;
     }
-//    if (sender == self.confirmdate) {
-//        self.headMsg.confirmdate = sender.currentTitle;
-//    }
-//    if (sender == self.shenpidate) {
-//        self.headMsg.shenpidate = sender.currentTitle;
-//    }
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {

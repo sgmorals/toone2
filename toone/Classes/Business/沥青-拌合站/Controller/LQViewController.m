@@ -155,12 +155,6 @@
     self.view.backgroundColor = [UIColor oldLaceColor];
     self.tableView.mj_header = [MJDIYHeader2 headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
     [self.tableView.mj_header beginRefreshing];
-    
-    //    添加加载
-//    __weak typeof(self) weakSelf = self;
-//    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-//        [weakSelf loadData];
-//    }];
 }
 
 

@@ -72,8 +72,8 @@
     [self.view addSubview:backView];
     
     //2.
-    Exp6View * e = [[Exp6View alloc] init];
-    e.frame = CGRectMake(0, 64+36, Screen_w, 294);
+    Exp8View * e = [[Exp8View alloc] init];
+    e.frame = CGRectMake(0, 64+36, Screen_w, 254);
     __weak __typeof(self)  weakSelf = self;
     e.expBlock = ^(ExpButtonType type,id obj1,id obj2, int buttonTag){
         if (type == ExpButtonTypeCancel) {
@@ -91,30 +91,24 @@
 //            weakSelf.chuzhileixing = @"";
             switch (buttonTag) {
                 case 10:
-//                    string = [NSString stringWithFormat:@""];
                     weakSelf.urlString = [self loadUI:@""];
-                    [weakSelf.tableCont reloadData:weakSelf.urlString];
                     break;
-                case 20://0
-//                    string = [NSString stringWithFormat:@"0"];
+                case 20://未处置
                     weakSelf.urlString = [self loadUI:@"0"];
-                    [weakSelf.tableCont reloadData:weakSelf.urlString];
                         break;
                 case 30:
-                case 40://1
-//                    string = [NSString stringWithFormat:@"1"];
+                case 40://已处置
                     weakSelf.urlString = [self loadUI:@"1"];
-                    [weakSelf.tableCont reloadData:weakSelf.urlString];
                     break;
                 case 50:
-//                    weakSelf.chuzhileixing = @"3";
                     break;
                 case 60:
-//                    weakSelf.chuzhileixing = @"2";
+                    break;
+                default:
+                    weakSelf.urlString = [self loadUI:@""];
                     break;
             }
-//            [weakSelf loadData];
-            FuncLog;
+            [weakSelf.tableCont reloadData:weakSelf.urlString];
         }
         if (type == ExpButtonTypeStartTimeButton || type == ExpButtonTypeEndTimeButton) {
             UIButton * btn = (UIButton*)obj1;
@@ -128,7 +122,6 @@
             
             sbVc.callBlock = ^(NSString *banhezhanminchen,NSString *gprsbianhao){
                 [btn setTitle:banhezhanminchen forState:UIControlStateNormal];
-//                [UserDefaultsSetting shareSetting].shebString = gprsbianhao;
                 weakSelf.shebStr = gprsbianhao;
             };
 
@@ -210,9 +203,10 @@
     if (weakSelf.shebStr) {
         shebStr = weakSelf.shebStr;
     }
+    NSString *pageNo = @"1";
     NSString *startTime = [TimeTools timeStampWithTimeString:weakSelf.startTime];
     NSString *endTime = [TimeTools timeStampWithTimeString:weakSelf.endTime];
-    NSString *urlString = [NSString stringWithFormat:LQExcessive,[UserDefaultsSetting shareSetting].dengji,leix,shebStr,userGroupId,startTime,endTime];
+    NSString *urlString = [NSString stringWithFormat:LQExcessive,[UserDefaultsSetting shareSetting].dengji,leix,pageNo,shebStr,userGroupId,startTime,endTime];
     
     return urlString;
 }
