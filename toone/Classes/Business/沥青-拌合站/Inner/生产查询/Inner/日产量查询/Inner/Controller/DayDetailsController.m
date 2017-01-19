@@ -10,6 +10,7 @@
 #import "DayDetailsCell.h"
 #import "DayQueryModel.h"
 #import "MyInputController.h"
+#import "Masonry.h"
 
 @interface DayDetailsController ()
 @property (nonatomic, strong) MyInputController *inputVc;
@@ -74,8 +75,9 @@
 //    footView.backgroundColor = [UIColor orangeColor];
     self.tableView.tableFooterView = footView;
     //计算
-    UIButton *calculateBut  = [[UIButton alloc]initWithFrame:CGRectMake(butX, butY, butW, butH)];
-    calculateBut.backgroundColor = [UIColor lightGrayColor];
+//    UIButton *calculateBut  = [[UIButton alloc]initWithFrame:CGRectMake(butX, butY, butW, butH)];
+    UIButton *calculateBut = [[UIButton alloc] init];
+    calculateBut.backgroundColor = [UIColor orangeColor];
     calculateBut.layer.cornerRadius = 2.0f;
     calculateBut.layer.masksToBounds = YES;
     [calculateBut setTitle:@"计算" forState:UIControlStateNormal];
@@ -84,8 +86,9 @@
     calculateBut.titleLabel.textAlignment = NSTextAlignmentCenter;
     [footView addSubview:calculateBut];
     //提交
-    UIButton *submitBut  = [[UIButton alloc]initWithFrame:CGRectMake((butX)*5, butY, butW, butH)];
-    submitBut.backgroundColor = [UIColor lightGrayColor];
+//    UIButton *submitBut  = [[UIButton alloc]initWithFrame:CGRectMake((butX)*5, butY, butW, butH)];
+    UIButton *submitBut = [[UIButton alloc] init];
+    submitBut.backgroundColor = [UIColor grassColor];
     submitBut.layer.cornerRadius = 2.0f;
     submitBut.layer.masksToBounds = YES;
     [submitBut setTitle:@"提交" forState:UIControlStateNormal];
@@ -93,6 +96,33 @@
     submitBut.titleLabel.textColor = [UIColor whiteColor];
     submitBut.titleLabel.textAlignment = NSTextAlignmentCenter;
     [footView addSubview:submitBut];
+    
+    UIButton *but = [[UIButton alloc] init];
+    but.hidden = YES;
+    but.backgroundColor = [UIColor purpleColor];
+    [footView addSubview:but];
+    
+    [calculateBut mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(footView).offset(80);
+        //中心 Y
+        make.centerY.equalTo(footView);
+        make.height.equalTo(calculateBut.mas_width);
+        make.height.equalTo(self.view.mas_height).multipliedBy(10/20.0f);
+    }];
+    [but mas_makeConstraints:^(MASConstraintMaker *make) {
+        //中心 Y
+        make.centerX.equalTo(footView);
+        make.centerY.equalTo(footView);
+        make.height.equalTo(but.mas_width);
+        make.height.equalTo(self.view.mas_height).multipliedBy(10/20.0f);
+    }];
+    [submitBut mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(footView).offset(-80);
+        make.centerY.equalTo(footView);
+        make.height.equalTo(submitBut.mas_width);
+        make.height.equalTo(self.view.mas_height).multipliedBy(10/20.0f);
+    }];
+    
     //清空
 //    UIButton *emptyBut  = [[UIButton alloc]initWithFrame:CGRectMake(butX+butW+butW+80, butY, butW, butH)];
 //    emptyBut.backgroundColor = [UIColor lightGrayColor];
@@ -134,7 +164,7 @@
 #pragma mark - 提交
 - (void)submitClick:(id)sender {
     if (self.model.dailybuwei || self.model.dailyxzcl || self.model.dailymd || self.model.dailycd || self.model.dailykd || self.model.dailysjhd || self.model.dailyxh || self.model.dailybeizhu) {
-        NSString *urlString = FormatString(baseUrlStr, @"lqclDailyController.do?dayproducecountadd");
+        NSString *urlString = FormatString(baseUrl, @"lqclDailyController.do?dayproducecountadd");
         NSDictionary * dic = @{@"dailybeizhu":self.model.dailybeizhu,
                                @"dailybuwei":self.model.dailybuwei,
                                @"dailycd":self.model.dailycd,

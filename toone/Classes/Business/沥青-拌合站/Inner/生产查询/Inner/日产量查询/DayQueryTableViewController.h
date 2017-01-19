@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyTableViewController.h"
 
-@interface DayQueryTableViewController : UITableViewController
+@interface DayQueryTableViewController : MyTableViewController
 
 @end

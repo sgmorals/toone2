@@ -57,7 +57,7 @@
                 break;
             }
             case 2:{
-                //数据统计
+                //总产量统计
                 if (weakSelf.index != 2){
                     [self.indexVc removeFromParentViewController];
                     [self.indexVc.view removeFromSuperview];

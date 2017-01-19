@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyTableViewController.h"
 
-@interface NQ_BHZ_SCCX_Inner_Controller : UITableViewController
+@interface NQ_BHZ_SCCX_Inner_Controller : MyTableViewController
 
 @end

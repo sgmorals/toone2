@@ -12,11 +12,15 @@
 #import "MiddleExcessiveTableContller.h"
 #import "SeniorExcessiveTableConller.h"
 #import "TotalTableController.h"
+#import "LQ_BHZ_SB_Controller.h"
+#import "MyTableViewController.h"
 
 @interface ExcessiveViewController ()<TouchLabelDelegate>
 
 @property (nonatomic, strong) XFSegementView *segementView;
-@property (nonatomic, strong) UITableViewController *tableCont;
+@property (nonatomic, strong) MyTableViewController *tableCont;
+@property (nonatomic, copy) NSString *shebStr;
+@property (nonatomic, copy) NSString *urlString;
 
 @end
 @implementation ExcessiveViewController
@@ -68,11 +72,10 @@
     [self.view addSubview:backView];
     
     //2.
-    Exp6View * e = [[Exp6View alloc] init];
-    e.frame = CGRectMake(0, 64+36, Screen_w, 294);
+    Exp8View * e = [[Exp8View alloc] init];
+    e.frame = CGRectMake(0, 64+36, Screen_w, 254);
     __weak __typeof(self)  weakSelf = self;
     e.expBlock = ^(ExpButtonType type,id obj1,id obj2, int buttonTag){
-//        NSLog(@"ExpButtonType~~~ %d buttonTag~~~~%d",type,buttonTag);
         if (type == ExpButtonTypeCancel) {
             sender.enabled = YES;
             [backView removeFromSuperview];
@@ -88,24 +91,24 @@
 //            weakSelf.chuzhileixing = @"";
             switch (buttonTag) {
                 case 10:
-//                    weakSelf.chuzhileixing = @"";
+                    weakSelf.urlString = [self loadUI:@""];
                     break;
-                case 20:
-//                    weakSelf.chuzhileixing = @"0";
-                    break;
+                case 20://未处置
+                    weakSelf.urlString = [self loadUI:@"0"];
+                        break;
                 case 30:
-                case 40:
-//                    weakSelf.chuzhileixing = @"1";
+                case 40://已处置
+                    weakSelf.urlString = [self loadUI:@"1"];
                     break;
                 case 50:
-//                    weakSelf.chuzhileixing = @"3";
                     break;
                 case 60:
-//                    weakSelf.chuzhileixing = @"2";
+                    break;
+                default:
+                    weakSelf.urlString = [self loadUI:@""];
                     break;
             }
-//            [weakSelf loadData];
-            FuncLog;
+            [weakSelf.tableCont reloadData:weakSelf.urlString];
         }
         if (type == ExpButtonTypeStartTimeButton || type == ExpButtonTypeEndTimeButton) {
             UIButton * btn = (UIButton*)obj1;
@@ -113,13 +116,18 @@
         }
         
         if (type == ExpButtonTypeChoiceSBButton) {//选择设备
-//            UIButton * btn = (UIButton*)obj1;
-//            [weakSelf performSegueWithIdentifier:@"HNT_CBCZ_Controller" sender:btn];
+            UIButton * btn = (UIButton*)obj1;
+            LQ_BHZ_SB_Controller *sbVc = [[LQ_BHZ_SB_Controller alloc] init];
+            [self.navigationController pushViewController:sbVc animated:YES];
+            
+            sbVc.callBlock = ^(NSString *banhezhanminchen,NSString *gprsbianhao){
+                [btn setTitle:banhezhanminchen forState:UIControlStateNormal];
+                weakSelf.shebStr = gprsbianhao;
+            };
+
         }
     };
     [self.view addSubview:e];
-
-    
 }
 
 
@@ -178,5 +186,29 @@
     
 }
 
+-(NSString *)loadUI:(NSString *)leix {
+    __weak __typeof(self)  weakSelf = self;
+    NSString * userGroupId = [UserDefaultsSetting shareSetting].departId;
+    //判断等级
+    if ([weakSelf.tableCont isKindOfClass:[PrimaryExcessiveTableConller class]]) {
+        [UserDefaultsSetting shareSetting].dengji = [NSNumber numberWithInt:1];
+    }else if ([weakSelf.tableCont isKindOfClass:[MiddleExcessiveTableContller class]]) {
+        [UserDefaultsSetting shareSetting].dengji = [NSNumber numberWithInt:2];
+    }else if ([weakSelf.tableCont isKindOfClass:[SeniorExcessiveTableConller class]]) {
+        [UserDefaultsSetting shareSetting].dengji = [NSNumber numberWithInt:3];
+    }else if ([weakSelf.tableCont isKindOfClass:[TotalTableController class]]) {
+        [UserDefaultsSetting shareSetting].dengji = [NSNumber numberWithInt:0];
+    }
+    NSString *shebStr = @"";
+    if (weakSelf.shebStr) {
+        shebStr = weakSelf.shebStr;
+    }
+    NSString *pageNo = @"1";
+    NSString *startTime = [TimeTools timeStampWithTimeString:weakSelf.startTime];
+    NSString *endTime = [TimeTools timeStampWithTimeString:weakSelf.endTime];
+    NSString *urlString = [NSString stringWithFormat:LQExcessive,[UserDefaultsSetting shareSetting].dengji,leix,pageNo,shebStr,userGroupId,startTime,endTime];
+    
+    return urlString;
+}
 
 @end

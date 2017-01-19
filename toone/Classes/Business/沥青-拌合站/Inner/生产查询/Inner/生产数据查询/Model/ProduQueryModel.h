@@ -7,19 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-typedef void(^ProduQueryBlock)(NSArray *result);
+#import "MyModel.h"
 
-@interface ProduQueryModel : NSObject
+@interface ProduQueryModel : MyModel
 @property (nonatomic, strong) NSNumber *bianhao;//编号
-@property (nonatomic, strong) NSString *deptId; //组织机构id
-@property (nonatomic, strong) NSString *shebeibianhao;//设备编号
+@property (nonatomic, copy) NSString *deptId; //组织机构id
+@property (nonatomic, copy) NSString *shebeibianhao;//设备编号
 
-@property (nonatomic, strong) NSString *clwd;//出料温度
-@property (nonatomic, strong) NSString *shijian;//时间
-@property (nonatomic, strong) NSString *sjlq;//沥青量
-@property (nonatomic, strong) NSString *sjysb; //油石比
+@property (nonatomic, copy) NSString *clwd;//出料温度
+@property (nonatomic, copy) NSString *shijian;//时间
+@property (nonatomic, copy) NSString *sjlq;//沥青量
+@property (nonatomic, copy) NSString *sjysb; //油石比
 
 @property (nonatomic, strong) NSArray *arr;
 
--(void)produQueryBlock:(ProduQueryBlock)produQueryBlock;
 @end

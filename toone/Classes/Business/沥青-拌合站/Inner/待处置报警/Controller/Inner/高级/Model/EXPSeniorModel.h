@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-typedef void(^ExSeniorBlock_t)(NSMutableArray *result);
 
 @interface EXPSeniorModel : NSObject
 //字段名
@@ -44,7 +43,4 @@ typedef void(^ExSeniorBlock_t)(NSMutableArray *result);
 @property (nonatomic, copy) NSString *chuli;//是否处理（1，0）
 
 
-@property (nonatomic, strong) NSMutableArray *arry;
-
--(void)exSeniorBlock:(ExSeniorBlock_t)exSeniorBlock;
 @end

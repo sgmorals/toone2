@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef void(^SB_Data_t)(NSString *str);
 
 @interface LQ_BHZ_SB_Controller : UITableViewController
-@property (copy, nonatomic) SB_Data_t SB_Data;
+@property (nonatomic,copy) void (^callBlock)(NSString*,NSString*);
 
 @end

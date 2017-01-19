@@ -26,7 +26,7 @@
 #pragma mark - 监听文本框
 -(void)addTextF {
     UITextField *textFile = [[UITextField alloc] init];
-    textFile.frame = CGRectMake(0, 70, Screen_w+10, 30);
+    textFile.frame = CGRectMake(10, 70, Screen_w-20, 30);
     textFile.borderStyle = UITextBorderStyleNone;
     textFile.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:textFile];

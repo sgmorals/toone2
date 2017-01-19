@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-typedef void(^ExTotalBlock_t)(NSMutableArray *result);
 
 @interface EXPTotalModel : NSObject
 //字段名
@@ -43,7 +42,4 @@ typedef void(^ExTotalBlock_t)(NSMutableArray *result);
 @property (nonatomic, copy) NSString *wsjysb;//油石比
 @property (nonatomic, copy) NSString *chuli;//是否处理（1，0）
 
-@property (nonatomic, strong) NSMutableArray *arry;
-
--(void)exTotalBlock:(ExTotalBlock_t)exTotalBlock;
 @end

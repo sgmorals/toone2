@@ -93,6 +93,12 @@
     
     self.shijianLabel.text = EXPModel.shijian;
     self.bianhaoLabel.text = [NSString stringWithFormat:@"%@", EXPModel.bianhao];
+    //存储设备编号
+    if ([EXPModel.shebeibianhao boolValue]) {
+        [UserDefaultsSetting shareSetting].CBshebeibianhao  = EXPModel.shebeibianhao;
+    }else {
+        [UserDefaultsSetting shareSetting].CBshebeibianhao = @"G345lq0101";
+    }
     
     self.chuzView.hidden = NO;
     self.chuzLabel.textColor = [UIColor whiteColor];
@@ -103,6 +109,8 @@
         self.chuzLabel.backgroundColor = [UIColor grassColor];
         self.chuzLabel.text = @"已处置";
     }else {
+        self.chuzLabel.backgroundColor = [UIColor grassColor];
+        self.chuzLabel.text = @"已处置";
         self.chuzView.hidden = YES;
     }
 }

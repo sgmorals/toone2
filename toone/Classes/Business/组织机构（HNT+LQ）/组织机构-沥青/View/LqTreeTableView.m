@@ -92,8 +92,8 @@
     }
     
     self.nodeNada = node;
-    [UserDefaultsSetting shareSetting].LqDepartName  = node.name;
-    [UserDefaultsSetting shareSetting].LqDepartld = node.nodeId;
+    [UserDefaultsSetting shareSetting].departName  = node.name;
+    [UserDefaultsSetting shareSetting].departId = node.nodeId;
     
 }
 

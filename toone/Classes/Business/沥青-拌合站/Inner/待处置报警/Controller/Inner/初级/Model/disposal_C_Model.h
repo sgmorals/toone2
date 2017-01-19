@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "MyModel.h"
-typedef void(^DisposalBlock_t)(id result);
 
 @interface disposal_C_Model : MyModel
+//字段名
 @property (nonatomic, copy) NSString *shijian;//出料时间
 @property (nonatomic, copy) NSString *sjf1;     //粉料1
 @property (nonatomic, copy) NSString *sjf2;
@@ -26,7 +26,4 @@ typedef void(^DisposalBlock_t)(id result);
 @property (nonatomic, copy) NSString *sjysb;//油石比
 @property (nonatomic, copy) NSString *bh;//编号
 
-@property (nonatomic, strong) disposal_C_Model *disModel;
-
--(void)disposalBlock:(DisposalBlock_t)disposalBlock;
 @end

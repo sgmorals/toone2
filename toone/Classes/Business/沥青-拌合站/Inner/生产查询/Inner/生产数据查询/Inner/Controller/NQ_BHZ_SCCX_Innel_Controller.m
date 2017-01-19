@@ -43,16 +43,6 @@
 }
 
 -(void)looadData {
-//    NQ_BHZ_SCCX_InneModel *model = [[NQ_BHZ_SCCX_InneModel alloc] init];
-//    
-//    __weak typeof(self)  weakSelf = self;
-//    [model productionDetailsBlock:^(NSMutableArray *result) {
-//        weakSelf.dataArr = result;
-//
-//        [weakSelf.tableView reloadData];
-//
-//    }];
-    
     NSString *shebeiStr = [UserDefaultsSetting shareSetting].shebeibianhao;
     NSNumber *bianhaoBer = [UserDefaultsSetting shareSetting].bianhao;
     NSString *urlString = [NSString stringWithFormat:ProductionDetails,shebeiStr,bianhaoBer];
@@ -81,7 +71,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
 }
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
         static NSString *CellIdentifier = @"NQ_BHZ_SCCX_Inne_Cell";
@@ -98,14 +87,6 @@
 
         cell.selectionStyle =UITableViewCellSelectionStyleNone;
         return cell;
-}
-
-
--(NSArray *)dataArr {
-    if (_dataArr == nil) {
-        _dataArr = [NSArray array];
-    }
-    return _dataArr;
 }
 
 @end

@@ -15,8 +15,9 @@
 
 @interface NQ_BHZ_SCCX_Controller ()<TouchLabelDelegate>
 @property (nonatomic, strong) XFSegementView *segementView;
-@property (nonatomic, strong) UITableViewController *tableCont;
-
+@property (nonatomic, strong) MyTableViewController *tableCont;
+@property (nonatomic, copy) NSString *shebStr;
+@property (nonatomic, copy) NSString *urlString;
 
 @end
 @implementation NQ_BHZ_SCCX_Controller
@@ -24,7 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [UserDefaultsSetting shareSetting].timeName = @"star";
     self.view.backgroundColor = [UIColor whiteColor];
     //    初始化分页
     self.tableCont = [[NQ_BHZ_SCCX_Inner_Controller alloc] init];
@@ -86,33 +86,30 @@
             //
             weakSelf.startTime = (NSString*)obj1;
             weakSelf.endTime = (NSString*)obj2;
-            [UserDefaultsSetting shareSetting].timeName = @"end";
             //重新切换titleButton ， 搜索页码应该回归第一页码
             //            weakSelf.pageNo = @"1";
-            //            weakSelf.sjLabel.text = [NSString stringWithFormat:@"%@  ->  %@",weakSelf.startTime,weakSelf.endTime];
             //            [weakSelf loadData];
-            FuncLog;
+            NSString *urlString = [self loadUI];
+            [weakSelf.tableCont reloadData:urlString];
         }
         if (type == ExpButtonTypeStartTimeButton || type == ExpButtonTypeEndTimeButton) {
             UIButton * btn = (UIButton*)obj1;
             [weakSelf calendarWithTimeString:btn.currentTitle obj:btn];
         }
         
-        if (type == ExpButtonTypeChoiceSBButton) {
-//            UIButton * btn = (UIButton*)obj1;
-//            [weakSelf performSegueWithIdentifier:@"HNT_SCCX_Controller" sender:btn];
+        if (type == ExpButtonTypeChoiceSBButton) {//选择设备
+            UIButton * btn = (UIButton*)obj1;
+            LQ_BHZ_SB_Controller *sbVc = [[LQ_BHZ_SB_Controller alloc] init];
+            [self.navigationController pushViewController:sbVc animated:YES];
             
-            [self.navigationController pushViewController:[[LQ_BHZ_SB_Controller alloc] init] animated:YES];
+            sbVc.callBlock = ^(NSString * banhezhanminchen,NSString*gprsbianhao){
+                [btn setTitle:banhezhanminchen forState:UIControlStateNormal];
+                weakSelf.shebStr = gprsbianhao;
+            };
         }
     };
     [self.view addSubview:e];
 
-}
-
-#pragma mark - 查询跳转
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    
 }
 
 #pragma mark - 分页控制器跳转
@@ -154,8 +151,30 @@
         [self.view addSubview:_segementView];
         
     }
-    
 }
-
+#pragma mark - 筛选刷新
+-(NSString *)loadUI {
+    __weak __typeof(self)  weakSelf = self;
+    NSString * userGroupId = [UserDefaultsSetting shareSetting].departId;
+    NSString *shebStr = @"";
+    if (weakSelf.shebStr) {
+        shebStr = weakSelf.shebStr;
+    }
+    NSString *startTime = [TimeTools timeStampWithTimeString:weakSelf.startTime];
+    NSString *endTime = [TimeTools timeStampWithTimeString:weakSelf.endTime];
+    NSString *page = @"1";
+    //判断页面
+    if ([weakSelf.tableCont isKindOfClass:[NQ_BHZ_SCCX_Inner_Controller class]]) {//生产数据查询
+        NSString *urlString = [NSString stringWithFormat:ProduQuery,userGroupId,shebStr,startTime,endTime,page];
+        return urlString;
+    }else if ([weakSelf.tableCont isKindOfClass:[DayQueryTableViewController class]]) {//日生产量查询
+        NSString *urlString = [NSString stringWithFormat:DayQuery,userGroupId,shebStr,startTime,endTime,page];
+        return urlString;
+    }else if ([weakSelf.tableCont isKindOfClass:[MaterialTableViewController class]]) {//材料用量查询
+        NSString *urlString = [NSString stringWithFormat:LQMaterial,shebStr,startTime,endTime,userGroupId];
+        return urlString;
+    }
+    return nil;
+}
 
 @end
