@@ -9,7 +9,9 @@
 #import "SeniorExcessiveTableConller.h"
 #import "EXPrimaryCell.h"
 #import "NetworkTool.h"
-//#import "disposal_C_Model.h"
+#import "disposal_C_Model.h"
+#import "EXPrimaryModel.h"
+#import "DCZ_CJ_Ineer_Controller.h"
 
 @interface SeniorExcessiveTableConller ()
 @property(nonatomic, strong) NSMutableArray *dataAr;
@@ -77,7 +79,24 @@
         NSDictionary *dict = (NSDictionary *)result;
         NSMutableArray * datas = [NSMutableArray array];
         if ([dict[@"success"] boolValue]) {
-            //weakSelf.disModel = [disposal_C_Model modelWithDict:dict[@"Fields"]];
+            weakSelf.disModel = [disposal_C_Model modelWithDict:dict[@"Fields"]];
+            
+            for (NSDictionary * dic in dict[@"data"]) {
+                weakSelf.dataModel = [EXPrimaryModel modelWithDict:dic];
+                [datas addObject:weakSelf.dataModel];
+            }
+        }
+        weakSelf.yPage = page;
+        if ([weakSelf.yPage intValue] == 1) {
+            weakSelf.dataAr = datas;
+        }else {
+            [weakSelf.dataAr addObjectsFromArray:datas];
+        }
+        [self.tableView reloadData];
+        [weakSelf.tableView.mj_header endRefreshing];
+        [weakSelf.tableView.mj_footer endRefreshing];
+        if (weakSelf.dataAr.count < [weakSelf.yPage intValue] *10) {
+            [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
         }
     }
      ];

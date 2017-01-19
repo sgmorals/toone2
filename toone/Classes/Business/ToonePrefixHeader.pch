@@ -60,8 +60,6 @@
  */
 #define baseUrl    @"http://192.168.11.108:8082/qhttqms/"
 
-
-#define baseUrl    @"http://121.40.150.65:8083/zgjjqms/"
 //登录
 #define AppLogin_2   FormatString(baseUrl,@"app.do?AppLogin&userName=%@&userPwd=%@&OSType=3")
 //试验室列表
@@ -109,15 +107,15 @@
 #define LQHome FormatString(baseUrl,@"lqChaoBiaoController.do?lqChaoBiaoCount&userGroupId=%@&startTime=%@&endTime=%@")
 
 //沥青拌合站生产数据查询
-#define ProduQuery FormatString(baseUrl,@"lqScsjcxController.do?getScsjcxList&userGroupId=%@&shebeibianhao=%@&startTime=%@&endTime=%@&pageNo=&maxPageItems=")
+#define ProduQuery FormatString(baseUrl,@"lqScsjcxController.do?getScsjcxList&userGroupId=%@&shebeibianhao=%@&startTime=%@&endTime=%@&pageNo=%@&maxPageItems=")
 //沥青拌合站生产数据详情
 #define ProductionDetails FormatString(baseUrl,@"lqScsjcxController.do?getScsjcxDetail&shebeibianhao=%@&bianhao=%@")
 
 //沥青拌合站日生产量查询
-#define DayQuery FormatString(baseUrl,@"lqclDailyController.do?dayproducecount&userGroupId=%@&shebeibianhao=%@&startTime=%@&endTime=%@&pageNo=")
+#define DayQuery FormatString(baseUrl,@"lqclDailyController.do?dayproducecount&userGroupId=%@&shebeibianhao=%@&startTime=%@&endTime=%@&pageNo=%@")
 
 //沥青拌合站待处置报警
-#define LQExcessive FormatString(baseUrl,@"lqChaoBiaoChuZhiController.do?appLqChaobiaoList&dengji=%@&chuzhileixing=%@&pageNo=&shebeibianhao=%@&userGroupId=%@&startTime=%@&endTime=%@")
+#define LQExcessive FormatString(baseUrl,@"lqChaoBiaoChuZhiController.do?appLqChaobiaoList&dengji=%@&chuzhileixing=%@&pageNo=%@&shebeibianhao=%@&userGroupId=%@&startTime=%@&endTime=%@")
 //沥青拌合站待处置报警详情
 #define LQExInner FormatString(baseUrl,@"lqChaoBiaoChuZhiController.do?appLqChaobiaoDetail&xxid=%@&shebeibianhao=%@")
 
