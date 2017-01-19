@@ -13,12 +13,12 @@
 		18DA4FF71E1E3B3F00229C81 /* disposal_C_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DA4FF61E1E3B3F00229C81 /* disposal_C_Model.m */; };
 		18DA4FFC1E1E3BF200229C81 /* LQ_CellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DA4FF91E1E3BF200229C81 /* LQ_CellModel.m */; };
 		18DA4FFD1E1E3BF200229C81 /* LQ_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DA4FFB1E1E3BF200229C81 /* LQ_Model.m */; };
-		18DA50011E1E3C0400229C81 /* LQ_ZJM_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DA4FFF1E1E3C0400229C81 /* LQ_ZJM_Cell.m */; };
-		18DA50021E1E3C0400229C81 /* LQ_ZJM_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DA50001E1E3C0400229C81 /* LQ_ZJM_Cell.xib */; };
 		18DA50051E1E3C4E00229C81 /* DayDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DA50041E1E3C4E00229C81 /* DayDetailsController.m */; };
 		18DA50091E1E3C5C00229C81 /* DayDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DA50071E1E3C5C00229C81 /* DayDetailsCell.m */; };
 		18DA500A1E1E3C5C00229C81 /* DayDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DA50081E1E3C5C00229C81 /* DayDetailsCell.xib */; };
 		18DA500D1E1E40AC00229C81 /* Exmp2.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DA500C1E1E40AC00229C81 /* Exmp2.m */; };
+		42AC708A1E308E1E007D8F57 /* LQ_ZJM_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AC70881E308E1E007D8F57 /* LQ_ZJM_Cell.m */; };
+		42AC708B1E308E1E007D8F57 /* LQ_ZJM_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42AC70891E308E1E007D8F57 /* LQ_ZJM_Cell.xib */; };
 		77506253F19948A1D132C0AE /* Pods_toone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B53090449FE82B8AD028BA89 /* Pods_toone.framework */; };
 		8C06E0A51E0D202E00EBD526 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C06E0A41E0D202E00EBD526 /* Assets.xcassets */; };
 		8C4206D41E150CBF0075527B /* LQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4206501E150CBF0075527B /* LQViewController.m */; };
@@ -295,9 +295,6 @@
 		18DA4FF91E1E3BF200229C81 /* LQ_CellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQ_CellModel.m; sourceTree = "<group>"; };
 		18DA4FFA1E1E3BF200229C81 /* LQ_Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQ_Model.h; sourceTree = "<group>"; };
 		18DA4FFB1E1E3BF200229C81 /* LQ_Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQ_Model.m; sourceTree = "<group>"; };
-		18DA4FFE1E1E3C0400229C81 /* LQ_ZJM_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQ_ZJM_Cell.h; sourceTree = "<group>"; };
-		18DA4FFF1E1E3C0400229C81 /* LQ_ZJM_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQ_ZJM_Cell.m; sourceTree = "<group>"; };
-		18DA50001E1E3C0400229C81 /* LQ_ZJM_Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LQ_ZJM_Cell.xib; sourceTree = "<group>"; };
 		18DA50031E1E3C4E00229C81 /* DayDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayDetailsController.h; sourceTree = "<group>"; };
 		18DA50041E1E3C4E00229C81 /* DayDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayDetailsController.m; sourceTree = "<group>"; };
 		18DA50061E1E3C5C00229C81 /* DayDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayDetailsCell.h; sourceTree = "<group>"; };
@@ -305,6 +302,10 @@
 		18DA50081E1E3C5C00229C81 /* DayDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayDetailsCell.xib; sourceTree = "<group>"; };
 		18DA500B1E1E40AC00229C81 /* Exmp2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exmp2.h; sourceTree = "<group>"; };
 		18DA500C1E1E40AC00229C81 /* Exmp2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exmp2.m; sourceTree = "<group>"; };
+		42AC70871E308E1E007D8F57 /* LQ_ZJM_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQ_ZJM_Cell.h; sourceTree = "<group>"; };
+		42AC70881E308E1E007D8F57 /* LQ_ZJM_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQ_ZJM_Cell.m; sourceTree = "<group>"; };
+		42AC70891E308E1E007D8F57 /* LQ_ZJM_Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LQ_ZJM_Cell.xib; sourceTree = "<group>"; };
+		42AC708C1E308E64007D8F57 /* ToonePrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToonePrefixHeader.pch; sourceTree = "<group>"; };
 		47DC9F7E87BDC347F9BE057C /* Pods-toone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-toone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-toone/Pods-toone.debug.xcconfig"; sourceTree = "<group>"; };
 		8C06E0A41E0D202E00EBD526 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C42064F1E150CBF0075527B /* LQViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQViewController.h; sourceTree = "<group>"; };
@@ -504,7 +505,6 @@
 		D20063761DFF86800021E293 /* Exmp1Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exmp1Cell.h; sourceTree = "<group>"; };
 		D20063771DFF86800021E293 /* Exmp1Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exmp1Cell.m; sourceTree = "<group>"; };
 		D200637B1DFF86800021E293 /* Toone-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Toone-Bridging-Header.h"; sourceTree = "<group>"; };
-		D200637C1DFF86800021E293 /* ToonePrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToonePrefixHeader.pch; sourceTree = "<group>"; };
 		D200637F1DFF86800021E293 /* DrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawerController.h; sourceTree = "<group>"; };
 		D20063801DFF86800021E293 /* DrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawerController.m; sourceTree = "<group>"; };
 		D20063811DFF86800021E293 /* DrawerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrawerController.xib; sourceTree = "<group>"; };
@@ -817,6 +817,16 @@
 			path = View2;
 			sourceTree = "<group>";
 		};
+		42AC70861E308E1E007D8F57 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				42AC70871E308E1E007D8F57 /* LQ_ZJM_Cell.h */,
+				42AC70881E308E1E007D8F57 /* LQ_ZJM_Cell.m */,
+				42AC70891E308E1E007D8F57 /* LQ_ZJM_Cell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		66C512171871ECC57F6E7A5A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -840,10 +850,10 @@
 		8C42064D1E150CBF0075527B /* 沥青-拌合站 */ = {
 			isa = PBXGroup;
 			children = (
+				42AC70861E308E1E007D8F57 /* View */,
 				8C42064E1E150CBF0075527B /* Controller */,
 				8C4206511E150CBF0075527B /* Inner */,
 				8C4206CA1E150CBF0075527B /* Model */,
-				8C4206CD1E150CBF0075527B /* View */,
 			);
 			path = "沥青-拌合站";
 			sourceTree = "<group>";
@@ -1346,16 +1356,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		8C4206CD1E150CBF0075527B /* View */ = {
-			isa = PBXGroup;
-			children = (
-				18DA4FFE1E1E3C0400229C81 /* LQ_ZJM_Cell.h */,
-				18DA4FFF1E1E3C0400229C81 /* LQ_ZJM_Cell.m */,
-				18DA50001E1E3C0400229C81 /* LQ_ZJM_Cell.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		8C4206FF1E150D0A0075527B /* 组织机构（HNT+LQ） */ = {
 			isa = PBXGroup;
 			children = (
@@ -1737,8 +1737,8 @@
 				8CEB5BC61E0A6C0D00A5C4AA /* Welcome.storyboard */,
 				D20063711DFF86800021E293 /* AppDelegate.h */,
 				D20063721DFF86800021E293 /* AppDelegate.m */,
+				42AC708C1E308E64007D8F57 /* ToonePrefixHeader.pch */,
 				D200637B1DFF86800021E293 /* Toone-Bridging-Header.h */,
-				D200637C1DFF86800021E293 /* ToonePrefixHeader.pch */,
 				8C4206FF1E150D0A0075527B /* 组织机构（HNT+LQ） */,
 				8C42064D1E150CBF0075527B /* 沥青-拌合站 */,
 				D200637E1DFF86800021E293 /* 抽屉 */,
@@ -2677,6 +2677,7 @@
 				8CEB5BC81E0A6C0D00A5C4AA /* LaunchScreen.storyboard in Resources */,
 				D200653C1DFF86B30021E293 /* PieChartViewController.xib in Resources */,
 				D200653E1DFF86B30021E293 /* PiePolylineChartViewController.xib in Resources */,
+				42AC708B1E308E1E007D8F57 /* LQ_ZJM_Cell.xib in Resources */,
 				8C4206DC1E150CBF0075527B /* EXPrimaryCell.xib in Resources */,
 				D200647B1DFF86800021E293 /* HNT_WNSY_Cell.xib in Resources */,
 				D20065341DFF86B30021E293 /* LineChartTimeViewController.xib in Resources */,
@@ -2690,7 +2691,6 @@
 				D20064951DFF86800021E293 /* Exp2_Xib_View.xib in Resources */,
 				D20065481DFF86B30021E293 /* StackedBarChartViewController.xib in Resources */,
 				8CEB5BCB1E0A6C0D00A5C4AA /* Welcome.storyboard in Resources */,
-				18DA50021E1E3C0400229C81 /* LQ_ZJM_Cell.xib in Resources */,
 				D20065301DFF86B30021E293 /* LineChart2ViewController.xib in Resources */,
 				D20065321DFF86B30021E293 /* LineChartFilledViewController.xib in Resources */,
 				D246B2A91E00DEBA00E83159 /* HNT_CBCZ_Cell.xib in Resources */,
@@ -2795,7 +2795,6 @@
 				D200649C1DFF86800021E293 /* NSString+Separate.m in Sources */,
 				D20065211DFF86B30021E293 /* CandleStickChartViewController.m in Sources */,
 				8C4206EB1E150CBF0075527B /* MaterialTableViewController.m in Sources */,
-				18DA50011E1E3C0400229C81 /* LQ_ZJM_Cell.m in Sources */,
 				D200643D1DFF86800021E293 /* BBFlashCtntLabel.m in Sources */,
 				D200651A1DFF86B30021E293 /* DemoBaseViewController.m in Sources */,
 				D200647C1DFF86800021E293 /* HNT_TJFX_Controller.m in Sources */,
@@ -2936,6 +2935,7 @@
 				D20064401DFF86800021E293 /* CJYearViewController.m in Sources */,
 				8CBD733F1E091C7E00A0C991 /* HNT_CLHS_ChatCell.m in Sources */,
 				8CBD73391E091B8800A0C991 /* HNT_CLHS_Model.m in Sources */,
+				42AC708A1E308E1E007D8F57 /* LQ_ZJM_Cell.m in Sources */,
 				8C4207501E150D0A0075527B /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				D200654D1DFF86B30021E293 /* XnameAxisValueFormatter.m in Sources */,
 				D200652D1DFF86B30021E293 /* LineChart1ViewController.m in Sources */,
@@ -3108,13 +3108,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5A82W22UE3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/apple/Desktop/toone2/toone/Classes/Business/ToonePrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/shtoone/Desktop/toone21/toone/Classes/Business/ToonePrefixHeader.pch;
 				INFOPLIST_FILE = toone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.shtoone.toone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/apple/Desktop/toone2/toone/Classes/Business/Toone-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shtoone/Desktop/toone21/toone/Classes/Business/Toone-Bridging-Header.h";
 				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
@@ -3127,13 +3127,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5A82W22UE3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/apple/Desktop/toone2/toone/Classes/Business/ToonePrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/shtoone/Desktop/toone21/toone/Classes/Business/ToonePrefixHeader.pch;
 				INFOPLIST_FILE = toone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.shtoone.toone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/apple/Desktop/toone2/toone/Classes/Business/Toone-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shtoone/Desktop/toone21/toone/Classes/Business/Toone-Bridging-Header.h";
 				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;
