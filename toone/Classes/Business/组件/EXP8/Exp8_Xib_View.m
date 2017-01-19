@@ -53,8 +53,8 @@
         bt.backgroundColor = LIGHTCOLOR;
         bt.titleLabel.textColor = [UIColor blackColor];
     }
-//    self.bt10.backgroundColor = LIGHTRED;//LIGHTRED
-//    [self.bt10 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.bt10.backgroundColor = LIGHTRED;
+    [self.bt10 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
     self.buttons = arr;
     
